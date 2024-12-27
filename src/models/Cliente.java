@@ -130,11 +130,11 @@ public class Cliente {
         salida += "FERNANSHOP" + "\n";
         salida += "Bienvenido " + nombre + "\n";
         salida += "1.- Consultar el catálogo de productos" + "\n";
-        salida += "2.-" + "\n";
-        salida += "3.-" + "\n";
-        salida += "4.-" + "\n";
-        salida += "5.-" + "\n";
-        salida += "6.-" + "\n";
+        salida += "2.- Realizar un pedido" + "\n";
+        salida += "3.- Ver mis pedidos realizados" + "\n";
+        salida += "4.- Ver mis datos personales" + "\n";
+        salida += "5.- Modificar mis datos personales" + "\n";
+        salida += "6.- Cerrar sesión" + "\n";
         salida += "Introduce una opción: ";
         return salida;
     }

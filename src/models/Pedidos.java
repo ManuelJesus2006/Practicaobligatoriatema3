@@ -10,4 +10,8 @@ public class Pedidos {
     private Productos producto1;
     private Productos producto2;
     private Productos producto3;
+
+    //Constructor
+
+
 }

@@ -1,5 +1,6 @@
 package view;
 
+import models.Administrador;
 import models.Cliente;
 import models.Trabajadores;
 import utils.Utils;
@@ -14,6 +15,7 @@ public class mainPRACTICA {
         Trabajadores t1 = new Trabajadores("Jose Luís", "1234");
         Trabajadores t2 = null;
         Trabajadores t3 = null;
+        Administrador admin = new Administrador("Admin", "root");
         boolean inicioCorrectoC1 = false, inicioCorrectoC2 = false, inicioCorrectoT1 = false, inicioCorrectoT2 = false,
                 inicioCorrectoT3 = false, inicioCorrectoAdmin = false, inicioCorrectoCliente = false, inicioCorrectoTrabajador = false;
         String op, correoTeclado, contraTeclado, direccionTeclado, localidadTeclado, provinciaTeclado, nombreTeclado;
@@ -41,6 +43,7 @@ public class mainPRACTICA {
                         else if (t1 != null && contraTeclado.equals(t1.getClave()) && correoTeclado.equals(t1.getNombre())) inicioCorrectoT1 = true;
                         else if (t2 != null && contraTeclado.equals(t2.getClave()) && correoTeclado.equals(t2.getNombre())) inicioCorrectoT2 = true;
                         else if (t3 != null && contraTeclado.equals(t3.getClave()) && correoTeclado.equals(t3.getNombre())) inicioCorrectoT3 = true;
+                        else if (admin != null && contraTeclado.equals(admin.getClave()) && correoTeclado.equals(admin.getNombre())) inicioCorrectoAdmin = true;
                         else {
                             System.out.println("Datos incorrectos...");
                             Utils.pulsaContinuar();
@@ -48,6 +51,8 @@ public class mainPRACTICA {
                         }
 
                     } while (!inicioCorrectoC1 && !inicioCorrectoC2 && !inicioCorrectoT1 && !inicioCorrectoT2 && !inicioCorrectoT3 && !inicioCorrectoAdmin);
+                    Utils.pulsaContinuar();
+                    Utils.limpiarpantalla();
                     break;
                 case "2"://Registrarse
                     if (c1 != null && c2 != null) System.out.println("No se pueden crear más clientes");
@@ -73,25 +78,192 @@ public class mainPRACTICA {
 
                         System.out.println("Registro guardado correctamente");
                     }
+                    Utils.pulsaContinuar();
+                    Utils.limpiarpantalla();
                     break;
                 default://Opción no existente
                     System.out.println("Valor no válido");
+                    Utils.pulsaContinuar();
+                    Utils.limpiarpantalla();
             }
 
-            if (inicioCorrectoC1){
-                c1.menuCliente();
+            if (inicioCorrectoC1){//Si el login es correcto para el cliente 1
+                do {
+                    System.out.println(c1.menuCliente());
+                    op = s.nextLine();
+                    switch (op){
+                        case "1"://Consultar el catálogo de productos
+                            break;
+                        case "2"://Realizar un pedido en cliente 1
+                            break;
+                        case "3"://Ver pedidos realizados de cliente 1
+                            break;
+                        case "4"://Ver datos personales cliente 1
+                            break;
+                        case "5"://Modificar datos personales cliente 1
+                            break;
+                        case "6"://Cerrar sesión cliente 1
+                            inicioCorrectoC1 = false;
+                            Utils.animacionFinSesion();
+                            Utils.pulsaContinuar();
+                            Utils.limpiarpantalla();
+                            break;
+                        default://Opción no existente
+                            System.out.println("Valor no válido");
+                            Utils.pulsaContinuar();
+                            Utils.limpiarpantalla();
+                    }
+                } while (!op.equals("6"));
             }
-            if (inicioCorrectoC2){
-                System.out.printf("""
-                        FERNANSHOP
-                        Bienvenido %s.
-                        1.- Consultar el catálogo de productos
-                        2.- Realizar un pedido
-                        3.-
-                        4.-
-                        5.-
-                        6.-
-                        """);
+            if (inicioCorrectoC2){//Si el login es correcto para el cliente 2
+                do {
+                    System.out.println(c2.menuCliente());
+                    op = s.nextLine();
+                    switch (op){
+                        case "1":
+                            break;
+                        case "2":
+                            break;
+                        case "3":
+                            break;
+                        case "4":
+                            break;
+                        case "5":
+                            break;
+                        case "6":
+                            inicioCorrectoC2 = false;
+                            Utils.animacionFinSesion();
+                            Utils.pulsaContinuar();
+                            Utils.limpiarpantalla();
+                            break;
+                        default://Opción no existente
+                            System.out.println("Valor no válido");
+                            Utils.pulsaContinuar();
+                            Utils.limpiarpantalla();
+                    }
+                } while (!op.equals("6"));
+            }
+
+            if (inicioCorrectoT1){
+                do {
+                    System.out.println(t1.menuTrabajador());
+                    op = s.nextLine();
+                    switch (op){
+                        case "1":
+                            break;
+                        case "2":
+                            break;
+                        case "3":
+                            break;
+                        case "4":
+                            break;
+                        case "5":
+                            break;
+                        case "6":
+                            break;
+                        case "7":
+                            inicioCorrectoT1 = false;
+                            Utils.animacionFinSesion();
+                            Utils.pulsaContinuar();
+                            Utils.limpiarpantalla();
+                            break;
+                        default://Opción no existente
+                            System.out.println("Valor no válido");
+                            Utils.pulsaContinuar();
+                            Utils.limpiarpantalla();
+                    }
+                } while (!op.equals("6"));
+            }
+
+            if (inicioCorrectoT2){
+                do {
+                    System.out.println(t2.menuTrabajador());
+                    op = s.nextLine();
+                    switch (op){
+                        case "1":
+                            break;
+                        case "2":
+                            break;
+                        case "3":
+                            break;
+                        case "4":
+                            break;
+                        case "5":
+                            break;
+                        case "6":
+                            break;
+                        case "7":
+                            inicioCorrectoT2 = false;
+                            Utils.animacionFinSesion();
+                            Utils.pulsaContinuar();
+                            Utils.limpiarpantalla();
+                            break;
+                        default://Opción no existente
+                            System.out.println("Valor no válido");
+                            Utils.pulsaContinuar();
+                            Utils.limpiarpantalla();
+                    }
+                } while (!op.equals("6"));
+            }
+
+            if (inicioCorrectoT3){
+                do {
+                    System.out.println(t3.menuTrabajador());
+                    op = s.nextLine();
+                    switch (op){
+                        case "1":
+                            break;
+                        case "2":
+                            break;
+                        case "3":
+                            break;
+                        case "4":
+                            break;
+                        case "5":
+                            break;
+                        case "6":
+                            break;
+                        case "7":
+                            inicioCorrectoT3 = false;
+                            Utils.animacionFinSesion();
+                            Utils.pulsaContinuar();
+                            Utils.limpiarpantalla();
+                            break;
+                        default://Opción no existente
+                            System.out.println("Valor no válido");
+                            Utils.pulsaContinuar();
+                            Utils.limpiarpantalla();
+                    }
+                } while (!op.equals("6"));
+            }
+
+            if (inicioCorrectoAdmin){ //Si el login es correcto de admin
+                System.out.println(admin.menuAdministrador());
+                op = s.nextLine();
+                switch (op) {
+                    case "1": //Asignar un pedido a un trabajador
+                        break;
+                    case "2": //Modificar el estado de un pedido
+                        break;
+                    case "3": //Dar de alta un trabajador
+                        break;
+                    case "4": //Ver todos los pedidos
+                        break;
+                    case "5": //Ver todos los clientes
+                        break;
+                    case "6": //Ver todos los trabajadores
+                        break;
+                    case "7": //Cerrar sesión
+                        inicioCorrectoAdmin = false;
+                        Utils.animacionFinSesion();
+                        Utils.pulsaContinuar();
+                        Utils.limpiarpantalla();
+                        break;
+                    default://Opción no existente
+                        System.out.println("Valor no válido");
+                        Utils.pulsaContinuar();
+                        Utils.limpiarpantalla();
+                }
             }
         } while (true);
 

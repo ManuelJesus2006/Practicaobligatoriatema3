@@ -50,4 +50,25 @@ public class Trabajadores {
     }
 
     //Métodos
+
+    public int cuentaPedidos(){
+        int contador = 0;
+        if (pedido1 != null) contador++;
+        if (pedido2 != null) contador++;
+        return contador;
+    }
+    public String menuTrabajador(){
+        String salida = "";
+        salida += "FERNANSHOP" + "\n";
+        salida += "Bienvenido " + nombre + ". Tienes " + (cuentaPedidos() > 1 ? cuentaPedidos() + " pedidos" : "un pedido") + " que gestionar";
+        salida += "1.- Consultar los pedidos que tengo asignados" + "\n";
+        salida += "2.- Modificar el estado de un pedido" + "\n";
+        salida += "3.- Consultar el catálogo de productos" + "\n";
+        salida += "4.- Modificar un producto del catálogo" + "\n";
+        salida += "5.- Ver mi perfil" + "\n";
+        salida += "6.- Modificar mis datos personales" + "\n";
+        salida += "7.- Cerrar sesión" + "\n";
+        salida += "Introduce una opción:";
+        return salida;
+    }
 }
