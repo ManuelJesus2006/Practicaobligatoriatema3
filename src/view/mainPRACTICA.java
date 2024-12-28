@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class mainPRACTICA {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        Cliente c1 = null;
+        Cliente c1 = new Cliente("hola@hola", "1234", "avda gran via", "Martos", "Jaén", 642353455, "hola");
         Cliente c2 = null;
         Trabajadores t1 = new Trabajadores("Jose Luis", "1234");
         Trabajadores t2 = null;
@@ -104,6 +104,17 @@ public class mainPRACTICA {
                     op = s.nextLine();
                     switch (op) {
                         case "1"://Consultar el catálogo de productos
+                            System.out.println("=== CATÁLOGO DE PRODUCTOS ===");
+                            System.out.println(prod1.pintaCatalogo());
+                            System.out.println(prod2.pintaCatalogo());
+                            System.out.println(prod3.pintaCatalogo());
+                            System.out.println(prod4.pintaCatalogo());
+                            System.out.println(prod5.pintaCatalogo());
+                            System.out.println(prod6.pintaCatalogo());
+                            System.out.println(prod7.pintaCatalogo());
+                            System.out.println(prod8.pintaCatalogo());
+                            Utils.pulsaContinuar();
+                            Utils.limpiarpantalla();
                             break;
                         case "2"://Realizar un pedido en cliente 1
                             break;

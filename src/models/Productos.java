@@ -3,13 +3,12 @@ package models;
 public class Productos {
     private String nombre;
     private double precio;
-    private static int cantProductos = 0;
+    private static int cantProductos = 1;
 
     //Constructor
     public Productos(String nombre, double precio) {
         this.nombre = nombre;
         this.precio = precio;
-        cantProductos++;
     }
 
     //Getters y Setters
@@ -41,8 +40,7 @@ public class Productos {
     //Métodos
     public String pintaCatalogo(){
         String salida = "";
-        salida += "=== CATÁLOGO DE PRODUCTOS ===\n";
-        salida += "PRODUCTO " + cantProductos + "\n";
+        salida += "= PRODUCTO " + cantProductos++ + " =\n";
         salida += nombre + " - " + precio + "\n";
         salida += "=============================\n";
         return salida;
