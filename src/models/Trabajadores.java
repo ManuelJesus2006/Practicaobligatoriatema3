@@ -50,17 +50,27 @@ public class Trabajadores {
     }
 
     //Métodos
+    public String pintaTrabajadores() {
+        return  "================================\n" +
+                "Trabajador: " + nombre + "\n" +
+                "Clave: " + clave + "\n" +
+                "================================";
+    }
 
-    public int cuentaPedidos(){
+    public String cuentaPedidos(){
         int contador = 0;
         if (pedido1 != null) contador++;
         if (pedido2 != null) contador++;
-        return contador;
+
+        if (contador == 1) return "un pedido";
+        if (contador == 2) return "2 pedido";
+        return "0 pedidos";
     }
+
     public String menuTrabajador(){
         String salida = "";
         salida += "FERNANSHOP" + "\n";
-        salida += "Bienvenido " + nombre + ". Tienes " + (cuentaPedidos() > 1 ? cuentaPedidos() + " pedidos" : "un pedido") + " que gestionar";
+        salida += "Bienvenido " + nombre + ". Tienes " + cuentaPedidos() + " que gestionar\n";
         salida += "1.- Consultar los pedidos que tengo asignados" + "\n";
         salida += "2.- Modificar el estado de un pedido" + "\n";
         salida += "3.- Consultar el catálogo de productos" + "\n";

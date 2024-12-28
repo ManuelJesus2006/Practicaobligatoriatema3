@@ -110,19 +110,16 @@ public class Cliente {
     }
 
     //Métodos
-
-
-
-    @Override
-    public String toString() {
-        return "Cliente{" +
-                "correo='" + correo + '\'' +
-                ", clave='" + clave + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", localidad='" + localidad + '\'' +
-                ", provincia='" + provincia + '\'' +
-                ", telefono=" + telefono +
-                '}';
+    public String pintaCliente() {
+        return "================================\n" +
+                "Cliente: " + nombre + "\n" +
+                "Correo: " + correo + "\n" +
+                "Clave: " + clave + "\n" +
+                "Direccion: " + direccion + "\n" +
+                "Localidad: " + localidad + "\n" +
+                "Provincia: " + provincia + "\n" +
+                "Telefono: " + telefono + "\n" +
+                "================================";
     }
 
     public String menuCliente(){

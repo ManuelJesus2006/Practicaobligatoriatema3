@@ -11,7 +11,7 @@ public class Utils {
 
     public static void animacionFinSesion(){
         System.out.print("CERRANDO SU SESIÓN");
-        for (int i = 0; i < ; i++) {
+        for (int i = 0; i < 3; i++) {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
@@ -19,6 +19,7 @@ public class Utils {
             }
             System.out.print(".");
         }
+        System.out.println();
     }
 
     public static void pulsaContinuar(){
