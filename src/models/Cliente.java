@@ -135,6 +135,11 @@ public class Cliente {
         salida += "Introduce una opción: ";
         return salida;
     }
+
+    public boolean iniciaSesion(String contraTeclado, String correoTeclado) {
+        return (contraTeclado.equals(getClave()) && correoTeclado.equals(getCorreo()));
+    }
+
 }
 
 

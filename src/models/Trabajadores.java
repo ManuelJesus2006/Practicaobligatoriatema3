@@ -81,4 +81,8 @@ public class Trabajadores {
         salida += "Introduce una opción:";
         return salida;
     }
+
+    public boolean iniciaSesion(String contrateclado, String nombreteclado){
+        return (contrateclado.equals(getClave()) && nombreteclado.equals(getNombre()));
+    }
 }

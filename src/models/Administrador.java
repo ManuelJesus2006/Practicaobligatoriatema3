@@ -101,4 +101,8 @@ public class Administrador {
         salida += "Introduce una opción: ";
         return salida;
     }
+
+    public boolean iniciaSesion(String contraTeclado, String nombreTeclado) {
+        return (contraTeclado.equals(getClave()) && nombreTeclado.equals(getNombre()));
+    }
 }
