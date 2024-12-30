@@ -110,6 +110,40 @@ public class Cliente {
     }
 
     //Métodos
+    public boolean realizaPedido(Productos producto1){
+        if (pedido1 == null){
+            pedido1 = new Pedidos(producto1);
+            return true;
+        }
+        if (pedido2 == null){
+            pedido2 = new Pedidos(producto1);
+            return true;
+        }
+        return false;
+    }
+    public boolean realizaPedido(Productos producto1, Productos producto2){
+        if (pedido1 == null){
+            pedido1 = new Pedidos(producto1, producto2);
+            return true;
+        }
+        if (pedido2 == null){
+            pedido2 = new Pedidos(producto1, producto2);
+            return true;
+        }
+        return false;
+    }
+    public boolean realizaPedido(Productos producto1, Productos producto2, Productos producto3){
+        if (pedido1 == null){
+            pedido1 = new Pedidos(producto1, producto2, producto3);
+            return true;
+        }
+        if (pedido2 == null){
+            pedido2 = new Pedidos(producto1, producto2, producto3);
+            return true;
+        }
+        return false;
+    }
+
     public String pintaCliente() {
         return "================================\n" +
                 "Cliente: " + nombre + "\n" +
