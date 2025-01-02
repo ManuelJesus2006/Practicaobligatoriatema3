@@ -131,6 +131,8 @@ public class Pedidos {
         return precioTotal;
     }
 
+
+
     public String pintarProducto1Pedido(){
         return "- " + producto1.getNombre() + " (" + producto1.getPrecio() + "€)";
     }

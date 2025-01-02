@@ -90,7 +90,7 @@ public class Administrador {
     public String menuAdministrador() {
         String salida = "";
         salida += "FERNANSHOP\n";
-        salida += "Bienvenido " + nombre + ". Tienes " + (cuentaPedidos() > 1 ? (cuentaPedidos() + " Pedidos") : " un pedido") + " por asignar." + "\n";
+        salida += "Bienvenido " + nombre + ". Tienes " + (cuentaPedidos() > 1 ? cuentaPedidos() + " Pedidos" : "un pedido") + " por asignar." + "\n";
         salida += "1.- Asignar un pedido a un trabajador" + "\n";
         salida += "2.- Modificar el estado de un pedido" + "\n";
         salida += "3.- Dar de alta un trabajador" + "\n";

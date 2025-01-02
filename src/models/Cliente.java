@@ -113,6 +113,11 @@ public class Cliente {
     public boolean hayHueco(){
         return (pedido1 == null || pedido2 == null);
     }
+
+    public boolean nohayPedidos(){
+        if (pedido1 == null && pedido2 == null) return true;
+        return false;
+    }
     public boolean realizaPedido(Productos producto1){
         if (pedido1 == null){
             pedido1 = new Pedidos(producto1);
