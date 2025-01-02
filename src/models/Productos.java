@@ -40,9 +40,14 @@ public class Productos {
     //Métodos
     public String pintaCatalogo(){
         String salida = "";
+        if (cantProductos > 8) cantProductos = 1;
         salida += "= PRODUCTO " + cantProductos++ + " =\n";
         salida += nombre + " - " + precio + "\n";
         salida += "=============================\n";
         return salida;
+    }
+
+    public String pintarProductoPedido(){
+        return "- " + nombre + " (" + precio + "€)";
     }
 }

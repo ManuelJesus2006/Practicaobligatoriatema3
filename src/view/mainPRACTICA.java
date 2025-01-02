@@ -116,162 +116,179 @@ public class mainPRACTICA {
                             break;
                         case "2"://Realizar un pedido en clientes
                             if (inicioCorrectoC1){//Realizar el pedido en cliente 1
-                                int contadorProductos = 0;
-                                System.out.print("Introduce el número del producto mostrado en el catálogo (máximo 3 productos): ");
-                                productoTeclado = s.nextLine();
-                                switch (productoTeclado){//Switch producto 1 cliente 1
-                                    case "1":
-                                        productoSeleccionado1 = prod1;
-                                        contadorProductos++;
-                                        break;
-                                    case "2":
-                                        productoSeleccionado1 = prod2;
-                                        contadorProductos++;
-                                        break;
-                                    case "3":
-                                        productoSeleccionado1 = prod3;
-                                        contadorProductos++;
-                                        break;
-                                    case "4":
-                                        productoSeleccionado1 = prod4;
-                                        contadorProductos++;
-                                        break;
-                                    case "5":
-                                        productoSeleccionado1 = prod5;
-                                        contadorProductos++;
-                                        break;
-                                    case "6":
-                                        productoSeleccionado1 = prod6;
-                                        contadorProductos++;
-                                        break;
-                                    case "7":
-                                        productoSeleccionado1 = prod7;
-                                        contadorProductos++;
-                                        break;
-                                    case "8":
-                                        productoSeleccionado1 = prod8;
-                                        contadorProductos++;
-                                        break;
-                                    default:
-                                        System.out.println("Dicho producto no existe");
-                                        Utils.pulsaContinuar();
-                                        Utils.limpiarpantalla();
-                                }
-                                System.out.println("Producto agregado a la cesta");
-                                Utils.pulsaContinuar();
-                                Utils.limpiarpantalla();
-
-                                System.out.println("¿Desea agregar otro producto? (llevas " + ((contadorProductos == 1)
-                                        ? "un producto)" : contadorProductos + " productos)") + "(S/N)");
-                                op = s.nextLine();
-                                if (op.equalsIgnoreCase("S") && contadorProductos < 3){//Añadir producto 2
-                                    System.out.print("Introduce el número del producto mostrado en el catálogo: ");
+                                if (!c1.hayHueco()) System.out.println("No se pueden realizar más pedidos");
+                                else{
+                                    productoFinalizado = false;
+                                    int contadorProductos = 0;
+                                    System.out.print("Introduce el número del producto mostrado en el catálogo (máximo 3 productos): ");
                                     productoTeclado = s.nextLine();
-                                    switch (productoTeclado){
+                                    switch (productoTeclado){//Switch producto 1 cliente 1
                                         case "1":
-                                            productoSeleccionado2 = prod1;
+                                            productoSeleccionado1 = prod1;
                                             contadorProductos++;
                                             break;
                                         case "2":
-                                            productoSeleccionado2 = prod2;
+                                            productoSeleccionado1 = prod2;
                                             contadorProductos++;
                                             break;
                                         case "3":
-                                            productoSeleccionado2 = prod3;
+                                            productoSeleccionado1 = prod3;
                                             contadorProductos++;
                                             break;
                                         case "4":
-                                            productoSeleccionado2 = prod4;
+                                            productoSeleccionado1 = prod4;
                                             contadorProductos++;
                                             break;
                                         case "5":
-                                            productoSeleccionado2 = prod5;
+                                            productoSeleccionado1 = prod5;
                                             contadorProductos++;
                                             break;
                                         case "6":
-                                            productoSeleccionado2 = prod6;
+                                            productoSeleccionado1 = prod6;
                                             contadorProductos++;
                                             break;
                                         case "7":
-                                            productoSeleccionado2 = prod7;
+                                            productoSeleccionado1 = prod7;
                                             contadorProductos++;
                                             break;
                                         case "8":
-                                            productoSeleccionado2 = prod8;
+                                            productoSeleccionado1 = prod8;
                                             contadorProductos++;
                                             break;
                                         default:
                                             System.out.println("Dicho producto no existe");
-
+                                            Utils.pulsaContinuar();
+                                            Utils.limpiarpantalla();
                                     }
                                     System.out.println("Producto agregado a la cesta");
                                     Utils.pulsaContinuar();
-                                    Utils.limpiarpantalla();
-                                }else{
-                                    productoFinalizado = true;
-                                    c1.realizaPedido(productoSeleccionado1);//Realizar pedido solo con un producto
-                                }
-                                if (!productoFinalizado){
+
+
+
                                     System.out.println("¿Desea agregar otro producto? (llevas " + ((contadorProductos == 1)
                                             ? "un producto)" : contadorProductos + " productos)") + "(S/N)");
                                     op = s.nextLine();
-                                }
-                                if (op.equalsIgnoreCase("S") && contadorProductos < 3){//Añadir producto 3 y último
-                                    System.out.print("Introduce el número del producto mostrado en el catálogo: ");
-                                    productoTeclado = s.nextLine();
-                                    switch (productoTeclado){
-                                        case "1":
-                                            productoSeleccionado3 = prod1;
-                                            contadorProductos++;
-                                            break;
-                                        case "2":
-                                            productoSeleccionado3 = prod2;
-                                            contadorProductos++;
-                                            break;
-                                        case "3":
-                                            productoSeleccionado3 = prod3;
-                                            contadorProductos++;
-                                            break;
-                                        case "4":
-                                            productoSeleccionado3 = prod4;
-                                            contadorProductos++;
-                                            break;
-                                        case "5":
-                                            productoSeleccionado3 = prod5;
-                                            contadorProductos++;
-                                            break;
-                                        case "6":
-                                            productoSeleccionado3 = prod6;
-                                            contadorProductos++;
-                                            break;
-                                        case "7":
-                                            productoSeleccionado3 = prod7;
-                                            contadorProductos++;
-                                            break;
-                                        case "8":
-                                            productoSeleccionado3 = prod8;
-                                            contadorProductos++;
-                                            break;
-                                        default:
-                                            System.out.println("Dicho producto no existe");
+                                    if (op.equalsIgnoreCase("S")){//Añadir producto 2
+                                        System.out.print("Introduce el número del producto mostrado en el catálogo: ");
+                                        productoTeclado = s.nextLine();
+                                        switch (productoTeclado){
+                                            case "1":
+                                                productoSeleccionado2 = prod1;
+                                                contadorProductos++;
+                                                break;
+                                            case "2":
+                                                productoSeleccionado2 = prod2;
+                                                contadorProductos++;
+                                                break;
+                                            case "3":
+                                                productoSeleccionado2 = prod3;
+                                                contadorProductos++;
+                                                break;
+                                            case "4":
+                                                productoSeleccionado2 = prod4;
+                                                contadorProductos++;
+                                                break;
+                                            case "5":
+                                                productoSeleccionado2 = prod5;
+                                                contadorProductos++;
+                                                break;
+                                            case "6":
+                                                productoSeleccionado2 = prod6;
+                                                contadorProductos++;
+                                                break;
+                                            case "7":
+                                                productoSeleccionado2 = prod7;
+                                                contadorProductos++;
+                                                break;
+                                            case "8":
+                                                productoSeleccionado2 = prod8;
+                                                contadorProductos++;
+                                                break;
+                                            default:
+                                                System.out.println("Dicho producto no existe");
+
+                                        }
+                                        System.out.println("Producto agregado a la cesta");
+                                        Utils.pulsaContinuar();
+
+
+                                    }else{
+                                        productoFinalizado = true;
+                                        c1.realizaPedido(productoSeleccionado1);//Realizar pedido solo con un producto
+                                        System.out.println("Su precio a pagar en total es de " + c1.recibirPrecioTotal());
+                                        Utils.pulsaContinuar();
+
 
                                     }
-                                    System.out.println("Producto agregado a la cesta");
-                                    Utils.pulsaContinuar();
-                                    Utils.limpiarpantalla();
+                                    if (!productoFinalizado){
+                                        System.out.println("¿Desea agregar otro producto? (llevas " + ((contadorProductos == 1)
+                                                ? "un producto)" : contadorProductos + " productos)") + "(S/N)");
+                                        op = s.nextLine();
+                                    }
+                                    if (op.equalsIgnoreCase("S") && contadorProductos == 2){//Añadir producto 3 y último
+                                        System.out.print("Introduce el número del producto mostrado en el catálogo: ");
+                                        productoTeclado = s.nextLine();
+                                        switch (productoTeclado){
+                                            case "1":
+                                                productoSeleccionado3 = prod1;
+                                                contadorProductos++;
+                                                break;
+                                            case "2":
+                                                productoSeleccionado3 = prod2;
+                                                contadorProductos++;
+                                                break;
+                                            case "3":
+                                                productoSeleccionado3 = prod3;
+                                                contadorProductos++;
+                                                break;
+                                            case "4":
+                                                productoSeleccionado3 = prod4;
+                                                contadorProductos++;
+                                                break;
+                                            case "5":
+                                                productoSeleccionado3 = prod5;
+                                                contadorProductos++;
+                                                break;
+                                            case "6":
+                                                productoSeleccionado3 = prod6;
+                                                contadorProductos++;
+                                                break;
+                                            case "7":
+                                                productoSeleccionado3 = prod7;
+                                                contadorProductos++;
+                                                break;
+                                            case "8":
+                                                productoSeleccionado3 = prod8;
+                                                contadorProductos++;
+                                                break;
+                                            default:
+                                                System.out.println("Dicho producto no existe");
 
-                                    System.out.println("No se pueden añadir más productos");
-                                    System.out.println("Su precio a pagar en total es de " + c1.);
-                                    productoFinalizado = true;
-                                    c1.realizaPedido(productoSeleccionado1, productoSeleccionado2, productoSeleccionado3);//Realizar pedido solo con dos productos
+                                        }
+                                        System.out.println("Producto agregado a la cesta");
+                                        Utils.pulsaContinuar();
 
-                                }else{
-                                    productoFinalizado = true;
-                                    c1.realizaPedido(productoSeleccionado1, productoSeleccionado2);//Realizar pedido solo con dos productos
+
+
+                                        System.out.println("No se pueden añadir más productos");
+                                        productoFinalizado = true;
+                                        c1.realizaPedido(productoSeleccionado1, productoSeleccionado2, productoSeleccionado3);//Realizar pedido con los tres productos
+                                        System.out.println("Su precio a pagar en total es de " + c1.recibirPrecioTotal());
+                                        Utils.pulsaContinuar();
+
+
+                                    }if (op.equalsIgnoreCase("N") && contadorProductos == 2){
+                                        productoFinalizado = true;
+                                        c1.realizaPedido(productoSeleccionado1, productoSeleccionado2);//Realizar pedido solo con dos productos
+                                        System.out.println("Su precio a pagar en total es de " + c1.recibirPrecioTotal());
+                                        Utils.pulsaContinuar();
+                                    }
                                 }
                             }
                             break;
                         case "3"://Ver pedidos realizados de clientes
+                            if (inicioCorrectoC1) System.out.println(c1.pintaPedidoCliente());
+                            if (inicioCorrectoC2) System.out.println(c2.pintaPedidoCliente());
                             break;
                         case "4"://Ver datos personales cliente
                             if (inicioCorrectoC1) System.out.println(c1.pintaCliente());

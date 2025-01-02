@@ -110,6 +110,9 @@ public class Cliente {
     }
 
     //Métodos
+    public boolean hayHueco(){
+        return (pedido1 == null || pedido2 == null);
+    }
     public boolean realizaPedido(Productos producto1){
         if (pedido1 == null){
             pedido1 = new Pedidos(producto1);
@@ -143,6 +146,11 @@ public class Cliente {
         }
         return false;
     }
+    public double recibirPrecioTotal(){
+        if (pedido1 != null && pedido2 == null) return pedido1.sumarPrecioProductos();
+        if (pedido1 != null && pedido2 != null) return pedido2.sumarPrecioProductos();
+        return -1;
+    }
 
     public String pintaCliente() {
         return "================================\n" +
@@ -172,6 +180,12 @@ public class Cliente {
 
     public boolean iniciaSesion(String contraTeclado, String correoTeclado) {
         return (contraTeclado.equals(getClave()) && correoTeclado.equals(getCorreo()));
+    }
+
+    public String pintaPedidoCliente(){
+        if (pedido1 != null) return pedido1.pintaPedido();
+        if (pedido2 != null) return pedido2.pintaPedido();
+        return "";
     }
 
 }
