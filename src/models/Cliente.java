@@ -182,10 +182,51 @@ public class Cliente {
         return (contraTeclado.equals(getClave()) && correoTeclado.equals(getCorreo()));
     }
 
+    public String pintaPedido1(){
+        String salida = "";
+        salida += "==========\tPedido " + ""/*aquí lo del código*/ + "\t===========\n";
+        salida += "Estado: " + (pedido1.getEstado() == null ? "" : pedido1.getEstado()) + "\n";
+        salida += "Cliente: " + nombre + "\n";
+        salida += "Dirección: " + direccion + "\n";
+        salida += "Localidad: " + localidad + "\n";
+        salida += "Provincia: " + provincia + "\n";
+        salida += "Teléfono: " + telefono + "\n";
+        salida += "Correo: " + correo + "\n";
+        salida += "Fecha del pedido: " + (pedido1 == null ? "" : pedido1.getFecha()) + "\n";
+        salida += "Fecha de entrega estimada: " + (pedido1 == null ? "" : pedido1.getFechaLlegada()) + "\n";
+        salida += "Comentario del pedido: " + (pedido1.getComentario() == null ? "" : pedido1.getComentario()) + "\n";
+        salida += "Detalles del pedido:\n";
+        salida += (pedido1.getProducto1() == null ? "" : pedido1.pintarProducto1Pedido()) + "\n";
+        salida += (pedido1.getProducto2() == null ? "" : pedido1.pintarProducto2Pedido()) + "\n";
+        salida += (pedido1.getProducto3() == null ? "" : pedido1.pintarProducto3Pedido()) + "\n";
+        salida += "Total pedido: " + pedido1.sumarPrecioProductos() + "€\n";
+        return salida;
+    }
+
+    public String pintaPedido2(){
+        String salida = "";
+        salida += "==========\tPedido " + ""/*aquí lo del código*/ + "\t===========\n";
+        salida += "Estado: " + (pedido2.getEstado() == null ? "" : pedido2.getEstado()) + "\n";
+        salida += "Cliente: " + nombre + "\n";
+        salida += "Dirección: " + direccion + "\n";
+        salida += "Localidad: " + localidad + "\n";
+        salida += "Provincia: " + provincia + "\n";
+        salida += "Teléfono: " + telefono + "\n";
+        salida += "Correo: " + correo + "\n";
+        salida += "Fecha del pedido: " + (pedido2 == null ? "" : pedido2.getFecha()) + "\n";
+        salida += "Fecha de entrega estimada: " + (pedido2 == null ? "" : pedido2.getFechaLlegada()) + "\n";
+        salida += "Comentario del pedido: " + (pedido2.getComentario() == null ? "" : pedido2.getComentario()) + "\n";
+        salida += "Detalles del pedido:\n";
+        salida += (pedido2.getProducto1() == null ? "" : pedido2.pintarProducto1Pedido()) + "\n";
+        salida += (pedido2.getProducto2() == null ? "" : pedido2.pintarProducto2Pedido()) + "\n";
+        salida += (pedido2.getProducto3() == null ? "" : pedido2.pintarProducto3Pedido()) + "\n";
+        salida += "Total pedido: " + pedido2.sumarPrecioProductos() + "€\n";
+        return salida;
+    }
+
     public String pintaPedidoCliente(){
-        if (pedido1 != null) return pedido1.pintaPedido();
-        if (pedido2 != null) return pedido2.pintaPedido();
-        return "";
+        if (pedido1 != null && pedido2 == null) return pintaPedido1();
+        return pintaPedido1() + pintaPedido2();
     }
 
 }

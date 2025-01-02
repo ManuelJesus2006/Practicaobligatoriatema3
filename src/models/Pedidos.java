@@ -131,24 +131,15 @@ public class Pedidos {
         return precioTotal;
     }
 
-    public String pintaPedido(){
-        String salida = "";
-        salida += "==========\tPedido " + ""/*aquí lo del código*/ + "\t===========\n";
-        salida += "Estado: " + estado + "\n";
-        salida += "Cliente: " + cliente.getNombre() + "\n";
-        salida += "Dirección: " + cliente.getDireccion() + "\n";
-        salida += "Localidad: " + cliente.getLocalidad() + "\n";
-        salida += "Provincia: " + cliente.getProvincia() + "\n";
-        salida += "Teléfono: " + cliente.getLocalidad() + "\n";
-        salida += "Correo: " + cliente.getCorreo() + "\n";
-        salida += "Fecha del pedido: " + fecha + "\n";
-        salida += "Fecha de entrega estimada: " + fechaLlegada + "\n";
-        salida += "Comentario del pedido: " + comentario + "\n";
-        salida += "Detalles del pedido:\n";
-        salida += (producto1 == null ? "" : producto1.pintarProductoPedido()) + "\n";
-        salida += (producto2 == null ? "" : producto2.pintarProductoPedido()) + "\n";
-        salida += (producto3 == null ? "" : producto3.pintarProductoPedido()) + "\n";
-        salida += "Total pedido: " + sumarPrecioProductos() + "\n";
-        return salida;
+    public String pintarProducto1Pedido(){
+        return "- " + producto1.getNombre() + " (" + producto1.getPrecio() + "€)";
+    }
+
+    public String pintarProducto2Pedido(){
+        return "- " + producto2.getNombre() + " (" + producto2.getPrecio() + "€)";
+    }
+
+    public String pintarProducto3Pedido(){
+        return "- " + producto3.getNombre() + " (" + producto3.getPrecio() + "€)";
     }
 }

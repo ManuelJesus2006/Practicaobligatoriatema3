@@ -162,6 +162,7 @@ public class mainPRACTICA {
                                     }
                                     System.out.println("Producto agregado a la cesta");
                                     Utils.pulsaContinuar();
+                                    Utils.limpiarpantalla();
 
 
 
@@ -206,10 +207,13 @@ public class mainPRACTICA {
                                                 break;
                                             default:
                                                 System.out.println("Dicho producto no existe");
+                                                Utils.pulsaContinuar();
+                                                Utils.limpiarpantalla();
 
                                         }
                                         System.out.println("Producto agregado a la cesta");
                                         Utils.pulsaContinuar();
+                                        Utils.limpiarpantalla();
 
 
                                     }else{
@@ -217,6 +221,7 @@ public class mainPRACTICA {
                                         c1.realizaPedido(productoSeleccionado1);//Realizar pedido solo con un producto
                                         System.out.println("Su precio a pagar en total es de " + c1.recibirPrecioTotal());
                                         Utils.pulsaContinuar();
+                                        Utils.limpiarpantalla();
 
 
                                     }
@@ -267,6 +272,7 @@ public class mainPRACTICA {
                                         }
                                         System.out.println("Producto agregado a la cesta");
                                         Utils.pulsaContinuar();
+                                        Utils.limpiarpantalla();
 
 
 
@@ -275,6 +281,7 @@ public class mainPRACTICA {
                                         c1.realizaPedido(productoSeleccionado1, productoSeleccionado2, productoSeleccionado3);//Realizar pedido con los tres productos
                                         System.out.println("Su precio a pagar en total es de " + c1.recibirPrecioTotal());
                                         Utils.pulsaContinuar();
+                                        Utils.limpiarpantalla();
 
 
                                     }if (op.equalsIgnoreCase("N") && contadorProductos == 2){
@@ -282,13 +289,22 @@ public class mainPRACTICA {
                                         c1.realizaPedido(productoSeleccionado1, productoSeleccionado2);//Realizar pedido solo con dos productos
                                         System.out.println("Su precio a pagar en total es de " + c1.recibirPrecioTotal());
                                         Utils.pulsaContinuar();
+                                        Utils.limpiarpantalla();
                                     }
                                 }
                             }
                             break;
                         case "3"://Ver pedidos realizados de clientes
-                            if (inicioCorrectoC1) System.out.println(c1.pintaPedidoCliente());
-                            if (inicioCorrectoC2) System.out.println(c2.pintaPedidoCliente());
+                            if (inicioCorrectoC1){
+                                System.out.println(c1.pintaPedidoCliente());
+                                Utils.pulsaContinuar();
+                                Utils.limpiarpantalla();
+                            }
+                            if (inicioCorrectoC2){
+                                System.out.println(c2.pintaPedidoCliente());
+                                Utils.pulsaContinuar();
+                                Utils.limpiarpantalla();
+                            }
                             break;
                         case "4"://Ver datos personales cliente
                             if (inicioCorrectoC1) System.out.println(c1.pintaCliente());

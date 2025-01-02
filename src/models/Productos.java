@@ -47,7 +47,5 @@ public class Productos {
         return salida;
     }
 
-    public String pintarProductoPedido(){
-        return "- " + nombre + " (" + precio + "€)";
-    }
+
 }
