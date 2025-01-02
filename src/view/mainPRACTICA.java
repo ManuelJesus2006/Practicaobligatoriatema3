@@ -115,8 +115,8 @@ public class mainPRACTICA {
                             Utils.limpiarpantalla();
                             break;
                         case "2"://Realizar un pedido en clientes
-                            if (inicioCorrectoC1){//Realizar el pedido en cliente 1
-                                if (!c1.hayHueco()) System.out.println("No se pueden realizar más pedidos");
+                            if (inicioCorrectoC1 || inicioCorrectoC2){//Realizar el pedido en cliente 1
+                                if (!c1.hayHueco() && !c2.hayHueco()) System.out.println("No se pueden realizar más pedidos");
                                 else{
                                     productoFinalizado = false;
                                     int contadorProductos = 0;
@@ -218,8 +218,14 @@ public class mainPRACTICA {
 
                                     }else{
                                         productoFinalizado = true;
-                                        c1.realizaPedido(productoSeleccionado1);//Realizar pedido solo con un producto
-                                        System.out.println("Su precio a pagar en total es de " + c1.recibirPrecioTotal());
+                                        if (inicioCorrectoC1) {
+                                            c1.realizaPedido(productoSeleccionado1);//Realizar pedido solo con un producto
+                                            System.out.println("Su precio a pagar en total es de " + c1.recibirPrecioTotal());
+                                        }
+                                        if (inicioCorrectoC2) {
+                                            c2.realizaPedido(productoSeleccionado1);//Realizar pedido solo con un producto
+                                            System.out.println("Su precio a pagar en total es de " + c2.recibirPrecioTotal());
+                                        }//Realizar pedido solo con un producto
                                         Utils.pulsaContinuar();
                                         Utils.limpiarpantalla();
 
@@ -278,194 +284,28 @@ public class mainPRACTICA {
 
                                         System.out.println("No se pueden añadir más productos");
                                         productoFinalizado = true;
-                                        c1.realizaPedido(productoSeleccionado1, productoSeleccionado2, productoSeleccionado3);//Realizar pedido con los tres productos
-                                        System.out.println("Su precio a pagar en total es de " + c1.recibirPrecioTotal());
+                                        if (inicioCorrectoC1) {
+                                            c1.realizaPedido(productoSeleccionado1, productoSeleccionado2, productoSeleccionado3);//Realizar pedido con los tres productos
+                                            System.out.println("Su precio a pagar en total es de " + c1.recibirPrecioTotal());
+                                        }
+                                        if (inicioCorrectoC2) {
+                                            c2.realizaPedido(productoSeleccionado1, productoSeleccionado2, productoSeleccionado3);//Realizar pedido con los tres productos
+                                            System.out.println("Su precio a pagar en total es de " + c2.recibirPrecioTotal());
+                                        }
                                         Utils.pulsaContinuar();
                                         Utils.limpiarpantalla();
 
 
                                     }if (op.equalsIgnoreCase("N") && contadorProductos == 2){
                                         productoFinalizado = true;
-                                        c1.realizaPedido(productoSeleccionado1, productoSeleccionado2);//Realizar pedido solo con dos productos
-                                        System.out.println("Su precio a pagar en total es de " + c1.recibirPrecioTotal());
-                                        Utils.pulsaContinuar();
-                                        Utils.limpiarpantalla();
-                                    }
-                                }
-                            }
-                            if (inicioCorrectoC2){//Realizar el pedido en cliente 1
-                                if (!c2.hayHueco()) System.out.println("No se pueden realizar más pedidos");
-                                else{
-                                    productoFinalizado = false;
-                                    int contadorProductos = 0;
-                                    System.out.print("Introduce el número del producto mostrado en el catálogo (máximo 3 productos): ");
-                                    productoTeclado = s.nextLine();
-                                    switch (productoTeclado){//Switch producto 1 cliente 1
-                                        case "1":
-                                            productoSeleccionado1 = prod1;
-                                            contadorProductos++;
-                                            break;
-                                        case "2":
-                                            productoSeleccionado1 = prod2;
-                                            contadorProductos++;
-                                            break;
-                                        case "3":
-                                            productoSeleccionado1 = prod3;
-                                            contadorProductos++;
-                                            break;
-                                        case "4":
-                                            productoSeleccionado1 = prod4;
-                                            contadorProductos++;
-                                            break;
-                                        case "5":
-                                            productoSeleccionado1 = prod5;
-                                            contadorProductos++;
-                                            break;
-                                        case "6":
-                                            productoSeleccionado1 = prod6;
-                                            contadorProductos++;
-                                            break;
-                                        case "7":
-                                            productoSeleccionado1 = prod7;
-                                            contadorProductos++;
-                                            break;
-                                        case "8":
-                                            productoSeleccionado1 = prod8;
-                                            contadorProductos++;
-                                            break;
-                                        default:
-                                            System.out.println("Dicho producto no existe");
-                                            Utils.pulsaContinuar();
-                                            Utils.limpiarpantalla();
-                                    }
-                                    System.out.println("Producto agregado a la cesta");
-                                    Utils.pulsaContinuar();
-                                    Utils.limpiarpantalla();
-
-
-
-                                    System.out.println("¿Desea agregar otro producto? (llevas " + ((contadorProductos == 1)
-                                            ? "un producto)" : contadorProductos + " productos)") + "(S/N)");
-                                    op = s.nextLine();
-                                    if (op.equalsIgnoreCase("S")){//Añadir producto 2
-                                        System.out.print("Introduce el número del producto mostrado en el catálogo: ");
-                                        productoTeclado = s.nextLine();
-                                        switch (productoTeclado){
-                                            case "1":
-                                                productoSeleccionado2 = prod1;
-                                                contadorProductos++;
-                                                break;
-                                            case "2":
-                                                productoSeleccionado2 = prod2;
-                                                contadorProductos++;
-                                                break;
-                                            case "3":
-                                                productoSeleccionado2 = prod3;
-                                                contadorProductos++;
-                                                break;
-                                            case "4":
-                                                productoSeleccionado2 = prod4;
-                                                contadorProductos++;
-                                                break;
-                                            case "5":
-                                                productoSeleccionado2 = prod5;
-                                                contadorProductos++;
-                                                break;
-                                            case "6":
-                                                productoSeleccionado2 = prod6;
-                                                contadorProductos++;
-                                                break;
-                                            case "7":
-                                                productoSeleccionado2 = prod7;
-                                                contadorProductos++;
-                                                break;
-                                            case "8":
-                                                productoSeleccionado2 = prod8;
-                                                contadorProductos++;
-                                                break;
-                                            default:
-                                                System.out.println("Dicho producto no existe");
-                                                Utils.pulsaContinuar();
-                                                Utils.limpiarpantalla();
-
+                                        if (inicioCorrectoC1) {
+                                            c1.realizaPedido(productoSeleccionado1, productoSeleccionado2);//Realizar pedido solo con dos productos
+                                            System.out.println("Su precio a pagar en total es de " + c1.recibirPrecioTotal());
                                         }
-                                        System.out.println("Producto agregado a la cesta");
-                                        Utils.pulsaContinuar();
-                                        Utils.limpiarpantalla();
-
-
-                                    }else{
-                                        productoFinalizado = true;
-                                        c2.realizaPedido(productoSeleccionado1);//Realizar pedido solo con un producto
-                                        System.out.println("Su precio a pagar en total es de " + c2.recibirPrecioTotal());
-                                        Utils.pulsaContinuar();
-                                        Utils.limpiarpantalla();
-
-
-                                    }
-                                    if (!productoFinalizado){
-                                        System.out.println("¿Desea agregar otro producto? (llevas " + ((contadorProductos == 1)
-                                                ? "un producto)" : contadorProductos + " productos)") + "(S/N)");
-                                        op = s.nextLine();
-                                    }
-                                    if (op.equalsIgnoreCase("S") && contadorProductos == 2){//Añadir producto 3 y último
-                                        System.out.print("Introduce el número del producto mostrado en el catálogo: ");
-                                        productoTeclado = s.nextLine();
-                                        switch (productoTeclado){
-                                            case "1":
-                                                productoSeleccionado3 = prod1;
-                                                contadorProductos++;
-                                                break;
-                                            case "2":
-                                                productoSeleccionado3 = prod2;
-                                                contadorProductos++;
-                                                break;
-                                            case "3":
-                                                productoSeleccionado3 = prod3;
-                                                contadorProductos++;
-                                                break;
-                                            case "4":
-                                                productoSeleccionado3 = prod4;
-                                                contadorProductos++;
-                                                break;
-                                            case "5":
-                                                productoSeleccionado3 = prod5;
-                                                contadorProductos++;
-                                                break;
-                                            case "6":
-                                                productoSeleccionado3 = prod6;
-                                                contadorProductos++;
-                                                break;
-                                            case "7":
-                                                productoSeleccionado3 = prod7;
-                                                contadorProductos++;
-                                                break;
-                                            case "8":
-                                                productoSeleccionado3 = prod8;
-                                                contadorProductos++;
-                                                break;
-                                            default:
-                                                System.out.println("Dicho producto no existe");
-
+                                        if (inicioCorrectoC2) {
+                                            c2.realizaPedido(productoSeleccionado1, productoSeleccionado2);//Realizar pedido solo con dos productos
+                                            System.out.println("Su precio a pagar en total es de " + c2.recibirPrecioTotal());
                                         }
-                                        System.out.println("Producto agregado a la cesta");
-                                        Utils.pulsaContinuar();
-                                        Utils.limpiarpantalla();
-
-
-
-                                        System.out.println("No se pueden añadir más productos");
-                                        productoFinalizado = true;
-                                        c2.realizaPedido(productoSeleccionado1, productoSeleccionado2, productoSeleccionado3);//Realizar pedido con los tres productos
-                                        System.out.println("Su precio a pagar en total es de " + c2.recibirPrecioTotal());
-                                        Utils.pulsaContinuar();
-                                        Utils.limpiarpantalla();
-
-
-                                    }if (op.equalsIgnoreCase("N") && contadorProductos == 2){
-                                        productoFinalizado = true;
-                                        c2.realizaPedido(productoSeleccionado1, productoSeleccionado2);//Realizar pedido solo con dos productos
-                                        System.out.println("Su precio a pagar en total es de " + c2.recibirPrecioTotal());
                                         Utils.pulsaContinuar();
                                         Utils.limpiarpantalla();
                                     }
@@ -627,6 +467,8 @@ public class mainPRACTICA {
                             System.out.println("===== Cliente 2 =====");
                             System.out.println(c2.pintaPedidoCliente());
                             }
+                            Utils.pulsaContinuar();
+                            Utils.limpiarpantalla();
                             break;
                         case "5": //Ver todos los clientes
                             if (c1 != null) System.out.println(c1.pintaCliente());
