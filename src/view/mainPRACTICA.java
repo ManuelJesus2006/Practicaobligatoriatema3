@@ -33,6 +33,7 @@ public class mainPRACTICA {
         String op, correoTeclado, contraTeclado, direccionTeclado, localidadTeclado, provinciaTeclado, nombreTeclado,
                 productoTeclado;
         int telefonoTeclado;
+        double precioTeclado;
 
         do { //Bucle infinito
             System.out.print("""
@@ -116,7 +117,11 @@ public class mainPRACTICA {
                             break;
                         case "2"://Realizar un pedido en clientes
                             if (inicioCorrectoC1 || inicioCorrectoC2){//Realizar el pedido en cliente 1
-                                if (!c1.hayHueco() && !c2.hayHueco()) System.out.println("No se pueden realizar más pedidos");
+                                if ((inicioCorrectoC1 && !c1.hayHueco()) || (inicioCorrectoC2 && !c2.hayHueco())) {
+                                    System.out.println("No se pueden realizar más pedidos");
+                                    Utils.pulsaContinuar();
+                                    Utils.limpiarpantalla();
+                                }
                                 else{
                                     productoFinalizado = false;
                                     int contadorProductos = 0;
@@ -394,6 +399,96 @@ public class mainPRACTICA {
                             Utils.limpiarpantalla();
                             break;
                         case "4": //Modificar un producto del catálogo
+                            System.out.print("Introduce el número del producto a modificar: ");
+                            productoTeclado = s.nextLine();
+                            switch (productoTeclado){
+                                case "1":
+                                    System.out.println("Introduzca un nombre nuevo (introduce 'no' para dejar el anterior)");
+                                    op = s.nextLine();
+                                    if (op.equalsIgnoreCase("no")) nombreTeclado = prod1.getNombre();
+                                    else nombreTeclado = op;
+                                    System.out.println("Introduzca un precio nuevo (introduce '-1' para dejar el anterior)");
+                                    precioTeclado = Double.parseDouble(s.nextLine());
+                                    if (precioTeclado == -1) precioTeclado = prod1.getPrecio();
+                                    prod1 = new Productos(nombreTeclado, precioTeclado);
+                                    break;
+                                case "2":
+                                    System.out.println("Introduzca un nombre nuevo (introduce 'no' para dejar el anterior)");
+                                    op = s.nextLine();
+                                    if (op.equalsIgnoreCase("no")) nombreTeclado = prod2.getNombre();
+                                    else nombreTeclado = op;
+                                    System.out.println("Introduzca un precio nuevo (introduce '-1' para dejar el anterior)");
+                                    precioTeclado = Double.parseDouble(s.nextLine());
+                                    if (precioTeclado == -1) precioTeclado = prod2.getPrecio();
+                                    prod2 = new Productos(nombreTeclado, precioTeclado);
+                                    break;
+                                case "3":
+                                    System.out.println("Introduzca un nombre nuevo (introduce 'no' para dejar el anterior)");
+                                    op = s.nextLine();
+                                    if (op.equalsIgnoreCase("no")) nombreTeclado = prod3.getNombre();
+                                    else nombreTeclado = op;
+                                    System.out.println("Introduzca un precio nuevo (introduce '-1' para dejar el anterior)");
+                                    precioTeclado = Double.parseDouble(s.nextLine());
+                                    if (precioTeclado == -1) precioTeclado = prod3.getPrecio();
+                                    prod3 = new Productos(nombreTeclado, precioTeclado);
+                                    break;
+                                case "4":
+                                    System.out.println("Introduzca un nombre nuevo (introduce 'no' para dejar el anterior)");
+                                    op = s.nextLine();
+                                    if (op.equalsIgnoreCase("no")) nombreTeclado = prod4.getNombre();
+                                    else nombreTeclado = op;
+                                    System.out.println("Introduzca un precio nuevo (introduce '-1' para dejar el anterior)");
+                                    precioTeclado = Double.parseDouble(s.nextLine());
+                                    if (precioTeclado == -1) precioTeclado = prod4.getPrecio();
+                                    prod4 = new Productos(nombreTeclado, precioTeclado);
+                                    break;
+                                case "5":
+                                    System.out.println("Introduzca un nombre nuevo (introduce 'no' para dejar el anterior)");
+                                    op = s.nextLine();
+                                    if (op.equalsIgnoreCase("no")) nombreTeclado = prod5.getNombre();
+                                    else nombreTeclado = op;
+                                    System.out.println("Introduzca un precio nuevo (introduce '-1' para dejar el anterior)");
+                                    precioTeclado = Double.parseDouble(s.nextLine());
+                                    if (precioTeclado == -1) precioTeclado = prod5.getPrecio();
+                                    prod5 = new Productos(nombreTeclado, precioTeclado);
+                                    break;
+                                case "6":
+                                    System.out.println("Introduzca un nombre nuevo (introduce 'no' para dejar el anterior)");
+                                    op = s.nextLine();
+                                    if (op.equalsIgnoreCase("no")) nombreTeclado = prod6.getNombre();
+                                    else nombreTeclado = op;
+                                    System.out.println("Introduzca un precio nuevo (introduce '-1' para dejar el anterior)");
+                                    precioTeclado = Double.parseDouble(s.nextLine());
+                                    if (precioTeclado == -1) precioTeclado = prod6.getPrecio();
+                                    prod6 = new Productos(nombreTeclado, precioTeclado);
+                                    break;
+                                case "7":
+                                    System.out.println("Introduzca un nombre nuevo (introduce 'no' para dejar el anterior)");
+                                    op = s.nextLine();
+                                    if (op.equalsIgnoreCase("no")) nombreTeclado = prod7.getNombre();
+                                    else nombreTeclado = op;
+                                    System.out.println("Introduzca un precio nuevo (introduce '-1' para dejar el anterior)");
+                                    precioTeclado = Double.parseDouble(s.nextLine());
+                                    if (precioTeclado == -1) precioTeclado = prod7.getPrecio();
+                                    prod7 = new Productos(nombreTeclado, precioTeclado);
+                                    break;
+                                case "8":
+                                    System.out.println("Introduzca un nombre nuevo (introduce 'no' para dejar el anterior)");
+                                    op = s.nextLine();
+                                    if (op.equalsIgnoreCase("no")) nombreTeclado = prod8.getNombre();
+                                    else nombreTeclado = op;
+                                    System.out.println("Introduzca un precio nuevo (introduce '-1' para dejar el anterior)");
+                                    precioTeclado = Double.parseDouble(s.nextLine());
+                                    if (precioTeclado == -1) precioTeclado = prod8.getPrecio();
+                                    prod8 = new Productos(nombreTeclado, precioTeclado);
+                                    break;
+                                default:
+                                    System.out.println("Producto no existente");
+                                    Utils.pulsaContinuar();
+                                    Utils.limpiarpantalla();
+                            }
+                            Utils.pulsaContinuar();
+                            Utils.limpiarpantalla();
                             break;
                         case "5": //Ver mi perfil
                             if (inicioCorrectoT1) System.out.println(t1.pintaTrabajadores());
