@@ -11,9 +11,7 @@ public class Cliente {
     private Pedidos pedido1;
     private Pedidos pedido2;
     private static int contadorClientes = 0;
-    private static int contadorProductosClientesPedido1 = 0;
-    private static int contadorProductosClientesPedido2 = 0;
-    private static int contadorPedidos = 0;
+    private static int contadorPedidos = 1;
 
     //Constructor
     public Cliente(String correo, String clave, String direccion, String localidad, String provincia, int telefono, String nombre) {
@@ -124,14 +122,10 @@ public class Cliente {
     public boolean realizaPedido(Productos producto1){
         if (pedido1 == null){
             pedido1 = new Pedidos(producto1);
-            contadorProductosClientesPedido1++;
-            contadorPedidos++;
             return true;
         }
         if (pedido2 == null){
             pedido2 = new Pedidos(producto1);
-            contadorProductosClientesPedido2++;
-            contadorPedidos++;
             return true;
         }
         return false;
@@ -139,14 +133,10 @@ public class Cliente {
     public boolean realizaPedido(Productos producto1, Productos producto2){
         if (pedido1 == null){
             pedido1 = new Pedidos(producto1, producto2);
-            contadorProductosClientesPedido1 += 2;
-            contadorPedidos++;
             return true;
         }
         if (pedido2 == null){
             pedido2 = new Pedidos(producto1, producto2);
-            contadorProductosClientesPedido2 += 2;
-            contadorPedidos++;
             return true;
         }
         return false;
@@ -154,14 +144,10 @@ public class Cliente {
     public boolean realizaPedido(Productos producto1, Productos producto2, Productos producto3){
         if (pedido1 == null){
             pedido1 = new Pedidos(producto1, producto2, producto3);
-            contadorProductosClientesPedido1 += 3;
-            contadorPedidos++;
             return true;
         }
         if (pedido2 == null){
             pedido2 = new Pedidos(producto1, producto2, producto3);
-            contadorProductosClientesPedido2 += 3;
-            contadorPedidos++;
             return true;
         }
         return false;
@@ -249,19 +235,31 @@ public class Cliente {
         return pintaPedido1() + pintaPedido2();
     }
 
+
+
     public String menuAsignacionTrabajadorPedido1(){
         String salida = "";
+        boolean error = false;
         salida += "=== Asignación de trabajadores a pedidos ===\n";
-        salida += contadorPedidos + ". " + ""/*aquí lo del código*/ + "- " + nombre + " (" + localidad + ") - " +
-                 pedido1.sumarProductosPedido() + " productos - " + recibirPrecioTotal() + "€\n";
+        salida += contadorPedidos++ + ". " + ""/*aquí lo del código*/ + "- " + nombre + " (" + localidad + ") - " +
+                (pedido1 != null ? pedido1.sumarProductosPedido() : (error = true)) + " productos - " + (pedido1 != null ? pedido1.sumarPrecioProductos() : (error = true)) + "€\n";
+        if (error){
+            salida = "";
+            contadorPedidos--;
+        }
         return salida;
+
     }
 
     public String menuAsignacionTrabajadorPedido2(){
         String salida = "";
-        salida += "=== Asignación de trabajadores a pedidos ===\n";
-        salida += contadorPedidos + ". " + ""/*aquí lo del código*/ + "- " + nombre + " (" + localidad + ") - " +
-                pedido2.sumarProductosPedido() + " productos - " + recibirPrecioTotal() + "€\n";
+        boolean error = false;
+        salida += contadorPedidos++ + ". " + ""/*aquí lo del código*/ + "- " + nombre + " (" + localidad + ") - " +
+                (pedido2 != null ? pedido2.sumarProductosPedido() : (error = true)) + " productos - " + (pedido2 != null ? pedido2.sumarPrecioProductos() : (error = true)) + "€\n";
+        if (error){
+            salida = "";
+            contadorPedidos--;
+        }
         return salida;
     }
 }

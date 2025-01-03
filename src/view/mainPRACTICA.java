@@ -1,9 +1,6 @@
 package view;
 
-import models.Administrador;
-import models.Cliente;
-import models.Productos;
-import models.Trabajadores;
+import models.*;
 import utils.Utils;
 
 import java.util.Scanner;
@@ -34,6 +31,7 @@ public class mainPRACTICA {
                 productoTeclado;
         int telefonoTeclado;
         double precioTeclado;
+        Pedidos pedidoTeclado;
 
         do { //Bucle infinito
             System.out.print("""
@@ -532,8 +530,7 @@ public class mainPRACTICA {
                     op = s.nextLine();
                     switch (op) {
                         case "1": //Asignar un pedido a un trabajador
-                            boolean tempC1 = false;
-                            boolean error = false;
+                            boolean tempC1 = false, error = false;
                             if (c1 == null && c2 == null) error = true;
                             if (c1 != null && c1.nohayPedidos()) error = true;
                             else if (c2 != null && c2.nohayPedidos()) error = true;
@@ -546,8 +543,36 @@ public class mainPRACTICA {
                                 System.out.println(c2.menuAsignacionTrabajadorPedido1());
                                 System.out.println(c2.menuAsignacionTrabajadorPedido2());
                             }
-                            if (tempC1) System.out.print("Seleccione el pedido a asignar: ");
+                            if (tempC1){
+                                System.out.print("Seleccione el pedido a asignar: ");
+                                op = s.nextLine();
+                                switch(op){
+                                    case "1":
+                                        if (c1 == null) System.out.println("El cliente no existe");
+                                        else if (c1.nohayPedidos()) System.out.println("No hay pedidos en dicho cliente");
+                                        else pedidoTeclado = c1.getPedido1();
+                                        break;
+                                    case "2":
+                                        if (c2 == null);
+                                        else if (c2.nohayPedidos());
+                                        else pedidoTeclado = c2.getPedido1();
+                                        if (c1 == null);
+                                        else if (c1.nohayPedidos());
+                                        else pedidoTeclado = c1.getPedido2();
+                                        break;
+                                    case "3":
+                                        if (c2 == null) System.out.println("El cliente no existe");
+                                        else if (c2.nohayPedidos()) System.out.println("No hay pedidos en dicho cliente");
+                                        pedidoTeclado = c2.getPedido1();
+                                        break;
+                                    case "4":
+                                        if (c2 == null) System.out.println("El cliente no existe");
+                                        else if (c2.nohayPedidos()) System.out.println("No hay pedidos en dicho cliente");
+                                        pedidoTeclado = c2.getPedido2();
+                                }
+                            }
                             if (error) System.out.println("No hay pedidos");
+
                             break;
                         case "2": //Modificar el estado de un pedido
                             break;

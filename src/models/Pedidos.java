@@ -11,7 +11,6 @@ public class Pedidos {
     private Productos producto1;
     private Productos producto2;
     private Productos producto3;
-    private Cliente cliente;
     private static int contadorPedidos;
 
     //Constructor con 1 pedido

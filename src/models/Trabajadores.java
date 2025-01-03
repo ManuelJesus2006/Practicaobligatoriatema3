@@ -85,4 +85,9 @@ public class Trabajadores {
     public boolean iniciaSesion(String contrateclado, String nombreteclado){
         return (contrateclado.equals(getClave()) && nombreteclado.equals(getNombre()));
     }
+
+    public void asignaPedido(Pedidos pedido){
+        if (pedido1 != null && pedido2 == null) this.pedido1 = pedido;
+        if (pedido1 != null && pedido2 != null) this.pedido2 = pedido;
+    }
 }
