@@ -538,11 +538,13 @@ public class mainPRACTICA {
                             if (c1 != null && c1.nohayPedidos()) error = true;
                             else if (c2 != null && c2.nohayPedidos()) error = true;
                             if (c1 != null && !c1.nohayPedidos()){
-                                System.out.println(c1.menuAsignacionTrabajadorCliente1());
+                                System.out.println(c1.menuAsignacionTrabajadorPedido1());
+                                System.out.println(c1.menuAsignacionTrabajadorPedido2());
                                 tempC1 = true;
                             }
                             if (c2 != null && !c2.nohayPedidos()){
-                                System.out.println(c2.menuAsignacionTrabajadorCliente2());
+                                System.out.println(c2.menuAsignacionTrabajadorPedido1());
+                                System.out.println(c2.menuAsignacionTrabajadorPedido2());
                             }
                             if (tempC1) System.out.print("Seleccione el pedido a asignar: ");
                             if (error) System.out.println("No hay pedidos");

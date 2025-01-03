@@ -11,7 +11,9 @@ public class Cliente {
     private Pedidos pedido1;
     private Pedidos pedido2;
     private static int contadorClientes = 0;
-    private static int contadorProductosClientes = 0;
+    private static int contadorProductosClientesPedido1 = 0;
+    private static int contadorProductosClientesPedido2 = 0;
+    private static int contadorPedidos = 0;
 
     //Constructor
     public Cliente(String correo, String clave, String direccion, String localidad, String provincia, int telefono, String nombre) {
@@ -122,12 +124,14 @@ public class Cliente {
     public boolean realizaPedido(Productos producto1){
         if (pedido1 == null){
             pedido1 = new Pedidos(producto1);
-            contadorProductosClientes++;
+            contadorProductosClientesPedido1++;
+            contadorPedidos++;
             return true;
         }
         if (pedido2 == null){
             pedido2 = new Pedidos(producto1);
-            contadorProductosClientes++;
+            contadorProductosClientesPedido2++;
+            contadorPedidos++;
             return true;
         }
         return false;
@@ -135,12 +139,14 @@ public class Cliente {
     public boolean realizaPedido(Productos producto1, Productos producto2){
         if (pedido1 == null){
             pedido1 = new Pedidos(producto1, producto2);
-            contadorProductosClientes += 2;
+            contadorProductosClientesPedido1 += 2;
+            contadorPedidos++;
             return true;
         }
         if (pedido2 == null){
             pedido2 = new Pedidos(producto1, producto2);
-            contadorProductosClientes += 2;
+            contadorProductosClientesPedido2 += 2;
+            contadorPedidos++;
             return true;
         }
         return false;
@@ -148,12 +154,14 @@ public class Cliente {
     public boolean realizaPedido(Productos producto1, Productos producto2, Productos producto3){
         if (pedido1 == null){
             pedido1 = new Pedidos(producto1, producto2, producto3);
-            contadorProductosClientes += 3;
+            contadorProductosClientesPedido1 += 3;
+            contadorPedidos++;
             return true;
         }
         if (pedido2 == null){
             pedido2 = new Pedidos(producto1, producto2, producto3);
-            contadorProductosClientes += 3;
+            contadorProductosClientesPedido2 += 3;
+            contadorPedidos++;
             return true;
         }
         return false;
@@ -161,11 +169,6 @@ public class Cliente {
     public double recibirPrecioTotal(){
         if (pedido1 != null && pedido2 == null) return pedido1.sumarPrecioProductos();
         if (pedido1 != null && pedido2 != null) return pedido2.sumarPrecioProductos();
-        return -1;
-    }
-    public double recibirSubtotalGeneral(){
-        if (pedido1 != null && pedido2 == null) return pedido1.sumarPrecioProductos();
-        if (pedido1 != null && pedido2 != null) return pedido1.sumarPrecioProductos() + pedido2.sumarPrecioProductos();
         return -1;
     }
 
@@ -246,18 +249,19 @@ public class Cliente {
         return pintaPedido1() + pintaPedido2();
     }
 
-    public String menuAsignacionTrabajadorCliente1(){
+    public String menuAsignacionTrabajadorPedido1(){
         String salida = "";
         salida += "=== Asignación de trabajadores a pedidos ===\n";
-        salida += "1. " + ""/*aquí lo del código*/ + "- " + nombre + " (" + localidad + ") - " +
-                contadorProductosClientes + " productos - " + recibirSubtotalGeneral() + "€\n";
+        salida += contadorPedidos + ". " + ""/*aquí lo del código*/ + "- " + nombre + " (" + localidad + ") - " +
+                 pedido1.sumarProductosPedido() + " productos - " + recibirPrecioTotal() + "€\n";
         return salida;
     }
 
-    public String menuAsignacionTrabajadorCliente2(){
+    public String menuAsignacionTrabajadorPedido2(){
         String salida = "";
-        salida += "2. " + ""/*aquí lo del código*/ + "- " + nombre + " (" + localidad + ") - " +
-                contadorProductosClientes + " productos - " + recibirSubtotalGeneral() + "€\n";
+        salida += "=== Asignación de trabajadores a pedidos ===\n";
+        salida += contadorPedidos + ". " + ""/*aquí lo del código*/ + "- " + nombre + " (" + localidad + ") - " +
+                pedido2.sumarProductosPedido() + " productos - " + recibirPrecioTotal() + "€\n";
         return salida;
     }
 }

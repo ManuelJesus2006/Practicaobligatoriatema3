@@ -131,6 +131,14 @@ public class Pedidos {
         return precioTotal;
     }
 
+    public int sumarProductosPedido(){
+        int contador = 0;
+        if (producto1 != null && producto2 == null && producto3 == null) contador = 1;
+        if (producto1 != null && producto2 != null && producto3 == null) contador = 2;
+        if (producto1 != null && producto2 != null && producto3 != null) contador = 3;
+        return contador;
+    }
+
 
 
     public String pintarProducto1Pedido(){
