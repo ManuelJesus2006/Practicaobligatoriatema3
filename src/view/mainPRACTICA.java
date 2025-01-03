@@ -12,9 +12,9 @@ public class mainPRACTICA {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         Cliente c1 = new Cliente("hola@hola", "1234", "avda gran via", "Martos", "Jaén", 642353455, "hola");
-        Cliente c2 = null;
+        Cliente c2 = new Cliente("adios@adios", "4321", "avda pequeña via", "Jaén", "Jaén", 634343345, "lola");
         Trabajadores t1 = new Trabajadores("Jose Luis", "1234");
-        Trabajadores t2 = null;
+        Trabajadores t2 = new Trabajadores("Manule", "4321");
         Trabajadores t3 = null;
         Administrador admin = new Administrador("Admin", "root");
         Productos prod1 = new Productos("PlayStation 5", 469.99);
@@ -532,6 +532,20 @@ public class mainPRACTICA {
                     op = s.nextLine();
                     switch (op) {
                         case "1": //Asignar un pedido a un trabajador
+                            boolean tempC1 = false;
+                            boolean error = false;
+                            if (c1 == null && c2 == null) error = true;
+                            if (c1 != null && c1.nohayPedidos()) error = true;
+                            else if (c2 != null && c2.nohayPedidos()) error = true;
+                            if (c1 != null && !c1.nohayPedidos()){
+                                System.out.println(c1.menuAsignacionTrabajadorCliente1());
+                                tempC1 = true;
+                            }
+                            if (c2 != null && !c2.nohayPedidos()){
+                                System.out.println(c2.menuAsignacionTrabajadorCliente2());
+                            }
+                            if (tempC1) System.out.print("Seleccione el pedido a asignar: ");
+                            if (error) System.out.println("No hay pedidos");
                             break;
                         case "2": //Modificar el estado de un pedido
                             break;

@@ -105,4 +105,6 @@ public class Administrador {
     public boolean iniciaSesion(String contraTeclado, String nombreTeclado) {
         return (contraTeclado.equals(getClave()) && nombreTeclado.equals(getNombre()));
     }
+
+
 }
