@@ -240,7 +240,6 @@ public class Cliente {
     public String menuAsignacionTrabajadorPedido1(){
         String salida = "";
         boolean error = false;
-        salida += "=== Asignación de trabajadores a pedidos ===\n";
         salida += contadorPedidos++ + ". " + ""/*aquí lo del código*/ + "- " + nombre + " (" + localidad + ") - " +
                 (pedido1 != null ? pedido1.sumarProductosPedido() : (error = true)) + " productos - " + (pedido1 != null ? pedido1.sumarPrecioProductos() : (error = true)) + "€\n";
         if (error){

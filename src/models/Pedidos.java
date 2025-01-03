@@ -11,6 +11,7 @@ public class Pedidos {
     private Productos producto1;
     private Productos producto2;
     private Productos producto3;
+    private int codPedido;
     private static int contadorPedidos;
 
     //Constructor con 1 pedido
@@ -119,6 +120,14 @@ public class Pedidos {
 
     public static void setContadorPedidos(int contadorPedidos) {
         Pedidos.contadorPedidos = contadorPedidos;
+    }
+
+    public int getCodPedido() {
+        return codPedido;
+    }
+
+    public void setCodPedido(int codPedido) {
+        this.codPedido = codPedido;
     }
 
     //Métodos

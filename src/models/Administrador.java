@@ -8,6 +8,9 @@ public class Administrador {
     private Pedidos pedidos2;
     private String nombre;
     private String clave;
+    private int numTrabajador = 1;
+    private int contPedidosTrabajador = 0;
+
 
     //Constructor
     public Administrador(String nombre, String clave) {
@@ -104,6 +107,17 @@ public class Administrador {
 
     public boolean iniciaSesion(String contraTeclado, String nombreTeclado) {
         return (contraTeclado.equals(getClave()) && nombreTeclado.equals(getNombre()));
+    }
+
+    public void sumarPedidosAsignados(){
+        if (pedidos1 != null && pedidos2 == null) contPedidosTrabajador = 1;
+        if (pedidos1 != null && pedidos2 != null) contPedidosTrabajador = 2;
+    }
+
+    public String menuAsignar(){
+        String salida = "";
+        salida += numTrabajador + ". - " + contPedidosTrabajador + (contPedidosTrabajador == 1 ? " pedido" : " pedidos") + "en proceso";
+        return salida;
     }
 
 

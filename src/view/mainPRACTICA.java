@@ -31,7 +31,7 @@ public class mainPRACTICA {
                 productoTeclado;
         int telefonoTeclado;
         double precioTeclado;
-        Pedidos pedidoTeclado;
+        Pedidos pedidoTeclado = null;
 
         do { //Bucle infinito
             System.out.print("""
@@ -535,6 +535,7 @@ public class mainPRACTICA {
                             if (c1 != null && c1.nohayPedidos()) error = true;
                             else if (c2 != null && c2.nohayPedidos()) error = true;
                             if (c1 != null && !c1.nohayPedidos()){
+                                System.out.println("=== Asignación de trabajadores a pedidos ===");
                                 System.out.println(c1.menuAsignacionTrabajadorPedido1());
                                 System.out.println(c1.menuAsignacionTrabajadorPedido2());
                                 tempC1 = true;
@@ -554,21 +555,37 @@ public class mainPRACTICA {
                                         break;
                                     case "2":
                                         if (c2 == null);
-                                        else if (c2.nohayPedidos());
-                                        else pedidoTeclado = c2.getPedido1();
+                                        else if (c2.getPedido1() != null) pedidoTeclado = c2.getPedido1();
                                         if (c1 == null);
-                                        else if (c1.nohayPedidos());
-                                        else pedidoTeclado = c1.getPedido2();
+                                        else if (c1.getPedido2() != null) pedidoTeclado = c1.getPedido2();
                                         break;
                                     case "3":
-                                        if (c2 == null) System.out.println("El cliente no existe");
-                                        else if (c2.nohayPedidos()) System.out.println("No hay pedidos en dicho cliente");
-                                        pedidoTeclado = c2.getPedido1();
+                                        if (c2 == null);
+                                        else if (c2.getPedido1() != null) pedidoTeclado = c2.getPedido1();
+                                        else if (c1.getPedido2() != null) pedidoTeclado = c1.getPedido2();
                                         break;
                                     case "4":
                                         if (c2 == null) System.out.println("El cliente no existe");
                                         else if (c2.nohayPedidos()) System.out.println("No hay pedidos en dicho cliente");
                                         pedidoTeclado = c2.getPedido2();
+                                }
+                                System.out.println("==== Asignación del pedido (num pedido a realizar) ====");
+                                System.out.println(admin.menuAsignar());
+                                System.out.print("Seleccione el trabajador: ");
+                                op = s.nextLine();
+                                switch (op){
+                                    case "1":
+                                        t1.asignaPedido(pedidoTeclado);
+                                        System.out.println("Operación realizada correctamente, pedido asignado a " + t1.getNombre());
+                                        break;
+                                    case "2":
+                                        t2.asignaPedido(pedidoTeclado);
+                                        System.out.println("Operación realizada correctamente, pedido asignado a " + t2.getNombre());
+                                        break;
+                                    case "3":
+                                        t3.asignaPedido(pedidoTeclado);
+                                        System.out.println("Operación realizada correctamente, pedido asignado a " + t3.getNombre());
+                                        break;
                                 }
                             }
                             if (error) System.out.println("No hay pedidos");
