@@ -274,6 +274,18 @@ public class Cliente {
         }
         return salida;
     }
+
+    public Cliente recibirCliente(){
+        Cliente cliente = null;
+        this.correo = cliente.correo;
+        this.clave = cliente.clave;
+        this.direccion = cliente.direccion;
+        this.localidad = cliente.localidad;
+        this.provincia = cliente.provincia;
+        this.telefono = cliente.telefono;
+        this.nombre = cliente.nombre;
+        return cliente;
+    }
 }
 
 

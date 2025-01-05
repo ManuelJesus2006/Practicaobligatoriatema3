@@ -8,7 +8,7 @@ public class Administrador {
     private Pedidos pedidos2;
     private String nombre;
     private String clave;
-    private int numTrabajador = 1;
+    private static int numTrabajador = 1;
     private int contPedidosTrabajador = 0;
 
 
@@ -115,12 +115,12 @@ public class Administrador {
     }
 
     public String menuAsignar(){String salida = "";
-        if (trabajador1 != null && trabajador2 == null && trabajador3 == null) salida += numTrabajador + ". - " +
-                trabajador1.getNombre() + contPedidosTrabajador + (contPedidosTrabajador == 1 ? " pedido" : " pedidos") + " en proceso";
-        if (trabajador1 != null && trabajador2 != null && trabajador3 == null) salida += numTrabajador + ". - " +
-                trabajador2.getNombre() + contPedidosTrabajador + (contPedidosTrabajador == 1 ? " pedido" : " pedidos") + " en proceso";
-        if (trabajador1 != null && trabajador2 != null && trabajador3 != null) salida += numTrabajador + ". - " +
-                trabajador3.getNombre() + contPedidosTrabajador + (contPedidosTrabajador == 1 ? " pedido" : " pedidos") + " en proceso";
+        if (trabajador1 != null) salida += numTrabajador++ + ". - " +
+                trabajador1.getNombre() + contPedidosTrabajador + (contPedidosTrabajador == 1 ? " pedido" : " pedidos") + " en proceso\n";
+        if (trabajador1 != null && trabajador2 != null) salida += numTrabajador++ + ". - " +
+                trabajador2.getNombre() + contPedidosTrabajador + (contPedidosTrabajador == 1 ? " pedido" : " pedidos") + " en proceso\n";
+        if (trabajador1 != null && trabajador2 != null && trabajador3 != null) salida += numTrabajador++ + ". - " +
+                trabajador3.getNombre() + contPedidosTrabajador + (contPedidosTrabajador == 1 ? " pedido" : " pedidos") + " en proceso\n";
         return salida;
     }
 

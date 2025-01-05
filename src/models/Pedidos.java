@@ -13,6 +13,7 @@ public class Pedidos {
     private Productos producto3;
     private int codPedido;
     private static int contadorPedidos;
+    private Cliente cliente;
 
     //Constructor con 1 productos
     public Pedidos (Productos producto1){
@@ -41,6 +42,13 @@ public class Pedidos {
 
     //Getters y setters
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 
     public String getFecha() {
         return fecha;

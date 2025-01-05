@@ -381,7 +381,22 @@ public class mainPRACTICA {
                     switch (op) {
                         case "1": //Consultar los pedidos que tengo asignados
                             if (inicioCorrectoT1){
-                                t1.pedidosAsignados(c1)
+                                System.out.println(t1.pedidosAsignados1(t1.recibirCliente1()));
+                                System.out.println(t1.pedidosAsignados1(t1.recibirCliente2()));
+                                System.out.println(t1.pedidosAsignados2(t1.recibirCliente1()));
+                                System.out.println(t1.pedidosAsignados2(t1.recibirCliente2()));
+                            }
+                            if (inicioCorrectoT2){
+                                System.out.println(t2.pedidosAsignados1(t2.recibirCliente1()));
+                                System.out.println(t2.pedidosAsignados1(t2.recibirCliente2()));
+                                System.out.println(t2.pedidosAsignados2(t2.recibirCliente1()));
+                                System.out.println(t2.pedidosAsignados2(t2.recibirCliente2()));
+                            }
+                            if (inicioCorrectoT3){
+                                System.out.println(t1.pedidosAsignados1(t3.recibirCliente1()));
+                                System.out.println(t1.pedidosAsignados1(t3.recibirCliente2()));
+                                System.out.println(t1.pedidosAsignados2(t1.recibirCliente1()));
+                                System.out.println(t1.pedidosAsignados2(t1.recibirCliente2()));
                             }
                             break;
                         case "2": //Modificar el estado de un pedido

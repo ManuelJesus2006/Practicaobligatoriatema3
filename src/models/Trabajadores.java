@@ -16,6 +16,7 @@ public class Trabajadores {
         pedido1 = null;
         pedido2 = null;
     }
+
     //Getters y setters
 
     public String getNombre() {
@@ -92,17 +93,38 @@ public class Trabajadores {
         if (pedido1 != null && pedido2 != null) this.pedido2 = pedido;
     }
 
-    public String pedidosAsignados(Cliente cliente){
-        cliente = new Cliente(cliente);
+    public String pedidosAsignados1(Cliente cliente){
         String salida = "";
         boolean error = false;
-        salida += contadorPedidos++ + ". " + ""/*aquí lo del código*/ + "- " + cliente.getNombre() + " (" + cliente.getLocalidad() + ") - " +
+        salida += contadorPedidos++ + ". " + ""/*aquí lo del código*/ + "- " + pedido1.getCliente().getNombre() + " (" + cliente.getLocalidad() + ") - " +
                 (pedido1 != null ? pedido1.sumarProductosPedido() : (error = true)) + " productos - " + (pedido1 != null ? pedido1.sumarPrecioProductos() : (error = true)) + "€\n";
         if (error){
             salida = "";
             contadorPedidos--;
         }
         return salida;
+    }
+    public String pedidosAsignados2(Cliente cliente){
+        String salida = "";
+        boolean error = false;
+        salida += contadorPedidos++ + ". " + ""/*aquí lo del código*/ + "- " + pedido2.getCliente().getNombre() + " (" + cliente.getLocalidad() + ") - " +
+                (pedido2 != null ? pedido2.sumarProductosPedido() : (error = true)) + " productos - " + (pedido2 != null ? pedido2.sumarPrecioProductos() : (error = true)) + "€\n";
+        if (error){
+            salida = "";
+            contadorPedidos--;
+        }
+        return salida;
+    }
+
+    public Cliente recibirCliente1(){
+        Cliente cliente = null;
+        if (pedido1 != null) cliente = pedido1.getCliente().recibirCliente();
+        return cliente;
+    }
+    public Cliente recibirCliente2(){
+        Cliente cliente = null;
+        if (pedido2 != null) cliente = pedido2.getCliente().recibirCliente();
+        return cliente;
     }
 
 }
