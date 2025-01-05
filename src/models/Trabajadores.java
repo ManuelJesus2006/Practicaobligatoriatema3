@@ -8,8 +8,6 @@ public class Trabajadores {
     private static int contadorPedidos = 1;
 
     //Constructor
-
-
     public Trabajadores(String nombre, String clave) {
         this.nombre = nombre;
         this.clave = clave;
