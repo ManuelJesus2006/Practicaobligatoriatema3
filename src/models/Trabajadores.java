@@ -5,6 +5,7 @@ public class Trabajadores {
     private String clave;
     private Pedidos pedido1;
     private Pedidos pedido2;
+    private static int contadorPedidos = 1;
 
     //Constructor
 
@@ -90,4 +91,18 @@ public class Trabajadores {
         if (pedido1 != null && pedido2 == null) this.pedido1 = pedido;
         if (pedido1 != null && pedido2 != null) this.pedido2 = pedido;
     }
+
+    public String pedidosAsignados(Cliente cliente){
+        cliente = new Cliente(cliente);
+        String salida = "";
+        boolean error = false;
+        salida += contadorPedidos++ + ". " + ""/*aquí lo del código*/ + "- " + cliente.getNombre() + " (" + cliente.getLocalidad() + ") - " +
+                (pedido1 != null ? pedido1.sumarProductosPedido() : (error = true)) + " productos - " + (pedido1 != null ? pedido1.sumarPrecioProductos() : (error = true)) + "€\n";
+        if (error){
+            salida = "";
+            contadorPedidos--;
+        }
+        return salida;
+    }
+
 }

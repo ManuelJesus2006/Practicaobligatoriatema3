@@ -13,12 +13,12 @@ public class Administrador {
 
 
     //Constructor
-    public Administrador(String nombre, String clave) {
+    public Administrador(String nombre, String clave, Trabajadores trabajador1, Trabajadores trabajador2, Trabajadores trabajador3) {
         this.nombre = nombre;
         this.clave = clave;
-        trabajador1 = null;
-        trabajador2 = null;
-        trabajador3 = null;
+        this.trabajador1 = trabajador1;
+        this.trabajador2 = trabajador2;
+        this.trabajador3 = trabajador3;
         pedidos1 = null;
         pedidos2 = null;
     }
@@ -114,9 +114,13 @@ public class Administrador {
         if (pedidos1 != null && pedidos2 != null) contPedidosTrabajador = 2;
     }
 
-    public String menuAsignar(){
-        String salida = "";
-        salida += numTrabajador + ". - " + contPedidosTrabajador + (contPedidosTrabajador == 1 ? " pedido" : " pedidos") + "en proceso";
+    public String menuAsignar(){String salida = "";
+        if (trabajador1 != null && trabajador2 == null && trabajador3 == null) salida += numTrabajador + ". - " +
+                trabajador1.getNombre() + contPedidosTrabajador + (contPedidosTrabajador == 1 ? " pedido" : " pedidos") + " en proceso";
+        if (trabajador1 != null && trabajador2 != null && trabajador3 == null) salida += numTrabajador + ". - " +
+                trabajador2.getNombre() + contPedidosTrabajador + (contPedidosTrabajador == 1 ? " pedido" : " pedidos") + " en proceso";
+        if (trabajador1 != null && trabajador2 != null && trabajador3 != null) salida += numTrabajador + ". - " +
+                trabajador3.getNombre() + contPedidosTrabajador + (contPedidosTrabajador == 1 ? " pedido" : " pedidos") + " en proceso";
         return salida;
     }
 

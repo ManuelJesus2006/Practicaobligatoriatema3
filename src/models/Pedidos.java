@@ -3,8 +3,8 @@ package models;
 import java.time.LocalDate;
 
 public class Pedidos {
-    private LocalDate fecha;
-    private LocalDate fechaLlegada;
+    private String fecha;
+    private String fechaLlegada;
     private double precioTotal;
     private String comentario;
     private String estado;
@@ -14,55 +14,47 @@ public class Pedidos {
     private int codPedido;
     private static int contadorPedidos;
 
-    //Constructor con 1 pedido
+    //Constructor con 1 productos
     public Pedidos (Productos producto1){
         this.producto1 = producto1;
-        fecha = LocalDate.now();
-        fechaLlegada = fecha.plusDays(5);
+        fecha = LocalDate.now().getDayOfMonth() + "/" + LocalDate.now().getMonthValue() + "/" + LocalDate.now().getYear();
+        fechaLlegada = (LocalDate.now().getDayOfMonth() + 5) + "/" + LocalDate.now().getMonthValue() + "/" + LocalDate.now().getYear();
         contadorPedidos++;
     }
-    //Constructor con 2 pedidos
+    //Constructor con 2 productos
     public Pedidos (Productos producto1, Productos producto2){
         this.producto1 = producto1;
         this.producto2 = producto2;
-        fecha = LocalDate.now();
-        fechaLlegada = fecha.plusDays(5);
+        fecha = LocalDate.now().getDayOfMonth() + "/" + LocalDate.now().getMonthValue() + "/" + LocalDate.now().getYear();
+        fechaLlegada = (LocalDate.now().getDayOfMonth() + 5) + "/" + LocalDate.now().getMonthValue() + "/" + LocalDate.now().getYear();
         contadorPedidos++;
     }
-    //Constructor con 3 pedidos
+    //Constructor con 3 productos
     public Pedidos (Productos producto1, Productos producto2, Productos producto3){
         this.producto1 = producto1;
         this.producto2 = producto2;
         this.producto3 = producto3;
-        fecha = LocalDate.now();
-        fechaLlegada = fecha.plusDays(5);
+        fecha = LocalDate.now().getDayOfMonth() + "/" + LocalDate.now().getMonthValue() + "/" + LocalDate.now().getYear();
+        fechaLlegada = (LocalDate.now().getDayOfMonth() + 5) + "/" + LocalDate.now().getMonthValue() + "/" + LocalDate.now().getYear();
         contadorPedidos++;
     }
 
     //Getters y setters
 
 
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public LocalDate getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    public LocalDate getFechaLlegada() {
+    public String getFechaLlegada() {
         return fechaLlegada;
     }
 
-    public void setFechaLlegada(LocalDate fechaLlegada) {
+    public void setFechaLlegada(String fechaLlegada) {
         this.fechaLlegada = fechaLlegada;
     }
 

@@ -27,7 +27,20 @@ public class Cliente {
         contadorClientes++;
     }
 
+    //Constructor copia
+
+    public Cliente(Cliente cliente){
+        this.correo = cliente.correo;
+        this.clave = cliente.clave;
+        this.direccion = cliente.direccion;
+        this.localidad = cliente.localidad;
+        this.provincia = cliente.provincia;
+        this.telefono = cliente.telefono;
+        this.nombre = cliente.nombre;
+    }
+
     //Getters y setters
+
 
 
     public String getNombre() {

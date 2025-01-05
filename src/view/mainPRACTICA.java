@@ -13,7 +13,7 @@ public class mainPRACTICA {
         Trabajadores t1 = new Trabajadores("Jose Luis", "1234");
         Trabajadores t2 = new Trabajadores("Manule", "4321");
         Trabajadores t3 = null;
-        Administrador admin = new Administrador("Admin", "root");
+        Administrador admin = new Administrador("Admin", "root", t1, t2, t3);
         Productos prod1 = new Productos("PlayStation 5", 469.99);
         Productos prod2 = new Productos("El Árbol de la ciencia - Pio Baroja", 10.40);
         Productos prod3 = new Productos("IPhone 16 Pro Max", 1550);
@@ -380,8 +380,12 @@ public class mainPRACTICA {
                     op = s.nextLine();
                     switch (op) {
                         case "1": //Consultar los pedidos que tengo asignados
+                            if (inicioCorrectoT1){
+                                t1.pedidosAsignados(c1)
+                            }
                             break;
                         case "2": //Modificar el estado de un pedido
+
                             break;
                         case "3": //Consultar el catálogo de productos
                             System.out.println("=== CATÁLOGO DE PRODUCTOS ===");
@@ -530,21 +534,19 @@ public class mainPRACTICA {
                     op = s.nextLine();
                     switch (op) {
                         case "1": //Asignar un pedido a un trabajador
-                            boolean tempC1 = false, error = false;
+                            boolean tempCliente = false, error = false;
                             if (c1 == null && c2 == null) error = true;
-                            if (c1 != null && c1.nohayPedidos()) error = true;
-                            else if (c2 != null && c2.nohayPedidos()) error = true;
                             if (c1 != null && !c1.nohayPedidos()){
                                 System.out.println("=== Asignación de trabajadores a pedidos ===");
                                 System.out.println(c1.menuAsignacionTrabajadorPedido1());
                                 System.out.println(c1.menuAsignacionTrabajadorPedido2());
-                                tempC1 = true;
+                                tempCliente = true;
                             }
                             if (c2 != null && !c2.nohayPedidos()){
                                 System.out.println(c2.menuAsignacionTrabajadorPedido1());
                                 System.out.println(c2.menuAsignacionTrabajadorPedido2());
                             }
-                            if (tempC1){
+                            if (tempCliente){
                                 System.out.print("Seleccione el pedido a asignar: ");
                                 op = s.nextLine();
                                 switch(op){
@@ -588,8 +590,8 @@ public class mainPRACTICA {
                                         break;
                                 }
                             }
-                            if (error) System.out.println("No hay pedidos");
-
+                            if (c1 != null && c1.nohayPedidos() && c2 != null && c2.nohayPedidos()) System.out.println("No hay pedidos");
+                            if (error) System.out.println("No existen clientes");
                             break;
                         case "2": //Modificar el estado de un pedido
                             break;
