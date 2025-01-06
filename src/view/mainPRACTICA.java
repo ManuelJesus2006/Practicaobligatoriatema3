@@ -216,10 +216,14 @@ public class mainPRACTICA {
                                         productoFinalizado = true;
                                         if (inicioCorrectoC1) {
                                             c1.realizaPedido(productoSeleccionado1);//Realizar pedido solo con un producto
+                                            if (c1.hayPedido1()) c1.guardaClientePedido1(c1);
+                                            if (c1.hayPedido2()) c1.guardaClientePedido2(c1);
                                             System.out.println("Su precio a pagar en total es de " + c1.recibirPrecioTotal());
                                         }
                                         if (inicioCorrectoC2) {
                                             c2.realizaPedido(productoSeleccionado1);//Realizar pedido solo con un producto
+                                            if (c2.hayPedido1()) c2.guardaClientePedido1(c2);
+                                            if (c2.hayPedido2()) c2.guardaClientePedido2(c2);
                                             System.out.println("Su precio a pagar en total es de " + c2.recibirPrecioTotal());
                                         }//Realizar pedido solo con un producto
 
@@ -281,10 +285,14 @@ public class mainPRACTICA {
                                         productoFinalizado = true;
                                         if (inicioCorrectoC1) {
                                             c1.realizaPedido(productoSeleccionado1, productoSeleccionado2, productoSeleccionado3);//Realizar pedido con los tres productos
+                                            if (c1.hayPedido1()) c1.guardaClientePedido1(c1);
+                                            if (c1.hayPedido2()) c1.guardaClientePedido2(c1);
                                             System.out.println("Su precio a pagar en total es de " + c1.recibirPrecioTotal());
                                         }
                                         if (inicioCorrectoC2) {
                                             c2.realizaPedido(productoSeleccionado1, productoSeleccionado2, productoSeleccionado3);//Realizar pedido con los tres productos
+                                            if (c2.hayPedido1()) c2.guardaClientePedido1(c2);
+                                            if (c2.hayPedido2()) c2.guardaClientePedido2(c2);
                                             System.out.println("Su precio a pagar en total es de " + c2.recibirPrecioTotal());
                                         }
                                     }
@@ -292,10 +300,14 @@ public class mainPRACTICA {
                                         productoFinalizado = true;
                                         if (inicioCorrectoC1) {
                                             c1.realizaPedido(productoSeleccionado1, productoSeleccionado2);//Realizar pedido solo con dos productos
+                                            if (c1.hayPedido1()) c1.guardaClientePedido1(c1);
+                                            if (c1.hayPedido2()) c1.guardaClientePedido2(c1);
                                             System.out.println("Su precio a pagar en total es de " + c1.recibirPrecioTotal());
                                         }
                                         if (inicioCorrectoC2) {
                                             c2.realizaPedido(productoSeleccionado1, productoSeleccionado2);//Realizar pedido solo con dos productos
+                                            if (c2.hayPedido1()) c2.guardaClientePedido1(c2);
+                                            if (c2.hayPedido2()) c2.guardaClientePedido2(c2);
                                             System.out.println("Su precio a pagar en total es de " + c2.recibirPrecioTotal());
                                         }
                                     }
@@ -371,22 +383,16 @@ public class mainPRACTICA {
                     switch (op) {
                         case "1": //Consultar los pedidos que tengo asignados
                             if (inicioCorrectoT1) {
-                                System.out.println(t1.pedidosAsignados1(t1.recibirCliente1()));
-                                System.out.println(t1.pedidosAsignados1(t1.recibirCliente2()));
-                                System.out.println(t1.pedidosAsignados2(t1.recibirCliente1()));
-                                System.out.println(t1.pedidosAsignados2(t1.recibirCliente2()));
+                                System.out.println(t1.pedidosAsignados1());
+                                System.out.println(t1.pedidosAsignados2());
                             }
                             if (inicioCorrectoT2) {
-                                System.out.println(t2.pedidosAsignados1(t2.recibirCliente1()));
-                                System.out.println(t2.pedidosAsignados1(t2.recibirCliente2()));
-                                System.out.println(t2.pedidosAsignados2(t2.recibirCliente1()));
-                                System.out.println(t2.pedidosAsignados2(t2.recibirCliente2()));
+                                System.out.println(t2.pedidosAsignados1());
+                                System.out.println(t2.pedidosAsignados2());
                             }
                             if (inicioCorrectoT3) {
-                                System.out.println(t1.pedidosAsignados1(t3.recibirCliente1()));
-                                System.out.println(t1.pedidosAsignados1(t3.recibirCliente2()));
-                                System.out.println(t1.pedidosAsignados2(t1.recibirCliente1()));
-                                System.out.println(t1.pedidosAsignados2(t1.recibirCliente2()));
+                                System.out.println(t3.pedidosAsignados1());
+                                System.out.println(t3.pedidosAsignados2());
                             }
                             break;
                         case "2": //Modificar el estado de un pedido

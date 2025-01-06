@@ -6,6 +6,7 @@ public class Trabajadores {
     private Pedidos pedido1;
     private Pedidos pedido2;
     private static int contadorPedidos = 1;
+    private int contadorPedidosAsignados = 0;
 
     //Constructor
     public Trabajadores(String nombre, String clave) {
@@ -87,42 +88,39 @@ public class Trabajadores {
     }
 
     public void asignaPedido(Pedidos pedido){
-        if (pedido1 != null && pedido2 == null) this.pedido1 = pedido;
-        if (pedido1 != null && pedido2 != null) this.pedido2 = pedido;
+        if (pedido1 == null && pedido2 == null) pedido1 = pedido;
+        else pedido2 = pedido;
     }
 
-    public String pedidosAsignados1(Cliente cliente){
+    public int sumarPedidosAsignados(){
+        if (pedido1 != null && pedido2 == null) contadorPedidosAsignados = 1;
+        if (pedido1 != null && pedido2 != null) contadorPedidosAsignados = 2;
+        return contadorPedidosAsignados;
+    }
+
+    public String pedidosAsignados1(){
         String salida = "";
         boolean error = false;
-        salida += contadorPedidos++ + ". " + pedido1.getId() + " - " + pedido1.getCliente().getNombre() + " (" + cliente.getLocalidad() + ") - " +
-                (pedido1 != null ? pedido1.sumarProductosPedido() : (error = true)) + " productos - " + (pedido1 != null ? pedido1.sumarPrecioProductos() : (error = true)) + "€\n";
+        contadorPedidos = 1;
+        salida += (pedido1 != null ? contadorPedidos + ". " + pedido1.getId() + " - " + pedido1.getClientePedido().getNombre() + " (" + pedido1.getClientePedido().getLocalidad() + ") - " +
+                pedido1.sumarProductosPedido() + " productos - " + pedido1.sumarPrecioProductos() + "€\n" : (error = true));
+        if (error){
+            salida = "No tienes pedidos asignados";
+            contadorPedidos--;
+        }
+        return salida;
+    }
+    public String pedidosAsignados2(){
+        String salida = "";
+        boolean error = false;
+        contadorPedidos = 2;
+        salida += (pedido2 != null ? contadorPedidos + ". " + pedido2.getId() + " - " + pedido2.getClientePedido().getNombre() + " (" + pedido2.getClientePedido().getLocalidad() + ") - " +
+                pedido2.sumarProductosPedido() + " productos - " + pedido2.sumarPrecioProductos() + "€\n" : (error = true));
         if (error){
             salida = "";
             contadorPedidos--;
         }
         return salida;
-    }
-    public String pedidosAsignados2(Cliente cliente){
-        String salida = "";
-        boolean error = false;
-        salida += contadorPedidos++ + ". " + pedido2.getId() + " - " + pedido2.getCliente().getNombre() + " (" + cliente.getLocalidad() + ") - " +
-                (pedido2 != null ? pedido2.sumarProductosPedido() : (error = true)) + " productos - " + (pedido2 != null ? pedido2.sumarPrecioProductos() : (error = true)) + "€\n";
-        if (error){
-            salida = "";
-            contadorPedidos--;
-        }
-        return salida;
-    }
-
-    public Cliente recibirCliente1(){
-        Cliente cliente = null;
-        if (pedido1 != null) cliente = pedido1.getCliente().recibirCliente();
-        return cliente;
-    }
-    public Cliente recibirCliente2(){
-        Cliente cliente = null;
-        if (pedido2 != null) cliente = pedido2.getCliente().recibirCliente();
-        return cliente;
     }
 
 }

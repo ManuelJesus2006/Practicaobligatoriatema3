@@ -132,6 +132,14 @@ public class Cliente {
         if (pedido1 == null && pedido2 == null) return true;
         return false;
     }
+
+    public boolean hayPedido1(){
+        return pedido1 != null;
+    }
+    public boolean hayPedido2(){
+        return pedido2 != null;
+    }
+
     public boolean realizaPedido(Productos producto1){
         if (pedido1 == null){
             pedido1 = new Pedidos(producto1);
@@ -253,30 +261,34 @@ public class Cliente {
     public String menuAsignacionTrabajadorPedido1(){
         String salida = "";
         boolean error = false;
-        salida += contadorPedidos++ + ". " + pedido1.getId() + " - " + nombre + " (" + localidad + ") - " +
-                (pedido1 != null ? pedido1.sumarProductosPedido() : (error = true)) + " productos - " + (pedido1 != null ? pedido1.sumarPrecioProductos() : (error = true)) + "€\n";
+        if (contadorPedidos > 4) contadorPedidos = 1;
+        else contadorPedidos = 1;
+        if (pedido1 != null){
+            salida += contadorPedidos++ + ". " + pedido1.getId() + " - " + nombre + " (" + localidad + ") - " +
+                    (pedido1 != null ? pedido1.sumarProductosPedido() : (error = true)) + " productos - " + (pedido1 != null ? pedido1.sumarPrecioProductos() : (error = true)) + "€\n";
+        }else error = true;
         if (error){
-            salida = "";
+            salida = "No hay ningún pedido 1";
             contadorPedidos--;
         }
         return salida;
-
     }
 
     public String menuAsignacionTrabajadorPedido2(){
         String salida = "";
         boolean error = false;
-        salida += contadorPedidos++ + ". " + pedido2.getId() + " - " + nombre + " (" + localidad + ") - " +
-                (pedido2 != null ? pedido2.sumarProductosPedido() : (error = true)) + " productos - " + (pedido2 != null ? pedido2.sumarPrecioProductos() : (error = true)) + "€\n";
+        if (pedido2 != null){
+            salida += contadorPedidos++ + ". " + pedido2.getId() + " - " + nombre + " (" + localidad + ") - " +
+                    (pedido2 != null ? pedido2.sumarProductosPedido() : (error = true)) + " productos - " + (pedido2 != null ? pedido2.sumarPrecioProductos() : (error = true)) + "€\n";
+        }else error = true;
         if (error){
-            salida = "";
+            salida = "No hay ningún pedido 2";
             contadorPedidos--;
         }
         return salida;
     }
 
-    public Cliente recibirCliente(){
-        Cliente cliente = null;
+    public void guardaClientePedido1(Cliente cliente){
         this.correo = cliente.correo;
         this.clave = cliente.clave;
         this.direccion = cliente.direccion;
@@ -284,8 +296,21 @@ public class Cliente {
         this.provincia = cliente.provincia;
         this.telefono = cliente.telefono;
         this.nombre = cliente.nombre;
-        return cliente;
+        pedido1.setClientePedido(cliente);
     }
+
+    public void guardaClientePedido2(Cliente cliente){
+        this.correo = cliente.correo;
+        this.clave = cliente.clave;
+        this.direccion = cliente.direccion;
+        this.localidad = cliente.localidad;
+        this.provincia = cliente.provincia;
+        this.telefono = cliente.telefono;
+        this.nombre = cliente.nombre;
+        pedido2.setClientePedido(cliente);
+    }
+
+
 }
 
 
