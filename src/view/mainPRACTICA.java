@@ -3,6 +3,7 @@ package view;
 import models.*;
 import utils.Utils;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class mainPRACTICA {
@@ -27,7 +28,7 @@ public class mainPRACTICA {
         Productos productoSeleccionado3 = null;
         boolean inicioCorrectoC1 = false, inicioCorrectoC2 = false, inicioCorrectoT1 = false, inicioCorrectoT2 = false,
                 inicioCorrectoT3 = false, inicioCorrectoAdmin = false, productoFinalizado = false;
-        String op, correoTeclado, contraTeclado, direccionTeclado, localidadTeclado, provinciaTeclado, nombreTeclado, productoTeclado;
+        String op, correoTeclado, contraTeclado, direccionTeclado, localidadTeclado, provinciaTeclado, nombreTeclado, productoTeclado, fechaLlegadaTeclado;
         int telefonoTeclado;
         double precioTeclado;
         Pedidos pedidoTeclado = null;
@@ -212,21 +213,20 @@ public class mainPRACTICA {
                                                 Utils.limpiarpantalla();
                                             }
                                         } while (!bucleCorrecto); //Bucle producto 2
-                                    } else {
+                                    } else {//Si no es "S"
                                         productoFinalizado = true;
                                         if (inicioCorrectoC1) {
-                                            c1.realizaPedido(productoSeleccionado1);//Realizar pedido solo con un producto
+                                            c1.realizaPedido(productoSeleccionado1, c1.getDireccion());//Realizar pedido solo con un producto
                                             if (c1.hayPedido1()) c1.guardaClientePedido1(c1);
                                             if (c1.hayPedido2()) c1.guardaClientePedido2(c1);
                                             System.out.println("Su precio a pagar en total es de " + c1.recibirPrecioTotal());
                                         }
                                         if (inicioCorrectoC2) {
-                                            c2.realizaPedido(productoSeleccionado1);//Realizar pedido solo con un producto
+                                            c2.realizaPedido(productoSeleccionado1, c2.getDireccion());//Realizar pedido solo con un producto
                                             if (c2.hayPedido1()) c2.guardaClientePedido1(c2);
                                             if (c2.hayPedido2()) c2.guardaClientePedido2(c2);
                                             System.out.println("Su precio a pagar en total es de " + c2.recibirPrecioTotal());
                                         }//Realizar pedido solo con un producto
-
                                     }
                                     if (!productoFinalizado) {
                                         System.out.println("¿Desea agregar otro producto? (llevas " + ((contadorProductos == 1) ? "un producto)" : contadorProductos + " productos)") + "(S/N)");
@@ -284,13 +284,13 @@ public class mainPRACTICA {
                                         System.out.println("No se pueden añadir ya más productos");
                                         productoFinalizado = true;
                                         if (inicioCorrectoC1) {
-                                            c1.realizaPedido(productoSeleccionado1, productoSeleccionado2, productoSeleccionado3);//Realizar pedido con los tres productos
+                                            c1.realizaPedido(productoSeleccionado1, productoSeleccionado2, productoSeleccionado3, c1.getDireccion());//Realizar pedido con los tres productos
                                             if (c1.hayPedido1()) c1.guardaClientePedido1(c1);
                                             if (c1.hayPedido2()) c1.guardaClientePedido2(c1);
                                             System.out.println("Su precio a pagar en total es de " + c1.recibirPrecioTotal());
                                         }
                                         if (inicioCorrectoC2) {
-                                            c2.realizaPedido(productoSeleccionado1, productoSeleccionado2, productoSeleccionado3);//Realizar pedido con los tres productos
+                                            c2.realizaPedido(productoSeleccionado1, productoSeleccionado2, productoSeleccionado3, c2.getDireccion());//Realizar pedido con los tres productos
                                             if (c2.hayPedido1()) c2.guardaClientePedido1(c2);
                                             if (c2.hayPedido2()) c2.guardaClientePedido2(c2);
                                             System.out.println("Su precio a pagar en total es de " + c2.recibirPrecioTotal());
@@ -299,13 +299,13 @@ public class mainPRACTICA {
                                     if (op.equalsIgnoreCase("N") && contadorProductos == 2) {
                                         productoFinalizado = true;
                                         if (inicioCorrectoC1) {
-                                            c1.realizaPedido(productoSeleccionado1, productoSeleccionado2);//Realizar pedido solo con dos productos
+                                            c1.realizaPedido(productoSeleccionado1, productoSeleccionado2, c1.getDireccion());//Realizar pedido solo con dos productos
                                             if (c1.hayPedido1()) c1.guardaClientePedido1(c1);
                                             if (c1.hayPedido2()) c1.guardaClientePedido2(c1);
                                             System.out.println("Su precio a pagar en total es de " + c1.recibirPrecioTotal());
                                         }
                                         if (inicioCorrectoC2) {
-                                            c2.realizaPedido(productoSeleccionado1, productoSeleccionado2);//Realizar pedido solo con dos productos
+                                            c2.realizaPedido(productoSeleccionado1, productoSeleccionado2, c2.getDireccion());//Realizar pedido solo con dos productos
                                             if (c2.hayPedido1()) c2.guardaClientePedido1(c2);
                                             if (c2.hayPedido2()) c2.guardaClientePedido2(c2);
                                             System.out.println("Su precio a pagar en total es de " + c2.recibirPrecioTotal());
@@ -396,7 +396,76 @@ public class mainPRACTICA {
                             }
                             break;
                         case "2": //Modificar el estado de un pedido
+                            if (inicioCorrectoT1) {
+                                System.out.println(t1.pedidosAsignados1());
+                                System.out.println(t1.pedidosAsignados2());
+                            }
+                            if (inicioCorrectoT2) {
+                                System.out.println(t2.pedidosAsignados1());
+                                System.out.println(t2.pedidosAsignados2());
+                            }
+                            if (inicioCorrectoT3) {
+                                System.out.println(t3.pedidosAsignados1());
+                                System.out.println(t3.pedidosAsignados2());
+                            }
+                            System.out.print("Elige el pedido a modificar: ");
+                            op = s.nextLine();
+                            switch(op){
+                                case "1":
+                                    if (inicioCorrectoT1) pedidoTeclado = t1.getPedido1();
+                                    if (inicioCorrectoT2) pedidoTeclado = t2.getPedido1();
+                                    if (inicioCorrectoT3) pedidoTeclado = t3.getPedido1();
+                                    break;
+                                case "2":
+                                    if (inicioCorrectoT1) pedidoTeclado = t1.getPedido2();
+                                    if (inicioCorrectoT2) pedidoTeclado = t2.getPedido2();
+                                    if (inicioCorrectoT3) pedidoTeclado = t3.getPedido2();
+                                    break;
+                                default:
+                                    System.out.println("Pedido no existente");
+                            }
+                            if (inicioCorrectoT1) System.out.println(t1.pintaMenuModificacionPedido(pedidoTeclado));
 
+                            if (inicioCorrectoT2) System.out.println(t2.pintaMenuModificacionPedido(pedidoTeclado));
+
+                            if (inicioCorrectoT3) System.out.println(t3.pintaMenuModificacionPedido(pedidoTeclado));
+
+                            boolean error = false;
+                            System.out.print("Seleccione el nuevo estado: ");
+                            op = s.nextLine();
+                            switch (op){
+                                case "1": pedidoTeclado.setEstado("Recibido");
+                                break;
+                                case "2": pedidoTeclado.setEstado("En preparación");
+                                break;
+                                case "3": pedidoTeclado.setEstado("Retrasado");
+                                break;
+                                case "4": pedidoTeclado.setEstado("Cancelado");
+                                break;
+                                case "5": pedidoTeclado.setEstado("Enviado");
+                                break;
+                                default:
+                                    System.out.println("No existe dicho estado");
+                                    Utils.pulsaContinuar();
+                                    Utils.limpiarpantalla();
+                                    error = true;
+                                    break;
+                            }
+                            if (!error) System.out.println("Estado actualizado correctamente");
+                            System.out.print("¿Quiere indicar una nueva fecha de entrega? (S/N): ");
+                            op = s.nextLine();
+                            if (op.equalsIgnoreCase("S")){
+                                System.out.print("Introduzca la nueva fecha de entrega (formato dd/mm/yyyy)");
+                                fechaLlegadaTeclado = s.nextLine();
+                                pedidoTeclado.setFechaLlegada(fechaLlegadaTeclado);
+                            }
+                            System.out.println("¿Quiere añadir un comentario al pedido? (S/N): ");
+                            op = s.nextLine();
+                            if (op.equalsIgnoreCase("S")){
+                                System.out.print("Introduzca el nuevo comentario: ");
+                                pedidoTeclado.setComentario(s.nextLine());
+                                System.out.println("Comentario guardado correctamente.");
+                            }
                             break;
                         case "3": //Consultar el catálogo de productos
                             Utils.pintaCatalogo();
@@ -538,14 +607,29 @@ public class mainPRACTICA {
                     switch (op) {
                         case "1": //Asignar un pedido a un trabajador
                             boolean tempCliente = false, error = false;
+                            int contadorPedidos = 0;
                             if (c1 == null && c2 == null) error = true;
                             if (c1 != null && !c1.nohayPedidos()) {
                                 System.out.println("=== Asignación de trabajadores a pedidos ===");
-                                System.out.println(c1.menuAsignacionTrabajadorPedido());
+                                if (c1.getPedido1() != null){
+                                    contadorPedidos++;
+                                    System.out.println(contadorPedidos + c1.menuAsignacionTrabajadorPedido1());
+                                }else System.out.println(c1.menuAsignacionTrabajadorPedido1());
+                                if (c1.getPedido2() != null) {
+                                    contadorPedidos++;
+                                    System.out.println(contadorPedidos + c1.menuAsignacionTrabajadorPedido2());
+                                }else System.out.println(c1.menuAsignacionTrabajadorPedido2());
                                 tempCliente = true;
                             }
                             if (c2 != null && !c2.nohayPedidos()) {
-                                System.out.println(c2.menuAsignacionTrabajadorPedido());
+                                if (c2.getPedido1() != null){
+                                    contadorPedidos++;
+                                    System.out.println(contadorPedidos + c2.menuAsignacionTrabajadorPedido1());
+                                }else System.out.println(c1.menuAsignacionTrabajadorPedido1());
+                                if (c2.getPedido2() != null) {
+                                    contadorPedidos++;
+                                    System.out.println(contadorPedidos + c2.menuAsignacionTrabajadorPedido2());
+                                }else System.out.println(c2.menuAsignacionTrabajadorPedido2());
                             }
                             if (tempCliente) {
                                 System.out.print("Seleccione el pedido a asignar: ");
@@ -573,24 +657,31 @@ public class mainPRACTICA {
                                         else if (c2.nohayPedidos())
                                             System.out.println("No hay pedidos en dicho cliente");
                                         pedidoTeclado = c2.getPedido2();
+                                        break;
+                                    default:
+                                        System.out.println("No existe ese pedido");
+                                        error = true;
+                                        break;
                                 }
-                                System.out.println("==== Asignación del pedido (num pedido a realizar) ====");
-                                System.out.println(admin.menuAsignar());
-                                System.out.print("Seleccione el trabajador: ");
-                                op = s.nextLine();
-                                switch (op) {
-                                    case "1":
-                                        t1.asignaPedido(pedidoTeclado);
-                                        System.out.println("Operación realizada correctamente, pedido asignado a " + t1.getNombre());
-                                        break;
-                                    case "2":
-                                        t2.asignaPedido(pedidoTeclado);
-                                        System.out.println("Operación realizada correctamente, pedido asignado a " + t2.getNombre());
-                                        break;
-                                    case "3":
-                                        t3.asignaPedido(pedidoTeclado);
-                                        System.out.println("Operación realizada correctamente, pedido asignado a " + t3.getNombre());
-                                        break;
+                                if (!error){
+                                    System.out.println("==== Asignación del pedido (num pedido a realizar) ====");
+                                    System.out.println(admin.menuAsignar());
+                                    System.out.print("Seleccione el trabajador: ");
+                                    op = s.nextLine();
+                                    switch (op) {
+                                        case "1":
+                                            t1.asignaPedido(pedidoTeclado);
+                                            System.out.println("Operación realizada correctamente, pedido asignado a " + t1.getNombre());
+                                            break;
+                                        case "2":
+                                            t2.asignaPedido(pedidoTeclado);
+                                            System.out.println("Operación realizada correctamente, pedido asignado a " + t2.getNombre());
+                                            break;
+                                        case "3":
+                                            t3.asignaPedido(pedidoTeclado);
+                                            System.out.println("Operación realizada correctamente, pedido asignado a " + t3.getNombre());
+                                            break;
+                                    }
                                 }
                             }
                             if (c1 != null && c1.nohayPedidos() && c2 != null && c2.nohayPedidos())
@@ -598,6 +689,98 @@ public class mainPRACTICA {
                             if (error) System.out.println("No existen clientes");
                             break;
                         case "2": //Modificar el estado de un pedido
+                            boolean errorAdmin = false;
+                            int contadorPedidosAdmin = 0;
+                            if (c1 == null && c2 == null) error = true;
+                            if (c1 != null && !c1.nohayPedidos()) {
+                                System.out.println("=== Asignación de trabajadores a pedidos ===");
+                                if (c1.getPedido1() != null){
+                                    contadorPedidosAdmin++;
+                                    System.out.println(contadorPedidosAdmin + c1.menuAsignacionTrabajadorPedido1());
+                                }else System.out.println(c1.menuAsignacionTrabajadorPedido1());
+                                if (c1.getPedido2() != null) {
+                                    contadorPedidosAdmin++;
+                                    System.out.println(contadorPedidosAdmin + c1.menuAsignacionTrabajadorPedido2());
+                                }else System.out.println(c1.menuAsignacionTrabajadorPedido2());
+                            }
+                            if (c2 != null && !c2.nohayPedidos()) {
+                                if (c2.getPedido1() != null){
+                                    contadorPedidosAdmin++;
+                                    System.out.println(contadorPedidosAdmin + c2.menuAsignacionTrabajadorPedido1());
+                                }else System.out.println(c1.menuAsignacionTrabajadorPedido1());
+                                if (c2.getPedido2() != null) {
+                                    contadorPedidosAdmin++;
+                                    System.out.println(contadorPedidosAdmin + c2.menuAsignacionTrabajadorPedido2());
+                                }else System.out.println(c2.menuAsignacionTrabajadorPedido2());
+                            }
+                            System.out.print("Selecciona un pedido: ");
+                            op = s.nextLine();
+                            switch (op){//Switch elección
+                                case "1":
+                                    if (c1.getPedido1() != null) pedidoTeclado = c1.getPedido1();
+                                    else errorAdmin = true;
+                                    break;
+                                case "2":
+                                    if (c2.getPedido1() != null) pedidoTeclado = c2.getPedido1();
+                                    if (c1.getPedido2() != null) pedidoTeclado = c1.getPedido2();
+                                    break;
+                                case "3":
+                                    if (c1.getPedido2() != null) pedidoTeclado = c1.getPedido2();
+                                    if (c2.getPedido1() != null) pedidoTeclado = c2.getPedido1();
+                                    break;
+                                case "4":
+                                    if (c2.getPedido2() != null) pedidoTeclado = c2.getPedido2();
+                                    else errorAdmin = true;
+                                    break;
+                                default:
+                                    System.out.println("No existe ese pedido");
+                                    errorAdmin = true;
+                                    break;
+                            }
+                            if (!errorAdmin){
+                                System.out.println(admin.pintaMenuModificacionPedido(pedidoTeclado));
+                                System.out.print("Seleccione el nuevo estado: ");
+                                op = s.nextLine();
+                                switch (op){
+                                    case "1": pedidoTeclado.setEstado("Recibido");
+                                        break;
+                                    case "2": pedidoTeclado.setEstado("En preparación");
+                                        break;
+                                    case "3": pedidoTeclado.setEstado("Retrasado");
+                                        break;
+                                    case "4": pedidoTeclado.setEstado("Cancelado");
+                                        break;
+                                    case "5": pedidoTeclado.setEstado("Enviado");
+                                        break;
+                                    default:
+                                        System.out.println("No existe dicho estado");
+                                        Utils.pulsaContinuar();
+                                        Utils.limpiarpantalla();
+                                        errorAdmin = true;
+                                        break;
+                                }
+                                if (!errorAdmin) System.out.println("Estado actualizado correctamente");
+                                System.out.print("¿Quiere indicar una nueva fecha de entrega? (S/N): ");
+                                op = s.nextLine();
+                                if (op.equalsIgnoreCase("S")){
+                                    System.out.print("Introduzca la nueva fecha de entrega (formato dd/mm/yyyy)");
+                                    fechaLlegadaTeclado = s.nextLine();
+                                    pedidoTeclado.setFechaLlegada(fechaLlegadaTeclado);
+                                }
+                                System.out.print("¿Quiere indicar una nueva dirección? (S/N): ");
+                                op = s.nextLine();
+                                if (op.equalsIgnoreCase("S")){
+                                    System.out.print("Introduzca la nueva dirección");
+                                    pedidoTeclado.setDireccionEntrega(s.nextLine());
+                                }
+                                System.out.println("¿Quiere añadir un comentario al pedido? (S/N): ");
+                                op = s.nextLine();
+                                if (op.equalsIgnoreCase("S")){
+                                    System.out.print("Introduzca el nuevo comentario: ");
+                                    pedidoTeclado.setComentario(s.nextLine());
+                                    System.out.println("Comentario guardado correctamente.");
+                                }
+                            }
                             break;
                         case "3": //Dar de alta un trabajador
                             if (t1 != null && t2 != null && t3 != null)

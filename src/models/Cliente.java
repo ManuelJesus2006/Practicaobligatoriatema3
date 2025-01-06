@@ -141,35 +141,35 @@ public class Cliente {
         return pedido2 != null;
     }
 
-    public boolean realizaPedido(Productos producto1){
+    public boolean realizaPedido(Productos producto1, String direccion){
         if (pedido1 == null){
-            pedido1 = new Pedidos(producto1);
+            pedido1 = new Pedidos(producto1, direccion);
             return true;
         }
         if (pedido2 == null){
-            pedido2 = new Pedidos(producto1);
+            pedido2 = new Pedidos(producto1, direccion);
             return true;
         }
         return false;
     }
-    public boolean realizaPedido(Productos producto1, Productos producto2){
+    public boolean realizaPedido(Productos producto1, Productos producto2, String direccion){
         if (pedido1 == null){
-            pedido1 = new Pedidos(producto1, producto2);
+            pedido1 = new Pedidos(producto1, producto2, direccion);
             return true;
         }
         if (pedido2 == null){
-            pedido2 = new Pedidos(producto1, producto2);
+            pedido2 = new Pedidos(producto1, producto2, direccion);
             return true;
         }
         return false;
     }
-    public boolean realizaPedido(Productos producto1, Productos producto2, Productos producto3){
+    public boolean realizaPedido(Productos producto1, Productos producto2, Productos producto3, String direccion){
         if (pedido1 == null){
-            pedido1 = new Pedidos(producto1, producto2, producto3);
+            pedido1 = new Pedidos(producto1, producto2, producto3, direccion);
             return true;
         }
         if (pedido2 == null){
-            pedido2 = new Pedidos(producto1, producto2, producto3);
+            pedido2 = new Pedidos(producto1, producto2, producto3, direccion);
             return true;
         }
         return false;
@@ -215,7 +215,7 @@ public class Cliente {
         salida += "==========\tPedido " + pedido1.getId() + "\t===========\n";
         salida += "Estado: " + (pedido1.getEstado() == null ? "" : pedido1.getEstado()) + "\n";
         salida += "Cliente: " + nombre + "\n";
-        salida += "Dirección: " + direccion + "\n";
+        salida += "Dirección: " + pedido1.getDireccionEntrega() + "\n";
         salida += "Localidad: " + localidad + "\n";
         salida += "Provincia: " + provincia + "\n";
         salida += "Teléfono: " + telefono + "\n";
@@ -236,7 +236,7 @@ public class Cliente {
         salida += "==========\tPedido " + pedido2.getId() + "\t===========\n";
         salida += "Estado: " + (pedido2.getEstado() == null ? "" : pedido2.getEstado()) + "\n";
         salida += "Cliente: " + nombre + "\n";
-        salida += "Dirección: " + direccion + "\n";
+        salida += "Dirección: " + pedido2.getDireccionEntrega() + "\n";
         salida += "Localidad: " + localidad + "\n";
         salida += "Provincia: " + provincia + "\n";
         salida += "Teléfono: " + telefono + "\n";
@@ -259,20 +259,16 @@ public class Cliente {
 
 
 
-    public String menuAsignacionTrabajadorPedido(){
+    public String menuAsignacionTrabajadorPedido1(){
         String salida = "";
-        boolean error = false;
-        if (pedido1 == null) contadorPedidos--;
-        else contadorPedidos++;
-            salida += (pedido1 != null ? contadorPedidos + ". " + pedido1.getId() + " - " + nombre + " (" + localidad + ") - " +
-                    pedido1.sumarProductosPedido() + " productos - " +  pedido1.sumarPrecioProductos() + "€\n" : "No hay pedidos");
-        if (pedido2 == null) contadorPedidos--;
-        else contadorPedidos++;
-            contadorPedidosMostradosAsignacion++;
-            salida += (pedido2 != null ? contadorPedidos + ". " + pedido2.getId() + " - " + nombre + " (" + localidad + ") - " +
-                    pedido2.sumarProductosPedido() + " productos - " +  pedido2.sumarPrecioProductos() + "€\n" : "");
-            contadorPedidosMostradosAsignacion++;
-
+            salida += (pedido1 != null ? ". " + pedido1.getId() + " - " + nombre + " (" + localidad + ") - " +
+                    pedido1.sumarProductosPedido() + " productos - " +  pedido1.sumarPrecioProductos() + "€\n" : "");
+        return salida;
+    }
+    public String menuAsignacionTrabajadorPedido2(){
+        String salida = "";
+        salida += (pedido2 != null ? ". " + pedido2.getId() + " - " + nombre + " (" + localidad + ") - " +
+                pedido2.sumarProductosPedido() + " productos - " +  pedido2.sumarPrecioProductos() + "€\n" : "");
         return salida;
     }
 

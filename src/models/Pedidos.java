@@ -9,6 +9,7 @@ public class Pedidos {
     private double precioTotal;
     private String comentario;
     private String estado;
+    private String direccionEntrega;
     private Productos producto1;
     private Productos producto2;
     private Productos producto3;
@@ -17,25 +18,27 @@ public class Pedidos {
     private Cliente clientePedido;
     private static int contid = 0;
 
-    //Constructor con 1 productos
-    public Pedidos (Productos producto1){
+    //Constructor bugfix con 1 producto
+    public Pedidos (Productos producto1, String direccionEntrega){
         id = "" + LocalDate.now().getMonthValue() + LocalDate.now().getYear() + LocalDate.now().getDayOfMonth() + contid++;
         this.producto1 = producto1;
         fecha = LocalDate.now().getDayOfMonth() + "/" + LocalDate.now().getMonthValue() + "/" + LocalDate.now().getYear();
         fechaLlegada = (LocalDate.now().getDayOfMonth() + 5) + "/" + LocalDate.now().getMonthValue() + "/" + LocalDate.now().getYear();
         contadorPedidos++;
+        this.direccionEntrega = direccionEntrega;
     }
-    //Constructor con 2 productos
-    public Pedidos (Productos producto1, Productos producto2){
+    //Constructor bugfix con 2 productos
+    public Pedidos (Productos producto1, Productos producto2, String direccionEntrega){
         id = "" + LocalDate.now().getMonthValue() + LocalDate.now().getYear() + LocalDate.now().getDayOfMonth() + contid++;
         this.producto1 = producto1;
         this.producto2 = producto2;
         fecha = LocalDate.now().getDayOfMonth() + "/" + LocalDate.now().getMonthValue() + "/" + LocalDate.now().getYear();
         fechaLlegada = (LocalDate.now().getDayOfMonth() + 5) + "/" + LocalDate.now().getMonthValue() + "/" + LocalDate.now().getYear();
         contadorPedidos++;
+        this.direccionEntrega = direccionEntrega;
     }
-    //Constructor con 3 productos
-    public Pedidos (Productos producto1, Productos producto2, Productos producto3){
+    //Constructor bugfix con 3 productos
+    public Pedidos (Productos producto1, Productos producto2, Productos producto3, String direccionEntrega){
         id = "" + LocalDate.now().getMonthValue() + LocalDate.now().getYear() + LocalDate.now().getDayOfMonth() + contid++;
         this.producto1 = producto1;
         this.producto2 = producto2;
@@ -43,9 +46,18 @@ public class Pedidos {
         fecha = LocalDate.now().getDayOfMonth() + "/" + LocalDate.now().getMonthValue() + "/" + LocalDate.now().getYear();
         fechaLlegada = (LocalDate.now().getDayOfMonth() + 5) + "/" + LocalDate.now().getMonthValue() + "/" + LocalDate.now().getYear();
         contadorPedidos++;
+        this.direccionEntrega = direccionEntrega;
     }
 
     //Getters y setters
+    public String getDireccionEntrega() {
+        return direccionEntrega;
+    }
+
+    public void setDireccionEntrega(String direccionEntrega) {
+        this.direccionEntrega = direccionEntrega;
+    }
+
     public String getId() {
         return id;
     }

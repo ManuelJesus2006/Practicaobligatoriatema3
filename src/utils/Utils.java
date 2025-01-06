@@ -51,7 +51,4 @@ public class Utils {
         System.out.println(prod8.pintaCatalogo());
     }
 
-
-
-
 }

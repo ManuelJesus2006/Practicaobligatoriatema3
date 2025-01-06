@@ -123,4 +123,17 @@ public class Trabajadores {
         return salida;
     }
 
+    public String pintaMenuModificacionPedido(Pedidos pedido){
+        String salida = "";
+        salida += "==== Actualización del pedido " + pedido.getId() + " ====\n";
+        salida += "Estado del pedido: " + (pedido.getEstado() == null ? "Sin estado" : pedido.getEstado()) + "\n";
+        salida += "Nuevo estado:\n";
+        salida += "1. Recibido\n";
+        salida += "2. En preparación\n";
+        salida += "3. Retrasado\n";
+        salida += "4. Cancelado\n";
+        salida += "5. Enviado\n";
+        return salida;
+    }
+
 }
