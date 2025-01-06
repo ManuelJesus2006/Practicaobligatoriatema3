@@ -12,6 +12,7 @@ public class Cliente {
     private Pedidos pedido2;
     private static int contadorClientes = 0;
     private static int contadorPedidos = 1;
+    private static int contadorPedidosMostradosAsignacion = 0;
 
     //Constructor
     public Cliente(String correo, String clave, String direccion, String localidad, String provincia, int telefono, String nombre) {
@@ -258,33 +259,20 @@ public class Cliente {
 
 
 
-    public String menuAsignacionTrabajadorPedido1(){
+    public String menuAsignacionTrabajadorPedido(){
         String salida = "";
         boolean error = false;
-        if (contadorPedidos > 4) contadorPedidos = 1;
-        else contadorPedidos = 1;
-        if (pedido1 != null){
-            salida += contadorPedidos++ + ". " + pedido1.getId() + " - " + nombre + " (" + localidad + ") - " +
-                    (pedido1 != null ? pedido1.sumarProductosPedido() : (error = true)) + " productos - " + (pedido1 != null ? pedido1.sumarPrecioProductos() : (error = true)) + "€\n";
-        }else error = true;
-        if (error){
-            salida = "No hay ningún pedido 1";
-            contadorPedidos--;
-        }
-        return salida;
-    }
+        if (pedido1 == null) contadorPedidos--;
+        else contadorPedidos++;
+            salida += (pedido1 != null ? contadorPedidos + ". " + pedido1.getId() + " - " + nombre + " (" + localidad + ") - " +
+                    pedido1.sumarProductosPedido() + " productos - " +  pedido1.sumarPrecioProductos() + "€\n" : "No hay pedidos");
+        if (pedido2 == null) contadorPedidos--;
+        else contadorPedidos++;
+            contadorPedidosMostradosAsignacion++;
+            salida += (pedido2 != null ? contadorPedidos + ". " + pedido2.getId() + " - " + nombre + " (" + localidad + ") - " +
+                    pedido2.sumarProductosPedido() + " productos - " +  pedido2.sumarPrecioProductos() + "€\n" : "");
+            contadorPedidosMostradosAsignacion++;
 
-    public String menuAsignacionTrabajadorPedido2(){
-        String salida = "";
-        boolean error = false;
-        if (pedido2 != null){
-            salida += contadorPedidos++ + ". " + pedido2.getId() + " - " + nombre + " (" + localidad + ") - " +
-                    (pedido2 != null ? pedido2.sumarProductosPedido() : (error = true)) + " productos - " + (pedido2 != null ? pedido2.sumarPrecioProductos() : (error = true)) + "€\n";
-        }else error = true;
-        if (error){
-            salida = "No hay ningún pedido 2";
-            contadorPedidos--;
-        }
         return salida;
     }
 

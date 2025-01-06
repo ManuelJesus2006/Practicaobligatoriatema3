@@ -541,13 +541,11 @@ public class mainPRACTICA {
                             if (c1 == null && c2 == null) error = true;
                             if (c1 != null && !c1.nohayPedidos()) {
                                 System.out.println("=== Asignación de trabajadores a pedidos ===");
-                                System.out.println(c1.menuAsignacionTrabajadorPedido1());
-                                System.out.println(c1.menuAsignacionTrabajadorPedido2());
+                                System.out.println(c1.menuAsignacionTrabajadorPedido());
                                 tempCliente = true;
                             }
                             if (c2 != null && !c2.nohayPedidos()) {
-                                System.out.println(c2.menuAsignacionTrabajadorPedido1());
-                                System.out.println(c2.menuAsignacionTrabajadorPedido2());
+                                System.out.println(c2.menuAsignacionTrabajadorPedido());
                             }
                             if (tempCliente) {
                                 System.out.print("Seleccione el pedido a asignar: ");
