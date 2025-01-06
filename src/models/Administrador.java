@@ -24,65 +24,15 @@ public class Administrador {
     }
 
     //Getters y setters
-
-    public Trabajadores getTrabajador1() {
-        return trabajador1;
-    }
-
-    public void setTrabajador1(Trabajadores trabajador1) {
-        this.trabajador1 = trabajador1;
-    }
-
-    public Trabajadores getTrabajador2() {
-        return trabajador2;
-    }
-
-    public void setTrabajador2(Trabajadores trabajador2) {
-        this.trabajador2 = trabajador2;
-    }
-
-    public Trabajadores getTrabajador3() {
-        return trabajador3;
-    }
-
-    public void setTrabajador3(Trabajadores trabajador3) {
-        this.trabajador3 = trabajador3;
-    }
-
-    public Pedidos getPedidos1() {
-        return pedidos1;
-    }
-
-    public void setPedidos1(Pedidos pedidos1) {
-        this.pedidos1 = pedidos1;
-    }
-
-    public Pedidos getPedidos2() {
-        return pedidos2;
-    }
-
-    public void setPedidos2(Pedidos pedidos2) {
-        this.pedidos2 = pedidos2;
-    }
-
     public String getNombre() {
         return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public String getClave() {
         return clave;
     }
 
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
-
     //Métodos
-
     public int cuentaPedidos() {
         int contador = 0;
         if (pedidos1 != null) contador++;
@@ -108,8 +58,6 @@ public class Administrador {
     public boolean iniciaSesion(String contraTeclado, String nombreTeclado) {
         return (contraTeclado.equals(getClave()) && nombreTeclado.equals(getNombre()));
     }
-
-
 
     public String menuAsignar(){String salida = "";
         numTrabajador = 1;

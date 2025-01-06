@@ -17,37 +17,21 @@ public class Trabajadores {
     }
 
     //Getters y setters
-
     public String getNombre() {
         return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public String getClave() {
         return clave;
     }
 
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
-
     public Pedidos getPedido1() {
         return pedido1;
     }
 
-    public void setPedido1(Pedidos pedido1) {
-        this.pedido1 = pedido1;
-    }
 
     public Pedidos getPedido2() {
         return pedido2;
-    }
-
-    public void setPedido2(Pedidos pedido2) {
-        this.pedido2 = pedido2;
     }
 
     //Métodos
@@ -96,6 +80,14 @@ public class Trabajadores {
         if (pedido1 != null && pedido2 == null) contadorPedidosAsignados = 1;
         if (pedido1 != null && pedido2 != null) contadorPedidosAsignados = 2;
         return contadorPedidosAsignados;
+    }
+
+    public boolean hayPedidoAsignado1() {
+        return pedido1 != null;
+    }
+
+    public boolean hayPedidoAsignado2() {
+        return pedido2 != null;
     }
 
     public String pedidosAsignados1(){

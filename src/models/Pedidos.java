@@ -6,14 +6,12 @@ public class Pedidos {
     private String id;
     private String fecha;
     private String fechaLlegada;
-    private double precioTotal;
     private String comentario;
     private String estado;
     private String direccionEntrega;
     private Productos producto1;
     private Productos producto2;
     private Productos producto3;
-    private int codPedido;
     private static int contadorPedidos;
     private Cliente clientePedido;
     private static int contid = 0;
@@ -62,18 +60,6 @@ public class Pedidos {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public static int getContid() {
-        return contid;
-    }
-
-    public static void setContid(int contid) {
-        Pedidos.contid = contid;
-    }
-
     public Cliente getClientePedido() {
         return clientePedido;
     }
@@ -86,24 +72,12 @@ public class Pedidos {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
     public String getFechaLlegada() {
         return fechaLlegada;
     }
 
     public void setFechaLlegada(String fechaLlegada) {
         this.fechaLlegada = fechaLlegada;
-    }
-
-    public double getPrecioTotal() {
-        return precioTotal;
-    }
-
-    public void setPrecioTotal(double precioTotal) {
-        this.precioTotal = precioTotal;
     }
 
     public String getComentario() {
@@ -126,40 +100,12 @@ public class Pedidos {
         return producto1;
     }
 
-    public void setProducto1(Productos producto1) {
-        this.producto1 = producto1;
-    }
-
     public Productos getProducto2() {
         return producto2;
     }
 
-    public void setProducto2(Productos producto2) {
-        this.producto2 = producto2;
-    }
-
     public Productos getProducto3() {
         return producto3;
-    }
-
-    public void setProducto3(Productos producto3) {
-        this.producto3 = producto3;
-    }
-
-    public static int getContadorPedidos() {
-        return contadorPedidos;
-    }
-
-    public static void setContadorPedidos(int contadorPedidos) {
-        Pedidos.contadorPedidos = contadorPedidos;
-    }
-
-    public int getCodPedido() {
-        return codPedido;
-    }
-
-    public void setCodPedido(int codPedido) {
-        this.codPedido = codPedido;
     }
 
     //Métodos

@@ -3,7 +3,6 @@ package view;
 import models.*;
 import utils.Utils;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class mainPRACTICA {
@@ -313,7 +312,7 @@ public class mainPRACTICA {
                                     }
 
                                 } //LLave del else para realizar la funcion del case
-                            } //Si algun cliente llega aqui
+                            } //Si algún cliente llega aquí
                             Utils.pulsaContinuar();
                             Utils.limpiarpantalla();
                             break;
@@ -394,78 +393,114 @@ public class mainPRACTICA {
                                 System.out.println(t3.pedidosAsignados1());
                                 System.out.println(t3.pedidosAsignados2());
                             }
+                            Utils.pulsaContinuar();
+                            Utils.limpiarpantalla();
                             break;
                         case "2": //Modificar el estado de un pedido
+                            boolean existePedido = false;
                             if (inicioCorrectoT1) {
-                                System.out.println(t1.pedidosAsignados1());
-                                System.out.println(t1.pedidosAsignados2());
+                                if (!t1.hayPedidoAsignado1() && !t1.hayPedidoAsignado2())
+                                    System.out.println("No hay pedidos asignados");
+                                if (t1.hayPedidoAsignado1()) {
+                                    System.out.println(t1.pedidosAsignados1());
+                                    existePedido = true;
+                                }
+                                if (t1.hayPedidoAsignado2()) {
+                                    System.out.println(t1.pedidosAsignados2());
+                                    existePedido = true;
+                                }
                             }
                             if (inicioCorrectoT2) {
-                                System.out.println(t2.pedidosAsignados1());
-                                System.out.println(t2.pedidosAsignados2());
+                                if (!t2.hayPedidoAsignado1() && !t2.hayPedidoAsignado2())
+                                    System.out.println("No hay pedidos asignados");
+                                if (t2.hayPedidoAsignado1()) {
+                                    System.out.println(t2.pedidosAsignados1());
+                                    existePedido = true;
+                                }
+                                if (t1.hayPedidoAsignado2()) {
+                                    System.out.println(t1.pedidosAsignados2());
+                                    existePedido = true;
+                                }
                             }
                             if (inicioCorrectoT3) {
-                                System.out.println(t3.pedidosAsignados1());
-                                System.out.println(t3.pedidosAsignados2());
+                                if (!t3.hayPedidoAsignado1() && !t3.hayPedidoAsignado2())
+                                    System.out.println("No hay pedidos asignados");
+                                if (t3.hayPedidoAsignado1()) {
+                                    System.out.println(t1.pedidosAsignados1());
+                                    existePedido = true;
+                                }
+                                if (t3.hayPedidoAsignado2()) {
+                                    System.out.println(t1.pedidosAsignados2());
+                                    existePedido = true;
+                                }
                             }
-                            System.out.print("Elige el pedido a modificar: ");
-                            op = s.nextLine();
-                            switch(op){
-                                case "1":
-                                    if (inicioCorrectoT1) pedidoTeclado = t1.getPedido1();
-                                    if (inicioCorrectoT2) pedidoTeclado = t2.getPedido1();
-                                    if (inicioCorrectoT3) pedidoTeclado = t3.getPedido1();
-                                    break;
-                                case "2":
-                                    if (inicioCorrectoT1) pedidoTeclado = t1.getPedido2();
-                                    if (inicioCorrectoT2) pedidoTeclado = t2.getPedido2();
-                                    if (inicioCorrectoT3) pedidoTeclado = t3.getPedido2();
-                                    break;
-                                default:
-                                    System.out.println("Pedido no existente");
-                            }
-                            if (inicioCorrectoT1) System.out.println(t1.pintaMenuModificacionPedido(pedidoTeclado));
+                            if (existePedido) {
+                                System.out.print("Elige el pedido a modificar: ");
+                                op = s.nextLine();
+                                switch (op) {
+                                    case "1":
+                                        if (inicioCorrectoT1) pedidoTeclado = t1.getPedido1();
+                                        if (inicioCorrectoT2) pedidoTeclado = t2.getPedido1();
+                                        if (inicioCorrectoT3) pedidoTeclado = t3.getPedido1();
+                                        break;
+                                    case "2":
+                                        if (inicioCorrectoT1) pedidoTeclado = t1.getPedido2();
+                                        if (inicioCorrectoT2) pedidoTeclado = t2.getPedido2();
+                                        if (inicioCorrectoT3) pedidoTeclado = t3.getPedido2();
+                                        break;
+                                    default:
+                                        System.out.println("Pedido no existente");
+                                }
+                                if (inicioCorrectoT1) System.out.println(t1.pintaMenuModificacionPedido(pedidoTeclado));
 
-                            if (inicioCorrectoT2) System.out.println(t2.pintaMenuModificacionPedido(pedidoTeclado));
+                                if (inicioCorrectoT2) System.out.println(t2.pintaMenuModificacionPedido(pedidoTeclado));
 
-                            if (inicioCorrectoT3) System.out.println(t3.pintaMenuModificacionPedido(pedidoTeclado));
+                                if (inicioCorrectoT3) System.out.println(t3.pintaMenuModificacionPedido(pedidoTeclado));
 
-                            boolean error = false;
-                            System.out.print("Seleccione el nuevo estado: ");
-                            op = s.nextLine();
-                            switch (op){
-                                case "1": pedidoTeclado.setEstado("Recibido");
-                                break;
-                                case "2": pedidoTeclado.setEstado("En preparación");
-                                break;
-                                case "3": pedidoTeclado.setEstado("Retrasado");
-                                break;
-                                case "4": pedidoTeclado.setEstado("Cancelado");
-                                break;
-                                case "5": pedidoTeclado.setEstado("Enviado");
-                                break;
-                                default:
-                                    System.out.println("No existe dicho estado");
-                                    Utils.pulsaContinuar();
-                                    Utils.limpiarpantalla();
-                                    error = true;
-                                    break;
+                                boolean error = false;
+                                System.out.print("Seleccione el nuevo estado: ");
+                                op = s.nextLine();
+                                switch (op) {
+                                    case "1":
+                                        pedidoTeclado.setEstado("Recibido");
+                                        break;
+                                    case "2":
+                                        pedidoTeclado.setEstado("En preparación");
+                                        break;
+                                    case "3":
+                                        pedidoTeclado.setEstado("Retrasado");
+                                        break;
+                                    case "4":
+                                        pedidoTeclado.setEstado("Cancelado");
+                                        break;
+                                    case "5":
+                                        pedidoTeclado.setEstado("Enviado");
+                                        break;
+                                    default:
+                                        System.out.println("No existe dicho estado");
+                                        Utils.pulsaContinuar();
+                                        Utils.limpiarpantalla();
+                                        error = true;
+                                        break;
+                                }
+                                if (!error) System.out.println("Estado actualizado correctamente");
+                                System.out.print("¿Quiere indicar una nueva fecha de entrega? (S/N): ");
+                                op = s.nextLine();
+                                if (op.equalsIgnoreCase("S")) {
+                                    System.out.print("Introduzca la nueva fecha de entrega (formato dd/mm/yyyy)");
+                                    fechaLlegadaTeclado = s.nextLine();
+                                    pedidoTeclado.setFechaLlegada(fechaLlegadaTeclado);
+                                }
+                                System.out.println("¿Quiere añadir un comentario al pedido? (S/N): ");
+                                op = s.nextLine();
+                                if (op.equalsIgnoreCase("S")) {
+                                    System.out.print("Introduzca el nuevo comentario: ");
+                                    pedidoTeclado.setComentario(s.nextLine());
+                                    System.out.println("Comentario guardado correctamente.");
+                                }
                             }
-                            if (!error) System.out.println("Estado actualizado correctamente");
-                            System.out.print("¿Quiere indicar una nueva fecha de entrega? (S/N): ");
-                            op = s.nextLine();
-                            if (op.equalsIgnoreCase("S")){
-                                System.out.print("Introduzca la nueva fecha de entrega (formato dd/mm/yyyy)");
-                                fechaLlegadaTeclado = s.nextLine();
-                                pedidoTeclado.setFechaLlegada(fechaLlegadaTeclado);
-                            }
-                            System.out.println("¿Quiere añadir un comentario al pedido? (S/N): ");
-                            op = s.nextLine();
-                            if (op.equalsIgnoreCase("S")){
-                                System.out.print("Introduzca el nuevo comentario: ");
-                                pedidoTeclado.setComentario(s.nextLine());
-                                System.out.println("Comentario guardado correctamente.");
-                            }
+                            Utils.pulsaContinuar();
+                            Utils.limpiarpantalla();
                             break;
                         case "3": //Consultar el catálogo de productos
                             Utils.pintaCatalogo();
@@ -611,25 +646,25 @@ public class mainPRACTICA {
                             if (c1 == null && c2 == null) error = true;
                             if (c1 != null && !c1.nohayPedidos()) {
                                 System.out.println("=== Asignación de trabajadores a pedidos ===");
-                                if (c1.getPedido1() != null){
+                                if (c1.getPedido1() != null) {
                                     contadorPedidos++;
                                     System.out.println(contadorPedidos + c1.menuAsignacionTrabajadorPedido1());
-                                }else System.out.println(c1.menuAsignacionTrabajadorPedido1());
+                                } else System.out.println(c1.menuAsignacionTrabajadorPedido1());
                                 if (c1.getPedido2() != null) {
                                     contadorPedidos++;
                                     System.out.println(contadorPedidos + c1.menuAsignacionTrabajadorPedido2());
-                                }else System.out.println(c1.menuAsignacionTrabajadorPedido2());
+                                } else System.out.println(c1.menuAsignacionTrabajadorPedido2());
                                 tempCliente = true;
                             }
                             if (c2 != null && !c2.nohayPedidos()) {
-                                if (c2.getPedido1() != null){
+                                if (c2.getPedido1() != null) {
                                     contadorPedidos++;
                                     System.out.println(contadorPedidos + c2.menuAsignacionTrabajadorPedido1());
-                                }else System.out.println(c1.menuAsignacionTrabajadorPedido1());
+                                } else System.out.println(c1.menuAsignacionTrabajadorPedido1());
                                 if (c2.getPedido2() != null) {
                                     contadorPedidos++;
                                     System.out.println(contadorPedidos + c2.menuAsignacionTrabajadorPedido2());
-                                }else System.out.println(c2.menuAsignacionTrabajadorPedido2());
+                                } else System.out.println(c2.menuAsignacionTrabajadorPedido2());
                             }
                             if (tempCliente) {
                                 System.out.print("Seleccione el pedido a asignar: ");
@@ -663,7 +698,7 @@ public class mainPRACTICA {
                                         error = true;
                                         break;
                                 }
-                                if (!error){
+                                if (!error) {
                                     System.out.println("==== Asignación del pedido (num pedido a realizar) ====");
                                     System.out.println(admin.menuAsignar());
                                     System.out.print("Seleccione el trabajador: ");
@@ -694,28 +729,28 @@ public class mainPRACTICA {
                             if (c1 == null && c2 == null) error = true;
                             if (c1 != null && !c1.nohayPedidos()) {
                                 System.out.println("=== Asignación de trabajadores a pedidos ===");
-                                if (c1.getPedido1() != null){
+                                if (c1.getPedido1() != null) {
                                     contadorPedidosAdmin++;
                                     System.out.println(contadorPedidosAdmin + c1.menuAsignacionTrabajadorPedido1());
-                                }else System.out.println(c1.menuAsignacionTrabajadorPedido1());
+                                } else System.out.println(c1.menuAsignacionTrabajadorPedido1());
                                 if (c1.getPedido2() != null) {
                                     contadorPedidosAdmin++;
                                     System.out.println(contadorPedidosAdmin + c1.menuAsignacionTrabajadorPedido2());
-                                }else System.out.println(c1.menuAsignacionTrabajadorPedido2());
+                                } else System.out.println(c1.menuAsignacionTrabajadorPedido2());
                             }
                             if (c2 != null && !c2.nohayPedidos()) {
-                                if (c2.getPedido1() != null){
+                                if (c2.getPedido1() != null) {
                                     contadorPedidosAdmin++;
                                     System.out.println(contadorPedidosAdmin + c2.menuAsignacionTrabajadorPedido1());
-                                }else System.out.println(c1.menuAsignacionTrabajadorPedido1());
+                                } else System.out.println(c1.menuAsignacionTrabajadorPedido1());
                                 if (c2.getPedido2() != null) {
                                     contadorPedidosAdmin++;
                                     System.out.println(contadorPedidosAdmin + c2.menuAsignacionTrabajadorPedido2());
-                                }else System.out.println(c2.menuAsignacionTrabajadorPedido2());
+                                } else System.out.println(c2.menuAsignacionTrabajadorPedido2());
                             }
                             System.out.print("Selecciona un pedido: ");
                             op = s.nextLine();
-                            switch (op){//Switch elección
+                            switch (op) {//Switch elección
                                 case "1":
                                     if (c1.getPedido1() != null) pedidoTeclado = c1.getPedido1();
                                     else errorAdmin = true;
@@ -737,20 +772,25 @@ public class mainPRACTICA {
                                     errorAdmin = true;
                                     break;
                             }
-                            if (!errorAdmin){
+                            if (!errorAdmin) {
                                 System.out.println(admin.pintaMenuModificacionPedido(pedidoTeclado));
                                 System.out.print("Seleccione el nuevo estado: ");
                                 op = s.nextLine();
-                                switch (op){
-                                    case "1": pedidoTeclado.setEstado("Recibido");
+                                switch (op) {
+                                    case "1":
+                                        pedidoTeclado.setEstado("Recibido");
                                         break;
-                                    case "2": pedidoTeclado.setEstado("En preparación");
+                                    case "2":
+                                        pedidoTeclado.setEstado("En preparación");
                                         break;
-                                    case "3": pedidoTeclado.setEstado("Retrasado");
+                                    case "3":
+                                        pedidoTeclado.setEstado("Retrasado");
                                         break;
-                                    case "4": pedidoTeclado.setEstado("Cancelado");
+                                    case "4":
+                                        pedidoTeclado.setEstado("Cancelado");
                                         break;
-                                    case "5": pedidoTeclado.setEstado("Enviado");
+                                    case "5":
+                                        pedidoTeclado.setEstado("Enviado");
                                         break;
                                     default:
                                         System.out.println("No existe dicho estado");
@@ -762,25 +802,27 @@ public class mainPRACTICA {
                                 if (!errorAdmin) System.out.println("Estado actualizado correctamente");
                                 System.out.print("¿Quiere indicar una nueva fecha de entrega? (S/N): ");
                                 op = s.nextLine();
-                                if (op.equalsIgnoreCase("S")){
+                                if (op.equalsIgnoreCase("S")) {
                                     System.out.print("Introduzca la nueva fecha de entrega (formato dd/mm/yyyy)");
                                     fechaLlegadaTeclado = s.nextLine();
                                     pedidoTeclado.setFechaLlegada(fechaLlegadaTeclado);
                                 }
                                 System.out.print("¿Quiere indicar una nueva dirección? (S/N): ");
                                 op = s.nextLine();
-                                if (op.equalsIgnoreCase("S")){
+                                if (op.equalsIgnoreCase("S")) {
                                     System.out.print("Introduzca la nueva dirección");
                                     pedidoTeclado.setDireccionEntrega(s.nextLine());
                                 }
                                 System.out.println("¿Quiere añadir un comentario al pedido? (S/N): ");
                                 op = s.nextLine();
-                                if (op.equalsIgnoreCase("S")){
+                                if (op.equalsIgnoreCase("S")) {
                                     System.out.print("Introduzca el nuevo comentario: ");
                                     pedidoTeclado.setComentario(s.nextLine());
                                     System.out.println("Comentario guardado correctamente.");
                                 }
                             }
+                            Utils.pulsaContinuar();
+                            Utils.limpiarpantalla();
                             break;
                         case "3": //Dar de alta un trabajador
                             if (t1 != null && t2 != null && t3 != null)
