@@ -3,6 +3,7 @@ package models;
 import java.time.LocalDate;
 
 public class Pedidos {
+    private String id;
     private String fecha;
     private String fechaLlegada;
     private double precioTotal;
@@ -14,9 +15,11 @@ public class Pedidos {
     private int codPedido;
     private static int contadorPedidos;
     private Cliente cliente;
+    private static int contid = 0;
 
     //Constructor con 1 productos
     public Pedidos (Productos producto1){
+        id = "" + LocalDate.now().getMonthValue() + LocalDate.now().getYear() + LocalDate.now().getDayOfMonth() + contid++;
         this.producto1 = producto1;
         fecha = LocalDate.now().getDayOfMonth() + "/" + LocalDate.now().getMonthValue() + "/" + LocalDate.now().getYear();
         fechaLlegada = (LocalDate.now().getDayOfMonth() + 5) + "/" + LocalDate.now().getMonthValue() + "/" + LocalDate.now().getYear();
@@ -24,6 +27,7 @@ public class Pedidos {
     }
     //Constructor con 2 productos
     public Pedidos (Productos producto1, Productos producto2){
+        id = "" + LocalDate.now().getMonthValue() + LocalDate.now().getYear() + LocalDate.now().getDayOfMonth() + contid++;
         this.producto1 = producto1;
         this.producto2 = producto2;
         fecha = LocalDate.now().getDayOfMonth() + "/" + LocalDate.now().getMonthValue() + "/" + LocalDate.now().getYear();
@@ -32,6 +36,7 @@ public class Pedidos {
     }
     //Constructor con 3 productos
     public Pedidos (Productos producto1, Productos producto2, Productos producto3){
+        id = "" + LocalDate.now().getMonthValue() + LocalDate.now().getYear() + LocalDate.now().getDayOfMonth() + contid++;
         this.producto1 = producto1;
         this.producto2 = producto2;
         this.producto3 = producto3;
@@ -41,6 +46,21 @@ public class Pedidos {
     }
 
     //Getters y setters
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public static int getContid() {
+        return contid;
+    }
+
+    public static void setContid(int contid) {
+        Pedidos.contid = contid;
+    }
 
     public Cliente getCliente() {
         return cliente;

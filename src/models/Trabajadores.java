@@ -94,7 +94,7 @@ public class Trabajadores {
     public String pedidosAsignados1(Cliente cliente){
         String salida = "";
         boolean error = false;
-        salida += contadorPedidos++ + ". " + ""/*aquí lo del código*/ + "- " + pedido1.getCliente().getNombre() + " (" + cliente.getLocalidad() + ") - " +
+        salida += contadorPedidos++ + ". " + pedido1.getId() + " - " + pedido1.getCliente().getNombre() + " (" + cliente.getLocalidad() + ") - " +
                 (pedido1 != null ? pedido1.sumarProductosPedido() : (error = true)) + " productos - " + (pedido1 != null ? pedido1.sumarPrecioProductos() : (error = true)) + "€\n";
         if (error){
             salida = "";
@@ -105,7 +105,7 @@ public class Trabajadores {
     public String pedidosAsignados2(Cliente cliente){
         String salida = "";
         boolean error = false;
-        salida += contadorPedidos++ + ". " + ""/*aquí lo del código*/ + "- " + pedido2.getCliente().getNombre() + " (" + cliente.getLocalidad() + ") - " +
+        salida += contadorPedidos++ + ". " + pedido2.getId() + " - " + pedido2.getCliente().getNombre() + " (" + cliente.getLocalidad() + ") - " +
                 (pedido2 != null ? pedido2.sumarProductosPedido() : (error = true)) + " productos - " + (pedido2 != null ? pedido2.sumarPrecioProductos() : (error = true)) + "€\n";
         if (error){
             salida = "";

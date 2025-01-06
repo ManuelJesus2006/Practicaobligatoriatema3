@@ -203,7 +203,7 @@ public class Cliente {
 
     public String pintaPedido1(){
         String salida = "";
-        salida += "==========\tPedido " + ""/*aquí lo del código*/ + "\t===========\n";
+        salida += "==========\tPedido " + pedido1.getId() + "\t===========\n";
         salida += "Estado: " + (pedido1.getEstado() == null ? "" : pedido1.getEstado()) + "\n";
         salida += "Cliente: " + nombre + "\n";
         salida += "Dirección: " + direccion + "\n";
@@ -224,7 +224,7 @@ public class Cliente {
 
     public String pintaPedido2(){
         String salida = "";
-        salida += "==========\tPedido " + ""/*aquí lo del código*/ + "\t===========\n";
+        salida += "==========\tPedido " + pedido2.getId() + "\t===========\n";
         salida += "Estado: " + (pedido2.getEstado() == null ? "" : pedido2.getEstado()) + "\n";
         salida += "Cliente: " + nombre + "\n";
         salida += "Dirección: " + direccion + "\n";
@@ -253,7 +253,7 @@ public class Cliente {
     public String menuAsignacionTrabajadorPedido1(){
         String salida = "";
         boolean error = false;
-        salida += contadorPedidos++ + ". " + ""/*aquí lo del código*/ + "- " + nombre + " (" + localidad + ") - " +
+        salida += contadorPedidos++ + ". " + pedido1.getId() + " - " + nombre + " (" + localidad + ") - " +
                 (pedido1 != null ? pedido1.sumarProductosPedido() : (error = true)) + " productos - " + (pedido1 != null ? pedido1.sumarPrecioProductos() : (error = true)) + "€\n";
         if (error){
             salida = "";
@@ -266,7 +266,7 @@ public class Cliente {
     public String menuAsignacionTrabajadorPedido2(){
         String salida = "";
         boolean error = false;
-        salida += contadorPedidos++ + ". " + ""/*aquí lo del código*/ + "- " + nombre + " (" + localidad + ") - " +
+        salida += contadorPedidos++ + ". " + pedido2.getId() + " - " + nombre + " (" + localidad + ") - " +
                 (pedido2 != null ? pedido2.sumarProductosPedido() : (error = true)) + " productos - " + (pedido2 != null ? pedido2.sumarPrecioProductos() : (error = true)) + "€\n";
         if (error){
             salida = "";
