@@ -1,5 +1,7 @@
 # PracticaObligatoriaT3
-  
+
+  ![image](https://github.com/user-attachments/assets/95a43da4-e42b-4033-ba4d-8802ba36a671)
+
 
 # **Indíce**
   
