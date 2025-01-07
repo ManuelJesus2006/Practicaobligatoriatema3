@@ -203,3 +203,13 @@ Está es la entrada del programa donde tendremos 2 opciones en nuestro menú pri
 
 (Efectivamente todo se ha actualizado tal y como queriamos)
 
+## **CERRAR SESIÓN**
+
+- Aquí dijaremos la sesión cerrada, para **volver a meternos** deberemos a volver a **iniciar sesión en el menú principal.**
+
+![image](https://github.com/user-attachments/assets/8561fd8c-ab80-4480-a0d0-a44b0940d36a)
+
+![image](https://github.com/user-attachments/assets/023f2005-cdd2-46bb-9d35-b33c3a61666d)
+
+
+##  **MENÚ TRABAJADOR.**
