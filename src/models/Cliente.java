@@ -11,6 +11,7 @@ public class Cliente {
     private Pedidos pedido1;
     private Pedidos pedido2;
     private static int contadorClientes = 0;
+    private boolean inicioCorrecto;
 
     //Constructor
     public Cliente(String correo, String clave, String direccion, String localidad, String provincia, int telefono, String nombre) {
@@ -38,6 +39,14 @@ public class Cliente {
     }
 
     //Getters y setters
+    public boolean isInicioCorrecto() {
+        return inicioCorrecto;
+    }
+
+    public void setInicioCorrecto(boolean inicioCorrecto) {
+        this.inicioCorrecto = inicioCorrecto;
+    }
+
     public String getNombre() {
         return nombre;
     }

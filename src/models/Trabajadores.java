@@ -7,6 +7,8 @@ public class Trabajadores {
     private Pedidos pedido2;
     private static int contadorPedidos = 1;
     private int contadorPedidosAsignados = 0;
+    private boolean inicioCorrecto;
+
 
     //Constructor
     public Trabajadores(String nombre, String clave) {
@@ -17,6 +19,15 @@ public class Trabajadores {
     }
 
     //Getters y setters
+
+    public boolean isInicioCorrecto() {
+        return inicioCorrecto;
+    }
+
+    public void setInicioCorrecto(boolean inicioCorrecto) {
+        this.inicioCorrecto = inicioCorrecto;
+    }
+
     public String getNombre() {
         return nombre;
     }

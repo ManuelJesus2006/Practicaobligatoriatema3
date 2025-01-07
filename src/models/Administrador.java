@@ -10,6 +10,8 @@ public class Administrador {
     private String clave;
     private static int numTrabajador = 1;
     private int contPedidosTrabajador = 0;
+    private boolean inicioCorrecto;
+
 
 
     //Constructor
@@ -24,6 +26,14 @@ public class Administrador {
     }
 
     //Getters y setters
+    public boolean isInicioCorrecto() {
+        return inicioCorrecto;
+    }
+
+    public void setInicioCorrecto(boolean inicioCorrecto) {
+        this.inicioCorrecto = inicioCorrecto;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -59,8 +69,7 @@ public class Administrador {
         return (contraTeclado.equals(getClave()) && nombreTeclado.equals(getNombre()));
     }
 
-    public String menuAsignar(Pedidos pedido){String salida = "";
-        salida += "==== Asignación del pedido " + pedido.getId() + " ====\n";
+    public String menuAsignar(){String salida = "";
         numTrabajador = 1;
         if (trabajador1 != null) salida += numTrabajador++ + ". - " +
                 trabajador1.getNombre() + " " + trabajador1.sumarPedidosAsignados() + (trabajador1.sumarPedidosAsignados() == 1 ? " pedido" : " pedidos") + " en proceso\n";
