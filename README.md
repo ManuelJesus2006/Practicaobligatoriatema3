@@ -20,6 +20,8 @@
   
 - **VER MIS PEDIDOS REALIZADOS**
 
+- **VER MIS DATOS PERSONALES**
+
 - **MODIFICAR MIS DATOS PERSONALES**
 
 - **CERRAR SESIÓN**
@@ -154,10 +156,50 @@ Está es la entrada del programa donde tendremos 2 opciones en nuestro menú pri
 
 ## **REALIZAR UN PEDIDO**
 
+- Realizaremos un pedido con los productos de la tienda, meteremos el producto del catálogo para añadirlo a la cesta (El máximo de productos que podemos añadir a la cesta son 3)
+
+![image](https://github.com/user-attachments/assets/c393febd-c792-491a-a132-faf8b6897b2e)
+
+(He pedido 1 producto)
+
+![image](https://github.com/user-attachments/assets/c2d97c5b-7269-42a6-acdd-ef66c18385f0)
+
+(He pedido 3 productos)
+
+-Como podemos ver a la hora de meter el máximo de productos en la cesta nos dirá que no podemos añadir más productos y el precio a pagar
 
 ## **VER MIS PEDIDOS REALIZADOS**
 
 - Podremos ver los pedidos que hayamos realizado.
 
 ![image](https://github.com/user-attachments/assets/dc81e7b8-60a7-469b-b37d-62224a1fe9fe)
+
 (En caso de que no hayamos pedido nada)
+
+![image](https://github.com/user-attachments/assets/948bbcf1-7565-4b99-b11c-0e0c8a1e609d)
+
+(Aquí tenemos el ejemplo de los pedidos realizados con "Jl")
+
+## **VER MI DATOS PERSONALES**
+
+- Podremos ver los datos que hayamos introducido en el registro
+
+![image](https://github.com/user-attachments/assets/490df0ac-6016-438f-a25b-a9b8a81244be)
+
+(En mi caso estoy viendo los datos del Cliente "Jl")
+
+
+## **MODIFICAR MIS DATOS PERSONALES**
+
+- Actualizaremos los datos volviendo a pedir que el cliente introduzca los datos correspondientes
+
+![image](https://github.com/user-attachments/assets/3384a6d3-93e5-43e7-b3e8-6c319ab5b751)
+
+(Actualizaré el perfil "Jl")
+
+- Una vez hayamos introducido los datos pedidos comprobaremos que los datos se han actualizado correctamente, nos meteremos en **"Ver mis datos personales"**
+
+![image](https://github.com/user-attachments/assets/96a24ff7-166d-4b42-bf6c-3e3814e03336)
+
+(Efectivamente todo se ha actualizado tal y como queriamos)
+
