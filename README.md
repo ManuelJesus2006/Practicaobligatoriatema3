@@ -90,7 +90,7 @@ Se nos abrirá la siguiente pestaña y le daremos a **"Variables de entorno..."*
 -Para ver que todo es correcto escribimos el comando **"javac -version"**, si todo sale bien nos saldrá la versión 23.0.1
 ![image](https://github.com/user-attachments/assets/f6cf704f-6ec5-4ac4-ba5e-2264612b31c5)
 
--Para ejecutar nuestro programa nos iremos al enlace de GitHub (https://github.com/jose712020/PracticaObligatoriaT2/tree/main) y le daremos al botón **"<> Code"** donde se desplegará varias opciones, y la 
+-Para ejecutar nuestro programa nos iremos al enlace de GitHub ([https://github.com/jose712020/PracticaObligatoriaT2/tree/main](https://github.com/ManuelJesus2006/Practicaobligatoriatema3)) y le daremos al botón **"<> Code"** donde se desplegará varias opciones, y la 
 daremos a **"Download ZIP"**
 ![image](https://github.com/user-attachments/assets/3a61ba32-6fcb-46ac-8a99-440abf3e57a4)
 
