@@ -354,13 +354,56 @@ El software tiene un Administrador ya creado con el nombre de **"Admin"** con co
 ![image](https://github.com/user-attachments/assets/2ec8b01a-e355-4eb1-91e2-72e47104405f)
 
 
-- **ASIGNAR UN PEDIDO A UN TRABAJADOR**
+## **ASIGNAR UN PEDIDO A UN TRABAJADOR**
+
+En esta opción le asignaremos un pedido a los trabajadores que haya disponibles
+
+![image](https://github.com/user-attachments/assets/1d88f69e-9ef5-49db-8186-35d2b31f9984)
+
+(Como podemos observar tenemos 3 pedidos ahora vamos a elegir uno)
+
+![image](https://github.com/user-attachments/assets/6e386a1c-5698-4175-a906-cec6fee9250e)
+
+Una vez hecho eso Manule ya tendrá el pedido asignado
+
+![image](https://github.com/user-attachments/assets/eb8f6417-970c-4cd2-81fa-eb4ba0687bec)
 
 
 - **MODIFICAR EL ESTADO DE UN PEDIDO**
 
+Aquí podremos actualizar el estado de un pedido
 
-- **DAR DE ALTA UN TRABAJADOR**
+![image](https://github.com/user-attachments/assets/70e218e4-1eb9-4a5e-8fed-db178b3cf50b)
+
+- Hemos elegido 1 de los 3 pedidos que habñia, el pedido de primeras saldrá "Sin Estado", así que le asignaremos un estado
+
+![image](https://github.com/user-attachments/assets/f7e1dbe3-450c-4b3b-b97d-ed539bf12a37)
+
+Como podemos observar aparte de añadir un estado. también podremos modificarle la fecha, la dirección y añadir un comentario
+
+Veamos si se ha actualizado todo:
+
+![image](https://github.com/user-attachments/assets/43637e19-cfe3-4187-a55b-5bc17258f315)
+
+(Efectivamnte funciona)
+  
+## **DAR DE ALTA UN TRABAJADOR**
+
+Podremos dar de alta a los trabajadores con esta opción, veamos como funciona.
+
+![image](https://github.com/user-attachments/assets/0ef148c0-2031-4931-9144-105146d6749c)
+
+- Añadimos un trabajador asignandole un nombre y una clave
+
+Pero este programa tiene un límite de trabajadores (unos 3)
+
+![image](https://github.com/user-attachments/assets/7720a2d6-5991-405d-ba61-0414f59a57a4)
+
+- Una vez creado los 3 trabajadores veamos si podemos añadirle un cuarto trabajador
+
+ ![image](https://github.com/user-attachments/assets/98a3f77c-9944-4499-8965-8ccafaabb164)
+
+- Efectivamente hemos llegado al límite de trabajadores
 
 
 ## **VER TODOS LOS PEDIDOS**
@@ -375,6 +418,19 @@ El software tiene un Administrador ya creado con el nombre de **"Admin"** con co
 
 (Aquí un ejemplo con el cliente "Jose" y sin cliente 2)
 
+- Ahora vamos a registrar a un cliente nuevo.
+
+![image](https://github.com/user-attachments/assets/9c6bf995-1ca7-44ed-ab4a-314841cd0d66)
+
+- Vamos a realizar un pedido con "Edu"
+
+![image](https://github.com/user-attachments/assets/0f0f666f-3a0f-4489-a79b-3958573564d3)
+
+![image](https://github.com/user-attachments/assets/f99159d1-a98d-44e1-a913-77de052e7be3)
+
+
+(Funciona correctamente) 
+
 
 ## **VER TODOS LOS CLIENTES**
 
@@ -384,18 +440,24 @@ El software tiene un Administrador ya creado con el nombre de **"Admin"** con co
 
 (Aquí podemos ver al cliente "Jose")
 
-- Ahora vamos a registrar a un cliente nuevo.
-
-![image](https://github.com/user-attachments/assets/9c6bf995-1ca7-44ed-ab4a-314841cd0d66)
-
 ![image](https://github.com/user-attachments/assets/baae247b-5b2a-446d-92c8-2f34b8d273e6)
 
-- Como podemos observar ha funcionado correctamente.
+(Como podemos observar ha funcionado correctamente)
 
 
-- **VER TODOS LOS TRABAJADORES**
+## **VER TODOS LOS TRABAJADORES**
 
 - Aquí podremos ver a todos los trabajadores dado de alta.
+
+Veamos con 1 trabajador lo que muestra
+
+![image](https://github.com/user-attachments/assets/6a4c8bb6-ff2e-4f76-a5b3-8ead9297bfd1)
+
+Y ahora veamos con 3 trabajadores
+
+![image](https://github.com/user-attachments/assets/4bde3961-8e68-4631-9eb8-3eaa2c6310e3)
+
+Efectivamente muestra a sus trabajadores con sus respectivos datos.
 
 
 ## **CERRAR SESIÓN**
