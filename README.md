@@ -212,4 +212,152 @@ Está es la entrada del programa donde tendremos 2 opciones en nuestro menú pri
 ![image](https://github.com/user-attachments/assets/023f2005-cdd2-46bb-9d35-b33c3a61666d)
 
 
-##  **MENÚ TRABAJADOR.**
+## 4. **MENÚ TRABAJADOR.**
+
+El software tiene un cliente ya creado con el nombre de "Carlos" con contraseña "1234", pero los trabajadores solo serán registrados por el administrador, del cual después hablaremos.
+
+- Primero iniciaremos sesión desde el mismo menu principal que los clientes:
+
+![image](https://github.com/user-attachments/assets/b562bd53-f118-4aef-9a56-325b105a0a09)
+
+- Aquí tenemos nuestro menú de trabajador
+
+![image](https://github.com/user-attachments/assets/8764a070-518d-4851-a544-992c94e1b18a)
+
+## **CONSULTAR LOS PEDIDOS QUE TENGO ASIGNADOS**
+
+Aquí el trabajador mira los pedidos que le han asignado desde administración, para demostrar su funcionamiento, haremos que nuestro cliente "Jl" haga un pedido (como ejemplo el ejemplo anteriormente mostrado) y haremos que al administrador se lo asigne a nuestro trabajador (en el apartado de administrador se verá como se asigna)
+
+![image](https://github.com/user-attachments/assets/87a28b0c-0e9a-4b1a-9eb2-9d36d269e5d3)
+
+Una vez asignado volveremos a iniciar sesión en el trabajador cuyo pedido ha sido asignado y le daremos a la opción 1, nos saldrán todos los pedidos asignados, aunque en este caso solo haya uno:
+
+![image](https://github.com/user-attachments/assets/6ab37e44-b0a2-4434-a077-0c56edbdf5ad)
+(En el caso de que hayan pedidos)
+
+![image](https://github.com/user-attachments/assets/5401d26b-f8a2-4ddd-b31b-c3e91a5e3d78)
+(En el caso de no exista ningún pedido)
+
+## **MODIFICAR EL ESTADO DE UN PEDIDO**
+
+El trabajador también podrá modificar el estado de un pedido, el cual tenga asignado.
+
+- Lo primero será seleccionar la opción 2 en el menú de trabajador:
+  
+![image](https://github.com/user-attachments/assets/8dc9ecfa-2d0f-486d-9f1a-ae3526150b59)
+
+- Seleccionaremos el pedido a modificar:
+
+![image](https://github.com/user-attachments/assets/e7b4366b-e0ac-4c37-ac1e-32f92f01894c)
+
+- Acto seguido podemos ver que nos sale un menú para poder modificar el estado, al modificarlo nos saldrá una pregunta para ver si queremos agregar una nueva fecha de entrega:
+
+![image](https://github.com/user-attachments/assets/5c66901a-04ad-4ae6-ac01-c51977b66e41)
+
+Si ponemos "N" pasará a una nueva pregunta automáticamente:
+
+![image](https://github.com/user-attachments/assets/550e5491-1c9c-4f78-ae0c-200d506b9eb2)
+
+Si ponemos "S" nos dirá de poner una nueva fecha de entrega en el formato indicado en el software:
+
+![image](https://github.com/user-attachments/assets/a192123f-b31d-4a31-a295-ed4612d77844)
+
+- La siguiente pregunta nos dirá si queremos añadir un comentario:
+
+![image](https://github.com/user-attachments/assets/550e5491-1c9c-4f78-ae0c-200d506b9eb2)
+
+Si ponemos "N" finaliza la modificación:
+
+![image](https://github.com/user-attachments/assets/92fa2251-ebbf-4636-95ca-2598c3b068b7)
+
+Si ponemos "S" nos pedirá un comentario introducido por teclado sobre el pedido en concreto:
+
+![image](https://github.com/user-attachments/assets/9745e6f3-1c9c-4dee-a483-aca8abc5af87)
+
+## **CONSULTAR EL CATÁLOGO DE PRODUCTOS**
+
+Esta opción muestra el catálogo de productos existentes:
+
+![image](https://github.com/user-attachments/assets/ff861a5d-92f7-4d91-8aa5-f2060e75a5db)
+
+## **MODIFICAR UN PRODUCTO DEL CATÁLOGO**
+
+El trabajador puede modificar un producto del catálogo, ya sea su nombre y precio
+
+- Al introducir la opción 4, no pedirá el número del producto en el catálogo:
+
+![image](https://github.com/user-attachments/assets/bd901796-dac8-4912-b171-ee445e52edca)
+
+- Introducidos un producto de prueba (el número 8) y automáticamente nos pide un nombre nuevo o la opción "no" para dejar el mismo nombre:
+
+![image](https://github.com/user-attachments/assets/8fd21672-42df-4c4a-8d3d-82182ad81d9c)
+
+- Después de realizar la operación del cambio de nombre, nos aparece si deseamos cambiar el precio del producto o "-1" para dejar el mismo precio
+
+![image](https://github.com/user-attachments/assets/8069b827-8e89-41e4-8e39-39c82a1f3c88)
+
+Una vez finalizada la modificación revisamos si se han cambiado los datos en el producto 8, consultando el catálogo y vemos que funciona:
+
+![image](https://github.com/user-attachments/assets/ff861a5d-92f7-4d91-8aa5-f2060e75a5db)(antes)
+
+![image](https://github.com/user-attachments/assets/19c26a45-0a5f-411c-8b42-c1cf58ff5d8c)
+(después)
+
+## **VER MI PERFIL**
+
+El trabajador puede ver su perfil con su usuario y contraseña:
+
+![image](https://github.com/user-attachments/assets/e3468580-43d8-4a61-ae6a-1f7c88e13982)
+
+## **MODIFICAR MIS DATOS PERSONALES**
+
+En esta opción el trabajador cambiar sus datos personales, en este caso su nombre de usuario y contraseña
+
+- Seleccionamos la opción 6 y nos pedirá un nombre nuevo:
+
+![image](https://github.com/user-attachments/assets/9866909b-8492-4310-b695-67570a6309a4)
+
+- Después de ello nos pide una nueva contraseña:
+
+![image](https://github.com/user-attachments/assets/821b8d20-7c72-4cb5-b3d7-0cf5e63ee243)
+
+Comprobamos que ha funcionado solicitando ver el perfil y vemos que también se han cambiado los datos incluso al iniciar sesión
+
+![image](https://github.com/user-attachments/assets/461d7000-c53d-4e88-aa21-6c6c6aee19a9)
+(Viendo el perfil)
+
+![image](https://github.com/user-attachments/assets/8f4edb3a-f070-45d0-a992-c1ed6a2b7e9a)
+(Iniciando sesión)
+
+## **CERRAR SESIÓN**
+
+- Aquí dijaremos la sesión cerrada en el trabajador, para **volver a meternos** deberemos a volver a **iniciar sesión en el menú principal.**
+
+![image](https://github.com/user-attachments/assets/ccb371a5-1b40-4957-adca-c04a5c1f406f)
+
+
+## 5. **MENÚ ADMINISTRADOR.**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
