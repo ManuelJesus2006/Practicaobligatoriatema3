@@ -59,7 +59,8 @@ public class Administrador {
         return (contraTeclado.equals(getClave()) && nombreTeclado.equals(getNombre()));
     }
 
-    public String menuAsignar(){String salida = "";
+    public String menuAsignar(Pedidos pedido){String salida = "";
+        salida += "==== Asignación del pedido " + pedido.getId() + " ====\n";
         numTrabajador = 1;
         if (trabajador1 != null) salida += numTrabajador++ + ". - " +
                 trabajador1.getNombre() + " " + trabajador1.sumarPedidosAsignados() + (trabajador1.sumarPedidosAsignados() == 1 ? " pedido" : " pedidos") + " en proceso\n";

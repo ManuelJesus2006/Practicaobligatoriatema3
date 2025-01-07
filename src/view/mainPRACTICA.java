@@ -699,8 +699,7 @@ public class mainPRACTICA {
                                         break;
                                 }
                                 if (!error) {
-                                    System.out.println("==== Asignación del pedido (num pedido a realizar) ====");
-                                    System.out.println(admin.menuAsignar());
+                                    System.out.println(admin.menuAsignar(pedidoTeclado));
                                     System.out.print("Seleccione el trabajador: ");
                                     op = s.nextLine();
                                     switch (op) {
