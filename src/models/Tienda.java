@@ -395,6 +395,8 @@ public class Tienda {
             productoFinalizado = true;
 
             c1.realizaPedido(productoSeleccionado1, c1.getDireccion());//Realizar pedido solo con un producto
+            if (admin.getPedidos1() == null) admin.setPedidos1(c1.getPedido1());
+            if (admin.getPedidos2() == null) admin.setPedidos2(c1.getPedido2());
             if (c1.hayPedido1()) c1.guardaClientePedido1(c1);
             if (c1.hayPedido2()) c1.guardaClientePedido2(c1);
             System.out.println("Su precio a pagar en total es de " + c1.recibirPrecioTotal());
@@ -458,6 +460,8 @@ public class Tienda {
             productoFinalizado = true;
 
             c1.realizaPedido(productoSeleccionado1, productoSeleccionado2, productoSeleccionado3, c1.getDireccion());//Realizar pedido con los tres productos
+            if (admin.getPedidos1() == null) admin.setPedidos1(c1.getPedido1());
+            if (admin.getPedidos2() == null) admin.setPedidos2(c1.getPedido2());
             if (c1.hayPedido1()) c1.guardaClientePedido1(c1);
             if (c1.hayPedido2()) c1.guardaClientePedido2(c1);
             System.out.println("Su precio a pagar en total es de " + c1.recibirPrecioTotal());
@@ -467,6 +471,8 @@ public class Tienda {
             productoFinalizado = true;
 
             c1.realizaPedido(productoSeleccionado1, productoSeleccionado2, c1.getDireccion());//Realizar pedido solo con dos productos
+            if (admin.getPedidos1() == null) admin.setPedidos1(c1.getPedido1());
+            if (admin.getPedidos2() == null) admin.setPedidos2(c1.getPedido2());
             if (c1.hayPedido1()) c1.guardaClientePedido1(c1);
             if (c1.hayPedido2()) c1.guardaClientePedido2(c1);
             System.out.println("Su precio a pagar en total es de " + c1.recibirPrecioTotal());
@@ -586,6 +592,8 @@ public class Tienda {
             productoFinalizado = true;
 
             c2.realizaPedido(productoSeleccionado1, c2.getDireccion());//Realizar pedido solo con un producto
+            if (admin.getPedidos3() == null) admin.setPedidos3(c2.getPedido1());
+            if (admin.getPedidos4() == null) admin.setPedidos4(c2.getPedido2());
             if (c2.hayPedido1()) c2.guardaClientePedido1(c2);
             if (c2.hayPedido2()) c2.guardaClientePedido2(c2);
             System.out.println("Su precio a pagar en total es de " + c2.recibirPrecioTotal());
@@ -649,6 +657,8 @@ public class Tienda {
             productoFinalizado = true;
 
             c2.realizaPedido(productoSeleccionado1, productoSeleccionado2, productoSeleccionado3, c2.getDireccion());//Realizar pedido con los tres productos
+            if (admin.getPedidos3() == null) admin.setPedidos3(c2.getPedido1());
+            if (admin.getPedidos4() == null) admin.setPedidos4(c2.getPedido2());
             if (c2.hayPedido1()) c2.guardaClientePedido1(c2);
             if (c2.hayPedido2()) c2.guardaClientePedido2(c2);
             System.out.println("Su precio a pagar en total es de " + c2.recibirPrecioTotal());
@@ -658,6 +668,8 @@ public class Tienda {
             productoFinalizado = true;
 
             c2.realizaPedido(productoSeleccionado1, productoSeleccionado2, c2.getDireccion());//Realizar pedido solo con dos productos
+            if (admin.getPedidos3() == null) admin.setPedidos3(c2.getPedido1());
+            if (admin.getPedidos4() == null) admin.setPedidos4(c2.getPedido2());
             if (c2.hayPedido1()) c2.guardaClientePedido1(c2);
             if (c2.hayPedido2()) c2.guardaClientePedido2(c2);
             System.out.println("Su precio a pagar en total es de " + c2.recibirPrecioTotal());
@@ -1289,18 +1301,18 @@ public class Tienda {
                     else if (c2.getPedido1() != null) pedidoTeclado = c2.getPedido1();
                     break;
                 case "2":
+                    if (noExisteCliente1()) ;
+                    else if (c1.getPedido2() != null) pedidoTeclado = c1.getPedido2();
                     if (noExisteCliente2()) ;
                     else if (c2.getPedido1() != null) pedidoTeclado = c2.getPedido1();
-                    if (c1 == null) ;
-                    else if (c1.getPedido2() != null) pedidoTeclado = c1.getPedido2();
                     break;
                 case "3":
                     if (noExisteCliente2()) ;
                     else if (c2.getPedido1() != null) pedidoTeclado = c2.getPedido1();
-                    else if (c1.getPedido2() != null) pedidoTeclado = c1.getPedido2();
+                    else if (c2.getPedido2() != null) pedidoTeclado = c2.getPedido2();
                     break;
                 case "4":
-                    if (noExisteCliente2()) System.out.println("El cliente no existe");
+                    if (noExisteCliente2()) System.out.println("El cliente 2 no existe");
                     else if (c2.nohayPedidos())
                         System.out.println("No hay pedidos en dicho cliente");
                     pedidoTeclado = c2.getPedido2();
@@ -1345,8 +1357,8 @@ public class Tienda {
         int contadorPedidosAdmin = 0;
 
         if (noExisteCliente1() && noExisteCliente2()) error = true;
-        if (noExisteCliente1() && !c1.nohayPedidos()) {
-            System.out.println("=== Asignación de trabajadores a pedidos ===");
+        if (existeCliente1() && !c1.nohayPedidos()) {
+            System.out.println("=== Modificación de pedidos ===");
             if (c1.getPedido1() != null) {
                 contadorPedidosAdmin++;
                 System.out.println(contadorPedidosAdmin + c1.menuAsignacionTrabajadorPedido1());
@@ -1356,7 +1368,7 @@ public class Tienda {
                 System.out.println(contadorPedidosAdmin + c1.menuAsignacionTrabajadorPedido2());
             } else System.out.println(c1.menuAsignacionTrabajadorPedido2());
         }
-        if (noExisteCliente2() && !c2.nohayPedidos()) {
+        if (existeCliente2() && !c2.nohayPedidos()) {
             if (c2.getPedido1() != null) {
                 contadorPedidosAdmin++;
                 System.out.println(contadorPedidosAdmin + c2.menuAsignacionTrabajadorPedido1());
@@ -1374,15 +1386,16 @@ public class Tienda {
             switch (op) {//Switch elección
                 case "1":
                     if (c1.getPedido1() != null) pedidoTeclado = c1.getPedido1();
+                    if (c2.getPedido1() != null) pedidoTeclado = c2.getPedido1();
                     else errorAdmin = true;
                     break;
                 case "2":
-                    if (c2.getPedido1() != null) pedidoTeclado = c2.getPedido1();
                     if (c1.getPedido2() != null) pedidoTeclado = c1.getPedido2();
+                    if (c2.getPedido1() != null) pedidoTeclado = c2.getPedido1();
                     break;
                 case "3":
-                    if (c1.getPedido2() != null) pedidoTeclado = c1.getPedido2();
                     if (c2.getPedido1() != null) pedidoTeclado = c2.getPedido1();
+                    if (c2.getPedido2() != null) pedidoTeclado = c2.getPedido2();
                     break;
                 case "4":
                     if (c2.getPedido2() != null) pedidoTeclado = c2.getPedido2();

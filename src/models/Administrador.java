@@ -6,6 +6,8 @@ public class Administrador {
     private Trabajadores trabajador3;
     private Pedidos pedidos1;
     private Pedidos pedidos2;
+    private Pedidos pedidos3;
+    private Pedidos pedidos4;
     private String nombre;
     private String clave;
     private static int numTrabajador = 1;
@@ -23,9 +25,53 @@ public class Administrador {
         this.trabajador3 = trabajador3;
         pedidos1 = null;
         pedidos2 = null;
+        pedidos3 = null;
+        pedidos4 = null;
     }
 
     //Getters y setters
+
+
+    public Trabajadores getTrabajador1() {
+        return trabajador1;
+    }
+
+    public void setTrabajador1(Trabajadores trabajador1) {
+        this.trabajador1 = trabajador1;
+    }
+
+    public Pedidos getPedidos1() {
+        return pedidos1;
+    }
+
+    public void setPedidos1(Pedidos pedidos1) {
+        this.pedidos1 = pedidos1;
+    }
+
+    public Pedidos getPedidos2() {
+        return pedidos2;
+    }
+
+    public void setPedidos2(Pedidos pedidos2) {
+        this.pedidos2 = pedidos2;
+    }
+
+    public Pedidos getPedidos3() {
+        return pedidos3;
+    }
+
+    public void setPedidos3(Pedidos pedidos3) {
+        this.pedidos3 = pedidos3;
+    }
+
+    public Pedidos getPedidos4() {
+        return pedidos4;
+    }
+
+    public void setPedidos4(Pedidos pedidos4) {
+        this.pedidos4 = pedidos4;
+    }
+
     public boolean isInicioCorrecto() {
         return inicioCorrecto;
     }
@@ -47,6 +93,8 @@ public class Administrador {
         int contador = 0;
         if (pedidos1 != null) contador++;
         if (pedidos2 != null) contador++;
+        if (pedidos3 != null) contador++;
+        if (pedidos4 != null) contador++;
         return contador;
     }
 
