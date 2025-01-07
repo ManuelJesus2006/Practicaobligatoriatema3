@@ -11,14 +11,14 @@ public class Tienda {
     private Trabajadores t2;
     private Trabajadores t3;
     private Administrador admin;
-    private Productos prod1 = new Productos("PlayStation 5", 469.99);
-    private Productos prod2 = new Productos("El Árbol de la ciencia - Pio Baroja", 10.40);
-    private Productos prod3 = new Productos("IPhone 16 Pro Max", 1550);
-    private Productos prod4 = new Productos("Xiaomi 11T", 233.83);
-    private Productos prod5 = new Productos("Netflix Tarjeta Regalo 100 euros", 100);
-    private Productos prod6 = new Productos("Playmobil Casa de Campo", 54.99);
-    private Productos prod7 = new Productos("Zootrópolis - DVD", 13.89);
-    private Productos prod8 = new Productos("FunkoPop! - Arcane Jinx", 15.99);
+    private Productos prod1;
+    private Productos prod2;
+    private Productos prod3;
+    private Productos prod4;
+    private Productos prod5;
+    private Productos prod6;
+    private Productos prod7;
+    private Productos prod8;
 
     public Tienda() {
         c1 = new Cliente("hola@hola", "1234", "avda gran via", "Martos", "Jaén", 642353455, "hola");
@@ -670,6 +670,7 @@ public class Tienda {
 
     public void modificarDatosPersonalesC1() {
         Scanner s = new Scanner(System.in);
+        Cliente temp = c1;
         String op, correoTeclado, contraTeclado, direccionTeclado, localidadTeclado, provinciaTeclado, nombreTeclado, productoTeclado, fechaLlegadaTeclado;
         int telefonoTeclado;
 
@@ -690,7 +691,7 @@ public class Tienda {
         System.out.print("Introduzca su nuevo teléfono (o repita datos): ");
         telefonoTeclado = Integer.parseInt(s.nextLine());
 
-        c1 = new Cliente(correoTeclado, contraTeclado, direccionTeclado, localidadTeclado, provinciaTeclado, telefonoTeclado, nombreTeclado);
+        c1.modificarDatosCliente(correoTeclado, contraTeclado, direccionTeclado, localidadTeclado, provinciaTeclado, telefonoTeclado, nombreTeclado);
     }
 
     public void modificarDatosPersonalesC2() {
@@ -715,7 +716,7 @@ public class Tienda {
         System.out.print("Introduzca su nuevo teléfono (o repita datos): ");
         telefonoTeclado = Integer.parseInt(s.nextLine());
 
-        c2 = new Cliente(correoTeclado, contraTeclado, direccionTeclado, localidadTeclado, provinciaTeclado, telefonoTeclado, nombreTeclado);
+        c2.modificarDatosCliente(correoTeclado, contraTeclado, direccionTeclado, localidadTeclado, provinciaTeclado, telefonoTeclado, nombreTeclado);
     }
 
     public String pintaPedidoC1() {
@@ -822,7 +823,7 @@ public class Tienda {
         nombreTeclado = s.nextLine();
         System.out.print("Introduce la nueva clave del trabajador: ");
         contraTeclado = s.nextLine();
-        t1 = new Trabajadores(nombreTeclado, contraTeclado);
+        t1.modificarDatosTrabajador(nombreTeclado, contraTeclado);
     }
 
     public void modificarDatosPersonalesT2() {
@@ -836,7 +837,7 @@ public class Tienda {
         nombreTeclado = s.nextLine();
         System.out.print("Introduce la nueva clave del trabajador: ");
         contraTeclado = s.nextLine();
-        t2 = new Trabajadores(nombreTeclado, contraTeclado);
+        t2.modificarDatosTrabajador(nombreTeclado, contraTeclado);
     }
 
     public void modificarDatosPersonalesT3() {

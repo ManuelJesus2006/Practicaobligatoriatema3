@@ -248,6 +248,15 @@ public class Cliente {
         pedido2.setClientePedido(cliente);
     }
 
+    public void modificarDatosCliente(String correo, String clave, String direccion, String localidad, String provincia, int telefono, String nombre){
+        this.correo = correo;
+        this.clave = clave;
+        this.direccion = direccion;
+        this.localidad = localidad;
+        this.provincia = provincia;
+        this.telefono = telefono;
+        this.nombre = nombre;
+    }
 
 }
 
