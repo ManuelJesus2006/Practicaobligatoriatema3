@@ -92,6 +92,7 @@ Se nos abrirá la siguiente pestaña y le daremos a **"Variables de entorno..."*
 
 -Para ejecutar nuestro programa nos iremos al enlace de GitHub ([https://github.com/jose712020/PracticaObligatoriaT2/tree/main](https://github.com/ManuelJesus2006/Practicaobligatoriatema3)) y le daremos al botón **"<> Code"** donde se desplegará varias opciones, y la 
 daremos a **"Download ZIP"**
+
 ![image](https://github.com/user-attachments/assets/3a61ba32-6fcb-46ac-8a99-440abf3e57a4)
 
 -Al descargarlo, extraemos la carpeta en la ubicación donde más te convenga, al tenerla extraida nos meteros en la carpeta extraida y nos saldrá lo siguiente, donde ejecutaremos el **"PracticaOT3.bat"** haciendo doble click o dandole click derecho
@@ -110,4 +111,5 @@ al ratón y dandole a la opción **"Abrir"**:
 
 -Finalmente tendremos nuestro programa en funcionamiento:
 
-![image](https://github.com/user-attachments/assets/662dcc6a-dbec-4986-92f1-2508f2ee4267)
+![image](https://github.com/user-attachments/assets/b157f2b3-5f1f-4416-b7d0-2f50b2f36372)
+
