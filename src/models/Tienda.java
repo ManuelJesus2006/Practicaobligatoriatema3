@@ -21,10 +21,10 @@ public class Tienda {
     private Productos prod8;
 
     public Tienda() {
-        c1 = new Cliente("hola@hola", "1234", "avda gran via", "Martos", "Jaén", 642353455, "hola");
-        c2 = new Cliente("2", "2", "avda gran via", "Martos", "Jaén", 642353455, "Jl");
-        t1 = new Trabajadores("Jl", "1234");
-        t2 = new Trabajadores("Manule", "4321");
+        c1 = null;
+        c2 = null;
+        t1 = new Trabajadores("Carlos", "1234");
+        t2 = null;
         t3 = null;
         admin = new Administrador("Admin", "root", t1, t2, t3);
         prod1 = new Productos("PlayStation 5", 469.99);
@@ -1047,7 +1047,7 @@ public class Tienda {
         if (!t3.hayPedidoAsignado1() && !t3.hayPedidoAsignado2())
             System.out.println("No hay pedidos asignados");
         if (t3.hayPedidoAsignado1()) {
-            System.out.println(t1.pedidosAsignados1());
+            System.out.println(t3.pedidosAsignados1());
             existePedido = true;
         }
         if (t3.hayPedidoAsignado2()) {
@@ -1295,21 +1295,21 @@ public class Tienda {
             op = s.nextLine();
             switch (op) {
                 case "1":
-                    if (noExisteCliente1()) ;
-                    else if (c1.getPedido1() != null) pedidoTeclado = c1.getPedido1();
-                    if (noExisteCliente2()) ;
-                    else if (c2.getPedido1() != null) pedidoTeclado = c2.getPedido1();
+                    if (c1.getPedido1() != null && c2.getPedido1() != null) pedidoTeclado = c1.getPedido1();
+                    else System.out.println();
+                    if (c2.getPedido1() != null && c1.getPedido1() == null) pedidoTeclado = c2.getPedido1();
                     break;
                 case "2":
-                    if (noExisteCliente1()) ;
-                    else if (c1.getPedido2() != null) pedidoTeclado = c1.getPedido2();
-                    if (noExisteCliente2()) ;
-                    else if (c2.getPedido1() != null) pedidoTeclado = c2.getPedido1();
+                    if (c1.getPedido2() != null && c2.getPedido1() != null) pedidoTeclado = c1.getPedido2();
+                    else System.out.println();
+                    if (c2.getPedido1() != null && c1.getPedido2() == null) pedidoTeclado = c2.getPedido1();
+                    else System.out.println();
                     break;
                 case "3":
-                    if (noExisteCliente2()) ;
-                    else if (c2.getPedido1() != null) pedidoTeclado = c2.getPedido1();
-                    else if (c2.getPedido2() != null) pedidoTeclado = c2.getPedido2();
+                    if (c2.getPedido1() != null) pedidoTeclado = c2.getPedido1();
+                    else System.out.println();
+                    if (c2.getPedido2() != null) pedidoTeclado = c2.getPedido2();
+                    System.out.println();
                     break;
                 case "4":
                     if (noExisteCliente2()) System.out.println("El cliente 2 no existe");
@@ -1318,13 +1318,11 @@ public class Tienda {
                     pedidoTeclado = c2.getPedido2();
                     break;
                 default:
-                    System.out.println("No existe ese pedido");
                     error = true;
                     break;
             }
             if (!error) {
-                System.out.println("==== Asignación del pedido (num pedido a realizar) ====");
-                System.out.println(admin.menuAsignar());
+                System.out.println(admin.menuAsignar(pedidoTeclado));
                 System.out.print("Seleccione el trabajador: ");
                 op = s.nextLine();
                 switch (op) {
@@ -1345,7 +1343,7 @@ public class Tienda {
         }
         if (existeCliente1() && c1.nohayPedidos() && existeCliente2() && c2.nohayPedidos())
             System.out.println("No hay pedidos");
-        if (error) System.out.println("No existen clientes");
+        if (error) System.out.println("No existen clientes o el pedido seleccionado anteriormente no existe");
     }
 
     public void modificarEstadoPedidoAdmin() {
@@ -1385,21 +1383,28 @@ public class Tienda {
             op = s.nextLine();
             switch (op) {//Switch elección
                 case "1":
-                    if (c1.getPedido1() != null) pedidoTeclado = c1.getPedido1();
-                    if (c2.getPedido1() != null) pedidoTeclado = c2.getPedido1();
-                    else errorAdmin = true;
+                    if (noExisteCliente1()) System.out.println("El cliente 2 no existe");
+                    if (c1.getPedido1() != null && c2.getPedido1() != null) pedidoTeclado = c1.getPedido1();
+                    else System.out.println();
+                    if (c2.getPedido1() != null && c1.getPedido1() == null) pedidoTeclado = c2.getPedido1();
                     break;
                 case "2":
-                    if (c1.getPedido2() != null) pedidoTeclado = c1.getPedido2();
-                    if (c2.getPedido1() != null) pedidoTeclado = c2.getPedido1();
+                    if (c1.getPedido2() != null && c2.getPedido1() != null) pedidoTeclado = c1.getPedido2();
+                    else System.out.println();
+                    if (c2.getPedido1() != null && c1.getPedido2() == null) pedidoTeclado = c2.getPedido1();
+                    else System.out.println();
                     break;
                 case "3":
                     if (c2.getPedido1() != null) pedidoTeclado = c2.getPedido1();
+                    else System.out.println();
                     if (c2.getPedido2() != null) pedidoTeclado = c2.getPedido2();
+                    System.out.println();
                     break;
                 case "4":
-                    if (c2.getPedido2() != null) pedidoTeclado = c2.getPedido2();
-                    else errorAdmin = true;
+                    if (noExisteCliente2()) System.out.println("El cliente 2 no existe");
+                    else if (c2.nohayPedidos())
+                        System.out.println("No hay pedidos en dicho cliente");
+                    pedidoTeclado = c2.getPedido2();
                     break;
                 default:
                     System.out.println("No existe ese pedido");

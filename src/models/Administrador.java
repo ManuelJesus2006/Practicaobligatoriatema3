@@ -117,14 +117,15 @@ public class Administrador {
         return (contraTeclado.equals(getClave()) && nombreTeclado.equals(getNombre()));
     }
 
-    public String menuAsignar(){String salida = "";
+    public String menuAsignar(Pedidos pedido){String salida = "";
+        salida += "==== Asignación del pedido " + pedido.getId() + " ====\n";
         numTrabajador = 1;
         if (trabajador1 != null) salida += numTrabajador++ + ". - " +
                 trabajador1.getNombre() + " " + trabajador1.sumarPedidosAsignados() + (trabajador1.sumarPedidosAsignados() == 1 ? " pedido" : " pedidos") + " en proceso\n";
         if (trabajador1 != null && trabajador2 != null) salida += numTrabajador++ + ". - " +
-                trabajador2.getNombre() + " " + contPedidosTrabajador + (trabajador2.sumarPedidosAsignados() == 1 ? " pedido" : " pedidos") + " en proceso\n";
+                trabajador2.getNombre() + " " + trabajador2.sumarPedidosAsignados() + (trabajador2.sumarPedidosAsignados() == 1 ? " pedido" : " pedidos") + " en proceso\n";
         if (trabajador1 != null && trabajador2 != null && trabajador3 != null) salida += numTrabajador++ + ". - " +
-                trabajador3.getNombre() + " " + contPedidosTrabajador + (trabajador3.sumarPedidosAsignados() == 1 ? " pedido" : " pedidos") + " en proceso\n";
+                trabajador3.getNombre() + " " + trabajador3.sumarPedidosAsignados() + (trabajador3.sumarPedidosAsignados() == 1 ? " pedido" : " pedidos") + " en proceso\n";
         return salida;
     }
 
