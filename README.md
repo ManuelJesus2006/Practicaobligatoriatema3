@@ -113,3 +113,24 @@ al ratón y dandole a la opción **"Abrir"**:
 
 ![image](https://github.com/user-attachments/assets/b157f2b3-5f1f-4416-b7d0-2f50b2f36372)
 
+
+
+## 1. **QUIENES SOMOS**
+
+Somos un programa que gestionará una tienda online.
+
+-Gestionaremos **tres perfiles** donde tendremos el perfil usuario **"Cliente"**, un perfil **"Trabajador"**, y un perfil **"Administrador"**.
+
+
+## 2. **FUNCIONAMIENTO DEL MENÚ PRINCIPAL.**
+
+Está es la entrada del programa donde tendremos 2 opciones en nuestro menú principal, donde la **opción 1** será el **Inicio sesión**, donde se podrá meter cualquiera de los 3 perfiles si introduce sus datos correctos.
+
+![image](https://github.com/user-attachments/assets/a19cfaf3-4657-4638-8c83-f47d67775634)
+
+-La **opción 2** será el **Registro**, donde se registrarán los clientes
+
+![image](https://github.com/user-attachments/assets/f55847df-7216-446f-884e-fc4d367fc385)
+
+
+## 3. **MENÚ CLIENTE.**
