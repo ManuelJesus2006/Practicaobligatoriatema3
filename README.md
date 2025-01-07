@@ -147,6 +147,7 @@ Está es la entrada del programa donde tendremos 2 opciones en nuestro menú pri
 
 ![image](https://github.com/user-attachments/assets/93ee66be-f696-427c-b797-70a052836b92)
 
+
 ## **CONSULTAR EL CATÁLOGO DE PRODUCTOS**
 
 - Esta opción nos permitirá ver todos los productos de nuestra tienda.
@@ -168,6 +169,7 @@ Está es la entrada del programa donde tendremos 2 opciones en nuestro menú pri
 
 -Como podemos ver a la hora de meter el máximo de productos en la cesta nos dirá que no podemos añadir más productos y el precio a pagar
 
+
 ## **VER MIS PEDIDOS REALIZADOS**
 
 - Podremos ver los pedidos que hayamos realizado.
@@ -179,6 +181,7 @@ Está es la entrada del programa donde tendremos 2 opciones en nuestro menú pri
 ![image](https://github.com/user-attachments/assets/948bbcf1-7565-4b99-b11c-0e0c8a1e609d)
 
 (Aquí tenemos el ejemplo de los pedidos realizados con "Jl")
+
 
 ## **VER MI DATOS PERSONALES**
 
@@ -203,6 +206,7 @@ Está es la entrada del programa donde tendremos 2 opciones en nuestro menú pri
 
 (Efectivamente todo se ha actualizado tal y como queriamos)
 
+
 ## **CERRAR SESIÓN**
 
 - Aquí dijaremos la sesión cerrada, para **volver a meternos** deberemos a volver a **iniciar sesión en el menú principal.**
@@ -224,6 +228,7 @@ El software tiene un cliente ya creado con el nombre de "Carlos" con contraseña
 
 ![image](https://github.com/user-attachments/assets/8764a070-518d-4851-a544-992c94e1b18a)
 
+
 ## **CONSULTAR LOS PEDIDOS QUE TENGO ASIGNADOS**
 
 Aquí el trabajador mira los pedidos que le han asignado desde administración, para demostrar su funcionamiento, haremos que nuestro cliente "Jl" haga un pedido (como ejemplo el ejemplo anteriormente mostrado) y haremos que al administrador se lo asigne a nuestro trabajador (en el apartado de administrador se verá como se asigna)
@@ -237,6 +242,7 @@ Una vez asignado volveremos a iniciar sesión en el trabajador cuyo pedido ha si
 
 ![image](https://github.com/user-attachments/assets/5401d26b-f8a2-4ddd-b31b-c3e91a5e3d78)
 (En el caso de no exista ningún pedido)
+
 
 ## **MODIFICAR EL ESTADO DE UN PEDIDO**
 
@@ -274,11 +280,13 @@ Si ponemos "S" nos pedirá un comentario introducido por teclado sobre el pedido
 
 ![image](https://github.com/user-attachments/assets/9745e6f3-1c9c-4dee-a483-aca8abc5af87)
 
+
 ## **CONSULTAR EL CATÁLOGO DE PRODUCTOS**
 
 Esta opción muestra el catálogo de productos existentes:
 
 ![image](https://github.com/user-attachments/assets/ff861a5d-92f7-4d91-8aa5-f2060e75a5db)
+
 
 ## **MODIFICAR UN PRODUCTO DEL CATÁLOGO**
 
@@ -303,11 +311,13 @@ Una vez finalizada la modificación revisamos si se han cambiado los datos en el
 ![image](https://github.com/user-attachments/assets/19c26a45-0a5f-411c-8b42-c1cf58ff5d8c)
 (después)
 
+
 ## **VER MI PERFIL**
 
 El trabajador puede ver su perfil con su usuario y contraseña:
 
 ![image](https://github.com/user-attachments/assets/e3468580-43d8-4a61-ae6a-1f7c88e13982)
+
 
 ## **MODIFICAR MIS DATOS PERSONALES**
 
@@ -329,6 +339,7 @@ Comprobamos que ha funcionado solicitando ver el perfil y vemos que también se 
 ![image](https://github.com/user-attachments/assets/8f4edb3a-f070-45d0-a992-c1ed6a2b7e9a)
 (Iniciando sesión)
 
+
 ## **CERRAR SESIÓN**
 
 - Aquí dijaremos la sesión cerrada en el trabajador, para **volver a meternos** deberemos a volver a **iniciar sesión en el menú principal.**
@@ -338,12 +349,60 @@ Comprobamos que ha funcionado solicitando ver el perfil y vemos que también se 
 
 ## 5. **MENÚ ADMINISTRADOR.**
 
+El software tiene un Administrador ya creado con el nombre de **"Admin"** con contraseña "root".
+
+![image](https://github.com/user-attachments/assets/2ec8b01a-e355-4eb1-91e2-72e47104405f)
 
 
+- **ASIGNAR UN PEDIDO A UN TRABAJADOR**
 
 
+- **MODIFICAR EL ESTADO DE UN PEDIDO**
 
 
+- **DAR DE ALTA UN TRABAJADOR**
+
+
+## **VER TODOS LOS PEDIDOS**
+
+-Aquí podremos ver todos los pedidos que han hecho los clientes
+
+![image](https://github.com/user-attachments/assets/ef57fade-5e5b-41a9-b9e8-2fbe1037c0f7)
+
+(Aquí un ejemplo de si un primer cliente se registra y no ha realizado pedidos)
+
+![image](https://github.com/user-attachments/assets/90e593ff-90b5-473a-95fc-0c5985c0692d)
+
+(Aquí un ejemplo con el cliente "Jose" y sin cliente 2)
+
+
+## **VER TODOS LOS CLIENTES**
+
+- Aquí podremos ver a todos los clientes registrados.
+
+![image](https://github.com/user-attachments/assets/5634cafc-61df-423c-ab67-a8aced52217b)
+
+(Aquí podemos ver al cliente "Jose")
+
+- Ahora vamos a registrar a un cliente nuevo.
+
+![image](https://github.com/user-attachments/assets/9c6bf995-1ca7-44ed-ab4a-314841cd0d66)
+
+![image](https://github.com/user-attachments/assets/baae247b-5b2a-446d-92c8-2f34b8d273e6)
+
+- Como podemos observar ha funcionado correctamente.
+
+
+- **VER TODOS LOS TRABAJADORES**
+
+- Aquí podremos ver a todos los trabajadores dado de alta.
+
+
+## **CERRAR SESIÓN**
+
+- Aquí dijaremos la sesión cerrada en el administrador, para **volver a meternos** deberemos a volver a **iniciar sesión en el menú principal.**
+
+![image](https://github.com/user-attachments/assets/4f3d36f3-6019-45d0-852d-cf0def41efe4)
 
 
 
