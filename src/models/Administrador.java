@@ -11,7 +11,6 @@ public class Administrador {
     private String nombre;
     private String clave;
     private static int numTrabajador = 1;
-    private int contPedidosTrabajador = 0;
     private boolean inicioCorrecto;
 
 
@@ -31,14 +30,6 @@ public class Administrador {
 
     //Getters y setters
 
-
-    public Trabajadores getTrabajador1() {
-        return trabajador1;
-    }
-
-    public void setTrabajador1(Trabajadores trabajador1) {
-        this.trabajador1 = trabajador1;
-    }
 
     public Pedidos getPedidos1() {
         return pedidos1;

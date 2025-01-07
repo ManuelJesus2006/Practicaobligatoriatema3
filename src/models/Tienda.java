@@ -41,112 +41,24 @@ public class Tienda {
         return c1;
     }
 
-    public void setC1(Cliente c1) {
-        this.c1 = c1;
-    }
-
     public Cliente getC2() {
         return c2;
-    }
-
-    public void setC2(Cliente c2) {
-        this.c2 = c2;
     }
 
     public Trabajadores getT1() {
         return t1;
     }
 
-    public void setT1(Trabajadores t1) {
-        this.t1 = t1;
-    }
-
     public Trabajadores getT2() {
         return t2;
-    }
-
-    public void setT2(Trabajadores t2) {
-        this.t2 = t2;
     }
 
     public Trabajadores getT3() {
         return t3;
     }
 
-    public void setT3(Trabajadores t3) {
-        this.t3 = t3;
-    }
-
     public Administrador getAdmin() {
         return admin;
-    }
-
-    public void setAdmin(Administrador admin) {
-        this.admin = admin;
-    }
-
-    public Productos getProd1() {
-        return prod1;
-    }
-
-    public void setProd1(Productos prod1) {
-        this.prod1 = prod1;
-    }
-
-    public Productos getProd2() {
-        return prod2;
-    }
-
-    public void setProd2(Productos prod2) {
-        this.prod2 = prod2;
-    }
-
-    public Productos getProd3() {
-        return prod3;
-    }
-
-    public void setProd3(Productos prod3) {
-        this.prod3 = prod3;
-    }
-
-    public Productos getProd4() {
-        return prod4;
-    }
-
-    public void setProd4(Productos prod4) {
-        this.prod4 = prod4;
-    }
-
-    public Productos getProd5() {
-        return prod5;
-    }
-
-    public void setProd5(Productos prod5) {
-        this.prod5 = prod5;
-    }
-
-    public Productos getProd6() {
-        return prod6;
-    }
-
-    public void setProd6(Productos prod6) {
-        this.prod6 = prod6;
-    }
-
-    public Productos getProd7() {
-        return prod7;
-    }
-
-    public void setProd7(Productos prod7) {
-        this.prod7 = prod7;
-    }
-
-    public Productos getProd8() {
-        return prod8;
-    }
-
-    public void setProd8(Productos prod8) {
-        this.prod8 = prod8;
     }
 
     //Otros Metodos
@@ -180,18 +92,13 @@ public class Tienda {
         return c2 == null;
     }
 
-    public boolean huecoClientes() {
-        return c1 == null || c2 == null;
-    }
-
     public boolean todoLlenoClientes() {
         return c1 != null && c2 != null;
     }
 
     public void inicioSesion() {
         var s = new Scanner(System.in);
-        String correoTeclado, contraTeclado, direccionTeclado, localidadTeclado, provinciaTeclado, nombreTeclado;
-        int telefonoTeclado;
+        String correoTeclado, contraTeclado;
         System.out.print("""
                 INICIO DE SESIÓN:
                 Introduzca correo electrónico (Cliente) o nombre (Trabajador o Admininistrador):\s""");
@@ -682,8 +589,7 @@ public class Tienda {
 
     public void modificarDatosPersonalesC1() {
         Scanner s = new Scanner(System.in);
-        Cliente temp = c1;
-        String op, correoTeclado, contraTeclado, direccionTeclado, localidadTeclado, provinciaTeclado, nombreTeclado, productoTeclado, fechaLlegadaTeclado;
+        String correoTeclado, contraTeclado, direccionTeclado, localidadTeclado, provinciaTeclado, nombreTeclado;
         int telefonoTeclado;
 
         System.out.print("""
@@ -708,7 +614,7 @@ public class Tienda {
 
     public void modificarDatosPersonalesC2() {
         Scanner s = new Scanner(System.in);
-        String op, correoTeclado, contraTeclado, direccionTeclado, localidadTeclado, provinciaTeclado, nombreTeclado, productoTeclado, fechaLlegadaTeclado;
+        String correoTeclado, contraTeclado, direccionTeclado, localidadTeclado, provinciaTeclado, nombreTeclado;
         int telefonoTeclado;
 
         System.out.print(""" 
@@ -766,10 +672,6 @@ public class Tienda {
 
     public boolean noExisteT3() {
         return t3 == null;
-    }
-
-    public boolean huecoTrabajadores() {
-        return t1 == null || t2 == null || t3 == null;
     }
 
     public boolean todoLlenoTrabajadores() {
@@ -1118,12 +1020,8 @@ public class Tienda {
     public void modificarProductoCatalogoTrabajador() {
         Scanner s = new Scanner(System.in);
 
-        Productos productoSeleccionado1 = null, productoSeleccionado2 = null, productoSeleccionado3 = null;
-        boolean productoFinalizado = false;
-        String op, correoTeclado, contraTeclado, direccionTeclado, localidadTeclado, provinciaTeclado, nombreTeclado, productoTeclado, fechaLlegadaTeclado;
-        int telefonoTeclado;
+        String op, nombreTeclado, productoTeclado;
         double precioTeclado;
-        Pedidos pedidoTeclado = null;
 
         System.out.print("Introduce el número del producto a modificar: ");
         productoTeclado = s.nextLine();
@@ -1295,14 +1193,35 @@ public class Tienda {
             op = s.nextLine();
             switch (op) {
                 case "1":
-                    if (c1.getPedido1() != null && c2.getPedido1() != null) pedidoTeclado = c1.getPedido1();
+                    boolean entra = false;
+                    if (c1.getPedido1() != null) pedidoTeclado = c1.getPedido1();
                     else System.out.println();
-                    if (c2.getPedido1() != null && c1.getPedido1() == null) pedidoTeclado = c2.getPedido1();
+                    if (c1.getPedido1() != null && c2 == null){
+                        pedidoTeclado = c1.getPedido1();
+                        entra = true;
+                    }
+                    else if (c1.getPedido1() != null && c2.getPedido1() != null){
+                        pedidoTeclado = c1.getPedido1();
+                        entra = true;
+                    }
+                    else System.out.println();
+                    if (c2 == null && c1.getPedido1() != null && entra) pedidoTeclado = c1.getPedido1();
+                    else if (c2.getPedido1() != null && c1.getPedido1() == null) pedidoTeclado = c2.getPedido1();
+                    else System.out.println();
                     break;
                 case "2":
-                    if (c1.getPedido2() != null && c2.getPedido1() != null) pedidoTeclado = c1.getPedido2();
+                    entra = false;
+                    if (c1.getPedido2() != null && c2 == null){
+                        pedidoTeclado = c1.getPedido2();
+                        entra = true;
+                    }
+                    else if (c1.getPedido2() != null && c2.getPedido1() != null){
+                        pedidoTeclado = c1.getPedido2();
+                        entra = true;
+                    }
                     else System.out.println();
-                    if (c2.getPedido1() != null && c1.getPedido2() == null) pedidoTeclado = c2.getPedido1();
+                    if (c2 == null && c1.getPedido2() != null && entra) pedidoTeclado = c1.getPedido2();
+                    else if (c2.getPedido1() != null && c1.getPedido2() == null) pedidoTeclado = c2.getPedido1();
                     else System.out.println();
                     break;
                 case "3":
@@ -1383,7 +1302,9 @@ public class Tienda {
             op = s.nextLine();
             switch (op) {//Switch elección
                 case "1":
-                    if (noExisteCliente1()) System.out.println("El cliente 2 no existe");
+                    if (noExisteCliente1()) System.out.println("El cliente 1 no existe");
+                    if (c1.getPedido1() != null) pedidoTeclado = c1.getPedido1();
+                    else System.out.println();
                     if (c1.getPedido1() != null && c2.getPedido1() != null) pedidoTeclado = c1.getPedido1();
                     else System.out.println();
                     if (c2.getPedido1() != null && c1.getPedido1() == null) pedidoTeclado = c2.getPedido1();
@@ -1462,8 +1383,4 @@ public class Tienda {
             }
         }
     }
-
-
-
-
 }

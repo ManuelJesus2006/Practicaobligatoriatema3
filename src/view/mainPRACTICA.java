@@ -11,12 +11,7 @@ public class mainPRACTICA {
         Scanner s = new Scanner(System.in);
 
         Tienda tienda = new Tienda();
-        Productos productoSeleccionado1 = null, productoSeleccionado2 = null, productoSeleccionado3 = null;
-        boolean productoFinalizado = false;
-        String op, correoTeclado, contraTeclado, direccionTeclado, localidadTeclado, provinciaTeclado, nombreTeclado, productoTeclado, fechaLlegadaTeclado;
-        int telefonoTeclado;
-        double precioTeclado;
-        Pedidos pedidoTeclado = null;
+        String op;
 
         do {
             System.out.print(Menus.inicioSesion());
@@ -85,6 +80,8 @@ public class mainPRACTICA {
                                 tienda.modificarDatosPersonalesC2();
                                 tienda.encendidoInicioSesionCliente2();
                             }
+                            Utils.pulsaContinuar();
+                            Utils.limpiarpantalla();
                             break;
                         case "6"://Cerrar sesión clientes
                             if (tienda.inicioSesionCliente1()) tienda.apagadoInicioSesionCliente1();

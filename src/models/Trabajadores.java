@@ -140,8 +140,8 @@ public class Trabajadores {
     }
 
     public void modificarDatosTrabajador(String nombreTeclado, String contraTeclado){
-        this.nombre = nombre;
-        this.clave = clave;
+        this.nombre = nombreTeclado;
+        this.clave = contraTeclado;
     }
 
 }
