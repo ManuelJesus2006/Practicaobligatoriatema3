@@ -417,8 +417,8 @@ public class mainPRACTICA {
                                     System.out.println(t2.pedidosAsignados1());
                                     existePedido = true;
                                 }
-                                if (t1.hayPedidoAsignado2()) {
-                                    System.out.println(t1.pedidosAsignados2());
+                                if (t2.hayPedidoAsignado2()) {
+                                    System.out.println(t2.pedidosAsignados2());
                                     existePedido = true;
                                 }
                             }
@@ -426,11 +426,11 @@ public class mainPRACTICA {
                                 if (!t3.hayPedidoAsignado1() && !t3.hayPedidoAsignado2())
                                     System.out.println("No hay pedidos asignados");
                                 if (t3.hayPedidoAsignado1()) {
-                                    System.out.println(t1.pedidosAsignados1());
+                                    System.out.println(t3.pedidosAsignados1());
                                     existePedido = true;
                                 }
                                 if (t3.hayPedidoAsignado2()) {
-                                    System.out.println(t1.pedidosAsignados2());
+                                    System.out.println(t3.pedidosAsignados2());
                                     existePedido = true;
                                 }
                             }
