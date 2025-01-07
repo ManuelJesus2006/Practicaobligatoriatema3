@@ -134,3 +134,30 @@ Está es la entrada del programa donde tendremos 2 opciones en nuestro menú pri
 
 
 ## 3. **MENÚ CLIENTE.**
+
+- Para acceder tendremos que registrarnos primero en el menú principal en **"Registro"**, una vez hecho eso habremos registrado un cliente.
+
+![image](https://github.com/user-attachments/assets/10609091-59bc-4f89-b09b-4802e115ecfe)
+
+- Ahora que tenemos al Cliente "Jl" registrado podremos iniciar sesión.
+
+![image](https://github.com/user-attachments/assets/d57e969d-e50e-4c4a-bcae-699dc1f49c4e)
+
+![image](https://github.com/user-attachments/assets/93ee66be-f696-427c-b797-70a052836b92)
+
+## **CONSULTAR EL CATÁLOGO DE PRODUCTOS**
+
+- Esta opción nos permitirá ver todos los productos de nuestra tienda.
+
+![image](https://github.com/user-attachments/assets/1fc80949-994d-475e-abea-ec8bbdb0ebfe)
+
+
+## **REALIZAR UN PEDIDO**
+
+
+## **VER MIS PEDIDOS REALIZADOS**
+
+- Podremos ver los pedidos que hayamos realizado.
+
+![image](https://github.com/user-attachments/assets/dc81e7b8-60a7-469b-b37d-62224a1fe9fe)
+(En caso de que no hayamos pedido nada)
